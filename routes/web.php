@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CutiController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IzinController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,12 +18,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::prefix('/cuti')->group(function () {
+        Route::get('/pengajuan', [CutiController::class, 'pengajuan'])->name('cuti.pengajuan');
+        Route::get('/formulir', [CutiController::class, 'formulir'])->name('cuti.formulir');
+    });
+
+    Route::prefix('/izin')->group(function () {
+        Route::get('/pengajuan', [IzinController::class, 'pengajuan'])->name('izin.pengajuan');
+        Route::get('/formulir', [IzinController::class, 'formulir'])->name('izin.formulir');
+    });
 });
 
-Route::get('/', [DashboardController::class, 'index']);
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
