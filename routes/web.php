@@ -25,7 +25,9 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('/cuti')->group(function () {
         Route::get('/pengajuan', [CutiController::class, 'pengajuan'])->name('cuti.pengajuan');
+        Route::get('/pengajuan/{cuti:slug}', [CutiController::class, 'detail']);
         Route::get('/formulir', [CutiController::class, 'formulir'])->name('cuti.formulir');
+        Route::post('/store', [CutiController::class, 'store'])->name('cuti.store');
     });
 
     Route::prefix('/izin')->group(function () {

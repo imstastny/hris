@@ -2,14 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cuti;
 use Illuminate\Http\Request;
 
 class CutiController extends Controller
 {
     public function pengajuan()
     {
-        return view('pengajuan.cuti.pengajuan');
+        $cutis = Cuti::latest()->get();
+
+        return view('pengajuan.cuti.pengajuan', compact('cutis'));
     }
+    public function detail(Cuti $cuti)
+    {
+        return view('pengajuan.cuti.detail', compact('cuti'));
+    }
+
     public function formulir()
     {
         // $req = request()->path();

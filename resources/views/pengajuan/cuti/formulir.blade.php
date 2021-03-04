@@ -7,7 +7,7 @@
     <!-- /.card-header -->
     <div class="card-body">
 
-        <form action="" method="">
+        <form action="{{ route('cuti.store') }}" method="post">
             @csrf
             @include('layouts.form-control')
         </form>

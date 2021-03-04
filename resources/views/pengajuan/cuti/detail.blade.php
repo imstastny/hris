@@ -1,3 +1,13 @@
+@extends('layouts.main')
+@section('content')
+<div class="card card-info col-sm-12">
+    <div class="card-header">
+        <h3 class="card-title">Formulir Pengajuan Cuti</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+
+        <form action="" method="post">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -40,7 +50,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Tanggal Mulai</label>
-                        <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai">
+                        <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai" value="{{$cuti->tgl_mulai}}" disabled>
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -79,3 +89,10 @@
                     Ajukan
                 </button>
             </div>
+        </form>
+
+    </div>
+    <!-- /.card-body -->
+</div>
+
+@endsection

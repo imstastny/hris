@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableCutis extends Migration
+class CreateCutisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,11 @@ class CreateTableCutis extends Migration
     {
         Schema::create('cutis', function (Blueprint $table) {
             $table->id();
-            $table->date('tgl_mulai');
-            $table->integer('jml_hari');
-            $table->date('tgl_selesai');
-            $table->text('deskripsi');
-            $table->string('lampiran', 255)->nullable();
+            $table->string('slug', 191)->nullable();
+            $table->date('tgl_mulai')->nullable();
+            $table->tinyInteger('jml_hari')->nullable();
+            $table->date('tgl_selesai')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateTableCutis extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_cutis');
+        Schema::dropIfExists('cutis');
     }
 }
