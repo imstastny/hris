@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Cuti;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Laravel\Ui\Presets\React;
+use Illuminate\Support\Str;
 
 class CutiController extends Controller
 {
@@ -23,5 +26,21 @@ class CutiController extends Controller
         // $req = request()->path();
         // dd($req);
         return view('pengajuan.cuti.formulir');
+    }
+    public function store(Request $request)
+    {
+        $attr = $request->validate([
+            'tgl_mulai' => 'required',
+            'jml_hari' => 'required',
+            'deskripsi' => 'required',
+        ]);
+        $attr['slug'] = Str::random(9);
+
+        Cuti::create($attr);
+
+        session()->flash('success', 'Permintaan anda sudah diajukan');
+        session()->flash('error', 'Permintaan anda gagal diajukan');
+
+        return redirect(route('cuti.pengajuan'));
     }
 }

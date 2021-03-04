@@ -41,6 +41,11 @@
                     <div class="form-group">
                         <label>Tanggal Mulai</label>
                         <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai">
+                        <div class="text-danger">
+                            @error('tgl_mulai')
+                            {{$message}}
+                            @enderror
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -51,6 +56,11 @@
                             <option value="2">2 Hari</option>
                             <option value="3">3 Hari</option>
                         </select>
+                        <div class="text-danger">
+                            @error('jml_hari')
+                            {{$message}}
+                            @enderror
+                        </div>
                     </div>
 
                 </div>
@@ -58,7 +68,12 @@
                     <!-- textarea -->
                     <div class="form-group">
                         <label>Deskripsi</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" rows="3" id="deskripsi" name="deskripsi" placeholder="Enter ..."></textarea>
+                        <div class="text-danger">
+                            @error('deskripsi')
+                            {{$message}}
+                            @enderror
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -74,7 +89,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <button type="submit" class="btn btn-info">
+                <button type="submit" class="btn btn-success">
                     <i class="fas fa-plus-square"></i>
                     Ajukan
                 </button>

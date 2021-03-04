@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.main',['title' => 'Detail Pengajuan'])
 @section('content')
 <div class="card card-info col-sm-12">
     <div class="card-header">
