@@ -1,3 +1,49 @@
+@extends('layouts.main',['title' => 'Form Pengajuan Cuti'])
+@section('content')
+<div class="container">
+    <div class="d-flex justify-content-end">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="exampleModalLabel">Yakin ingin menghapus data ini ?</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/cuti/{{$cuti->slug}}/delete" method="post">
+                            @method('delete')
+                            @csrf
+                            <div class="d-flex justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button class="btn btn-sm btn-danger" type="submit">Hapus</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="card card-info col-sm-12">
+    <div class="card-header">
+        <h3 class="card-title">Formulir Pengajuan Cuti</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+
+        <form action="/cuti/{{$cuti->slug}}/edit" method="post">
+            @method('patch')
+            @csrf
             <!-- <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -40,7 +86,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Tanggal Mulai</label>
-                        <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai">
+                        <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai" value="{{old('tgl_mulai') ?? $cuti->tgl_mulai}}">
                         <div class="text-danger">
                             @error('tgl_mulai')
                             {{$message}}
@@ -51,7 +97,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Tanggal Selesai</label>
-                        <input type="date" class="form-control" id="tgl_selesai" name="tgl_selesai">
+                        <input type="date" class="form-control" id="tgl_selesai" name="tgl_selesai" value="{{old('tgl_selesai') ?? $cuti->tgl_selesai}}">
                         <div class="text-danger">
                             @error('tgl_selesai')
                             {{$message}}
@@ -63,7 +109,7 @@
                     <!-- textarea -->
                     <div class="form-group">
                         <label>Keterangan</label>
-                        <textarea class="form-control" rows="3" id="keterangan" name="keterangan" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" rows="3" id="keterangan" name="keterangan" placeholder="Enter ...">{{old('keterangan') ?? $cuti->keterangan}}</textarea>
                         <div class="text-danger">
                             @error('keterangan')
                             {{$message}}
@@ -86,6 +132,13 @@
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-success">
                     <i class="fas fa-plus-square"></i>
-                    Ajukan
+                    Simpan
                 </button>
             </div>
+        </form>
+
+    </div>
+    <!-- /.card-body -->
+</div>
+
+@endsection

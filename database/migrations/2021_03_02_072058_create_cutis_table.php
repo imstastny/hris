@@ -15,11 +15,10 @@ class CreateCutisTable extends Migration
     {
         Schema::create('cutis', function (Blueprint $table) {
             $table->id();
-            $table->string('slug', 191)->nullable();
-            $table->date('tgl_mulai')->nullable();
-            $table->tinyInteger('jml_hari')->nullable();
-            $table->date('tgl_selesai')->nullable();
-            $table->text('deskripsi')->nullable();
+            $table->string('slug', 191);
+            $table->date('tgl_mulai');
+            $table->date('tgl_selesai');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }

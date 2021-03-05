@@ -15,13 +15,6 @@
             <p>(1) Tabel berisi pengajuan anggota pada divisi anda yang belum ditanggapi oleh manajer divisi atau admin.</p>
             <p>(2) Pastikan memeriksa pengajuan karyawan lain untuk menghindari pengajuan secara bersamaan.</p>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <a href="{{ route('cuti.create') }}" class="btn btn-success">
-                    <i class="fas fa-plus-square"></i>
-                    Ajukan Permohonan Cuti</a>
-            </div>
-        </div>
         <hr>
         <div class="row">
             <div class="col-12">
@@ -47,7 +40,7 @@
                                     <td>{{$cuti->tgl_mulai}}</td>
                                     <td>{{$cuti->tgl_selesai}}</td>
                                     <td>
-                                        <a href="/cuti/{{$cuti->slug}}" class="btn btn-info">detail</a>
+                                        <a href="/cuti/{{$cuti->slug}}/edit" class="btn btn-info">detail</a>
                                     </td>
                                 </tr>
                                 @endforeach

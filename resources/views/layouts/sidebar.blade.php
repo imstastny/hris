@@ -60,6 +60,35 @@
                         </li> -->
                     </ul>
                 </li>
+                <li class="nav-item{{request()->is('cuti')  ? ' menu-open' : ''}}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-plus-square"></i>
+                        <p>
+                            Persetujuan
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('cuti.admin')}}" class="nav-link{{request()->is('cuti/admin') ? ' active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Persetujuan Cuti</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('izin.index') }}" class="nav-link{{request()->is('izin') ? ' active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Persetujuan Izin</p>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Inactive Page</p>
+                            </a>
+                        </li> -->
+                    </ul>
+                </li>
 
 
                 <li class="nav-item">

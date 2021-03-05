@@ -41,8 +41,4 @@ class LoginController extends Controller
     {
         return view('page.auth.login');
     }
-    public function username()
-    {
-        return 'NIK';
-    }
 }

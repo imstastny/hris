@@ -25,9 +25,13 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('/cuti')->group(function () {
         Route::get('/', [CutiController::class, 'index'])->name('cuti.index');
+        Route::get('/admin', [CutiController::class, 'admin'])->name('cuti.admin');
         Route::get('/create', [CutiController::class, 'create'])->name('cuti.create');
         Route::post('/create', [CutiController::class, 'store'])->name('cuti.store');
+        Route::delete('/{cuti:slug}/delete', [CutiController::class, 'destroy']);
         Route::get('/{cuti:slug}', [CutiController::class, 'show']);
+        Route::get('/{cuti:slug}/edit', [CutiController::class, 'edit'])->name('cuti.edit');
+        Route::patch('/{cuti:slug}/edit', [CutiController::class, 'update'])->name('cuti.update');
     });
 
     Route::prefix('/izin')->group(function () {

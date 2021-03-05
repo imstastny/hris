@@ -10,5 +10,5 @@ class Cuti extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['slug', 'tgl_mulai', 'tgl_selesai', 'deskripsi'];
+    protected $fillable = ['slug', 'tgl_mulai', 'tgl_selesai', 'keterangan'];
 }
