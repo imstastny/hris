@@ -49,19 +49,6 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Jumlah Hari</label>
-                        <select class="form-control" id="jml_hari" name="jml_hari">
-                            <option value="1">1 Hari</option>
-                            <option value="2">2 Hari</option>
-                            <option value="3">3 Hari</option>
-                        </select>
-                        <div class="text-danger">
-                            @error('jml_hari')
-                            {{$message}}
-                            @enderror
-                        </div>
-                    </div>
 
                 </div>
                 <div class="col-sm-6">

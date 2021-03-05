@@ -4,28 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\Cuti;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Laravel\Ui\Presets\React;
 use Illuminate\Support\Str;
 
 class CutiController extends Controller
 {
-    public function pengajuan()
+    public function index()
     {
         $cutis = Cuti::latest()->get();
 
-        return view('pengajuan.cuti.pengajuan', compact('cutis'));
+        return view('cuti.index', compact('cutis'));
     }
-    public function detail(Cuti $cuti)
+    public function show(Cuti $cuti)
     {
-        return view('pengajuan.cuti.detail', compact('cuti'));
+        return view('cuti.show', compact('cuti'));
     }
 
-    public function formulir()
+    public function create()
     {
         // $req = request()->path();
         // dd($req);
-        return view('pengajuan.cuti.formulir');
+        return view('cuti.create');
     }
     public function store(Request $request)
     {
@@ -41,6 +39,14 @@ class CutiController extends Controller
         session()->flash('success', 'Permintaan anda sudah diajukan');
         session()->flash('error', 'Permintaan anda gagal diajukan');
 
-        return redirect(route('cuti.pengajuan'));
+        return redirect(route('cuti.index'));
+    }
+    public function edit(Cuti $cuti)
+    {
+        return view('cuti.edit');
+    }
+    public function update(Cuti $cuti)
+    {
+        dd('updated');
     }
 }

@@ -38,10 +38,10 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label for="exampleSelectRounded0">Jenis Cuti</label>
-                        <select class="custom-select rounded-0" id="exampleSelectRounded0">
-                            <option>Cuti Reguler</option>
-                            <option>Cuti Haid</option>
+                        <label>Jenis Cuti</label>
+                        <select class="form-control" disabled>
+                            <option value="1">Cuti Reguler</option>
+                            <option value="2">Cuti Haid</option>
                         </select>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Jumlah Hari</label>
-                        <select class="form-control" id="jml_hari" name="jml_hari">
+                        <select class="form-control" id="jml_hari" name="jml_hari" disabled>
                             <option value="1">1 Hari</option>
                             <option value="2">2 Hari</option>
                             <option value="3">3 Hari</option>
@@ -68,7 +68,7 @@
                     <!-- textarea -->
                     <div class="form-group">
                         <label>Deskripsi</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." disabled>{{$cuti->deskripsi}}</textarea>
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -83,10 +83,11 @@
                     </div>
                 </div>
             </div>
+
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-info">
                     <i class="fas fa-plus-square"></i>
-                    Ajukan
+                    Aksi
                 </button>
             </div>
         </form>

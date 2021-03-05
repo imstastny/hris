@@ -9,7 +9,7 @@
 
         <form action="{{ route('cuti.store') }}" method="post">
             @csrf
-            @include('layouts.form-control')
+            @include('cuti.form-control')
         </form>
 
     </div>

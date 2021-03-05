@@ -24,15 +24,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::prefix('/cuti')->group(function () {
-        Route::get('/pengajuan', [CutiController::class, 'pengajuan'])->name('cuti.pengajuan');
-        Route::get('/pengajuan/{cuti:slug}', [CutiController::class, 'detail']);
-        Route::get('/formulir', [CutiController::class, 'formulir'])->name('cuti.formulir');
-        Route::post('/formulir', [CutiController::class, 'store'])->name('cuti.store');
+        Route::get('/', [CutiController::class, 'index'])->name('cuti.index');
+        Route::get('/create', [CutiController::class, 'create'])->name('cuti.create');
+        Route::post('/create', [CutiController::class, 'store'])->name('cuti.store');
+        Route::get('/{cuti:slug}', [CutiController::class, 'show']);
     });
 
     Route::prefix('/izin')->group(function () {
-        Route::get('/pengajuan', [IzinController::class, 'pengajuan'])->name('izin.pengajuan');
-        Route::get('/formulir', [IzinController::class, 'formulir'])->name('izin.formulir');
+        Route::get('/', [IzinController::class, 'index'])->name('izin.index');
+        Route::get('/create', [IzinController::class, 'create'])->name('izin.create');
     });
 });
 

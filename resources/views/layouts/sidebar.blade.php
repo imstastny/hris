@@ -31,7 +31,7 @@
                     </a>
 
                 </li>
-                <li class="nav-item{{request()->is('cuti/pengajuan') || request()->is('cuti/formulir') || request()->is('cuti/pengajuan/*')  ? ' menu-open' : ''}}">
+                <li class="nav-item{{request()->is('cuti')  ? ' menu-open' : ''}}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-plus-square"></i>
                         <p>
@@ -41,13 +41,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('cuti.pengajuan')}}" class="nav-link{{request()->is('cuti/pengajuan') || request()->is('cuti/formulir') || request()->is('cuti/pengajuan/*') ? ' active' : ''}}">
+                            <a href="{{route('cuti.index')}}" class="nav-link{{request()->is('cuti') ? ' active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Pengajuan Cuti</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('izin.pengajuan') }}" class="nav-link{{request()->is('izin/pengajuan') ? ' active' : ''}}">
+                            <a href="{{ route('izin.index') }}" class="nav-link{{request()->is('izin') ? ' active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Pengajuan Izin</p>
                             </a>
