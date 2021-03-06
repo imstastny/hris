@@ -35,18 +35,18 @@
                     </div>
                 </div>
             </div> -->
-
-            <!-- <div class="row">
+            <div class="row">
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Jenis Cuti</label>
-                        <select class="custom-select rounded-0" id="exampleSelectRounded0">
-                            <option>Cuti Reguler</option>
-                            <option>Cuti Haid</option>
+                        <select class="custom-select rounded-0" id="kategori" name="kategori">
+                            @foreach($kategoris as $kategori)
+                            <option value="{{$kategori->id}}">{{$kategori->nama}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -94,6 +94,7 @@
                     </div>
                 </div> -->
             </div>
+
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-success">
                     <i class="fas fa-plus-square"></i>

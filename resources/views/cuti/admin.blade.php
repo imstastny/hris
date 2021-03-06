@@ -36,7 +36,6 @@
                             <tbody>
                                 @foreach($cutis as $cuti)
                                 <tr>
-                                    <td>Nama</td>
                                     <td>{{$cuti->tgl_mulai}}</td>
                                     <td>{{$cuti->tgl_selesai}}</td>
                                     <td>

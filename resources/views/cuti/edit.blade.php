@@ -71,17 +71,16 @@
                 </div>
             </div> -->
 
-            <!-- <div class="row">
+            <div class="row">
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Jenis Cuti</label>
-                        <select class="custom-select rounded-0" id="exampleSelectRounded0">
-                            <option>Cuti Reguler</option>
-                            <option>Cuti Haid</option>
+                        <select class="custom-select rounded-0" id="kategori" name="kategori">
+                            <option value="{{$cuti->kategori->id}}">{{$cuti->kategori->nama}}</option>
                         </select>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -128,6 +127,30 @@
                         </div>
                     </div>
                 </div> -->
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="exampleSelectRounded0">Acc Mandiv</label>
+                        <select class="custom-select rounded-0" id="acc_mandiv" name="acc_mandiv">
+                            @foreach($acc_mandivs as $acc_mandiv)
+                            <option {{$acc_mandiv->id == $cuti->acc_mandiv_id ? 'selected' : ''}} value="{{$acc_mandiv->id}}">{{$acc_mandiv->nama}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                @if($cuti->acc_mandiv_id == 3)
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="exampleSelectRounded0">Acc HRD</label>
+                        <select class="custom-select rounded-0" id="acc_hrd" name="acc_hrd">
+                            @foreach($acc_hrds as $acc_hrd)
+                            <option {{$acc_hrd->id == $cuti->acc_hrd_id ? 'selected' : ''}} value="{{$acc_hrd->id}}">{{$acc_hrd->nama}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                @endif
             </div>
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-success">

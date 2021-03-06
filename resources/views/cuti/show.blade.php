@@ -35,17 +35,14 @@
                 </div>
             </div> -->
 
-            <!-- <div class="row">
+            <div class="row">
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label>Jenis Cuti</label>
-                        <select class="form-control" disabled>
-                            <option value="1">Cuti Reguler</option>
-                            <option value="2">Cuti Haid</option>
-                        </select>
+                        <input type="text" class="form-control" id="kategori" name="kategori" value="{{$cuti->kategori->nama}}" disabled>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -78,6 +75,22 @@
                     </div>
                 </div> -->
             </div>
+            <div class="flex">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Acc Mandiv</label>
+                        <input type="text" class="form-control" id="acc_mandiv" name="acc_mandiv" value="{{$cuti->acc_mandiv->nama}}" disabled>
+                    </div>
+                </div>
+            </div>
+            @if($cuti->acc_mandiv_id == 3)
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Acc HRD</label>
+                    <input type="text" class="form-control" id="acc_hrd" name="acc_hrd" value="{{$cuti->acc_hrd->nama}}" disabled>
+                </div>
+            </div>
+            @endif
 
             <!-- <div class="row justify-content-center">
                 <button type="submit" class="btn btn-info">

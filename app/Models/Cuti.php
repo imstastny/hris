@@ -10,5 +10,17 @@ class Cuti extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['slug', 'tgl_mulai', 'tgl_selesai', 'keterangan'];
+    protected $fillable = ['slug', 'kategori_id', 'acc_mandiv_id', 'acc_hrd_id', 'tgl_mulai', 'tgl_selesai', 'keterangan'];
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class);
+    }
+    public function acc_mandiv()
+    {
+        return $this->belongsTo(Acc_mandiv::class);
+    }
+    public function acc_hrd()
+    {
+        return $this->belongsTo(Acc_hrd::class);
+    }
 }

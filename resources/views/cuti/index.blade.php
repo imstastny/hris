@@ -37,15 +37,18 @@
                                 <tr>
                                     <th>Tanggal Mulai</th>
                                     <th>Tanggal Selesai</th>
+                                    <th>Acc Mandiv</th>
+                                    <th>Acc HRD</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($cutis as $cuti)
                                 <tr>
-                                    <td>Nama</td>
                                     <td>{{$cuti->tgl_mulai}}</td>
                                     <td>{{$cuti->tgl_selesai}}</td>
+                                    <td>{{$cuti->acc_mandiv->nama}}</td>
+                                    <td>{{$cuti->acc_hrd->nama}}</td>
                                     <td>
                                         <a href="/cuti/{{$cuti->slug}}" class="btn btn-info">detail</a>
                                     </td>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CutiRequest;
-use App\Models\Cuti;
+use App\Models\{Cuti, Kategori, Acc_mandiv, Acc_hrd};
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -28,15 +28,18 @@ class CutiController extends Controller
 
     public function create()
     {
-        // $req = request()->path();
-        // dd($req);
-        return view('cuti.create');
+        return view('cuti.create', [
+            'kategoris' => Kategori::get(),
+
+        ]);
     }
     public function store(CutiRequest $request)
     {
 
         $attr = $request->all();
         $attr['slug'] = Str::random(9);
+        $attr['kategori_id'] = request('kategori');
+        // dd($attr);
         Cuti::create($attr);
 
         session()->flash('success', 'Permintaan anda sudah diajukan');
@@ -46,11 +49,33 @@ class CutiController extends Controller
     }
     public function edit(Cuti $cuti)
     {
-        return view('cuti.edit', compact('cuti'));
+        return view('cuti.edit', [
+            'cuti' => $cuti,
+            'kategoris' => Kategori::get(),
+            'acc_mandivs' => Acc_mandiv::get(),
+            'acc_hrds' => Acc_hrd::get(),
+        ]);
     }
     public function update(CutiRequest $request, Cuti $cuti)
     {
         $attr = $request->all();
+        $attr['kategori_id'] = request('kategori');
+        $attr['acc_mandiv_id'] = request('acc_mandiv');
+        $attr['acc_hrd_id'] = request('acc_hrd');
+
+        if (request('acc_mandiv') == 1) {
+            $attr['acc_hrd_id'] = 4;
+        } elseif (request('acc_mandiv') == 2) {
+            $attr['acc_hrd_id'] = 2;
+        } elseif (request('acc_mandiv') == 3) {
+            $attr['acc_hrd_id'] = 1;
+        }
+
+        // if ($attr['acc_mandiv_id'] == 3) {
+        //     $attr['acc_hrd_id'] = 1;
+        // } else if ($attr['acc_mandiv_id'] == 2) {
+        //     $attr['acc_hrd_id'] = 2;
+        // }
         $cuti->update($attr);
 
         session()->flash('success', 'Tanggapan anda sudah disimpan!');
