@@ -12,4 +12,8 @@ class Acc_hrd extends Model
     {
         return $this->hasMany(Cuti::class);
     }
+    public function izins()
+    {
+        return $this->hasMany((Izin::class));
+    }
 }

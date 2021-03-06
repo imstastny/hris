@@ -1,7 +1,7 @@
-@extends('layouts.main',['title' => 'Daftar Pengajuan'])
+@extends('layouts.main',['title' => 'Rekap Pengajuan Cuti'])
 @section('content')
 <div class="content-header px-3">
-    <h4> Daftar Pengajuan Cuti</h4>
+    <h4> Rekap Data Pengajuan Cuti Karyawan</h4>
 </div>
 
 @include('layouts.alert')
@@ -9,20 +9,6 @@
 <section class="container">
 
     <div class="container-fluid">
-        <div class="callout callout-info col-sm-12 mb-4">
-            <h6><b>Informasi</b></h6>
-
-            <p>(1) Tabel berisi pengajuan anggota pada divisi anda yang belum ditanggapi oleh manajer divisi atau admin.</p>
-            <p>(2) Pastikan memeriksa pengajuan karyawan lain untuk menghindari pengajuan secara bersamaan.</p>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <a href="{{ route('cuti.create') }}" class="btn btn-success">
-                    <i class="fas fa-plus-square"></i>
-                    Ajukan Permohonan Cuti</a>
-            </div>
-        </div>
-        <hr>
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -39,7 +25,6 @@
                                     <th>Tanggal Selesai</th>
                                     <th>Acc Mandiv</th>
                                     <th>Acc HRD</th>
-                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,9 +34,6 @@
                                     <td>{{$cuti->tgl_selesai}}</td>
                                     <td>{{$cuti->acc_mandiv->nama}}</td>
                                     <td>{{$cuti->acc_hrd->nama}}</td>
-                                    <td>
-                                        <a href="/cuti/{{$cuti->slug}}" class="btn btn-sm btn-info">detail</a>
-                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

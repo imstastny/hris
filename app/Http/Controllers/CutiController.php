@@ -67,15 +67,9 @@ class CutiController extends Controller
             $attr['acc_hrd_id'] = 4;
         } elseif (request('acc_mandiv') == 2) {
             $attr['acc_hrd_id'] = 2;
-        } elseif (request('acc_mandiv') == 3) {
+        } elseif (request('acc_mandiv') == 3 && !request('acc_hrd')) {
             $attr['acc_hrd_id'] = 1;
         }
-
-        // if ($attr['acc_mandiv_id'] == 3) {
-        //     $attr['acc_hrd_id'] = 1;
-        // } else if ($attr['acc_mandiv_id'] == 2) {
-        //     $attr['acc_hrd_id'] = 2;
-        // }
         $cuti->update($attr);
 
         session()->flash('success', 'Tanggapan anda sudah disimpan!');

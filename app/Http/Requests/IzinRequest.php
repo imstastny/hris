@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CutiRequest extends FormRequest
+class IzinRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,10 @@ class CutiRequest extends FormRequest
     public function rules()
     {
         return [
-            'tgl_mulai' => 'required|date',
-            'tgl_selesai' => 'required|date|after_or_equal:tgl_mulai',
+
+            'tgl_izin' => 'required',
+            'wkt_mulai' => 'required',
+            'wkt_selesai' => 'required|gte:wkt_mulai',
             'keterangan' => 'required',
         ];
     }

@@ -39,7 +39,7 @@
                                     <td>{{$cuti->tgl_mulai}}</td>
                                     <td>{{$cuti->tgl_selesai}}</td>
                                     <td>
-                                        <a href="/cuti/{{$cuti->slug}}/edit" class="btn btn-info">detail</a>
+                                        <a href="/cuti/{{$cuti->slug}}/edit" class="btn btn-sm btn-info">detail</a>
                                     </td>
                                 </tr>
                                 @endforeach

@@ -6,9 +6,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-
-        <form action="" method="post">
-            <!-- <div class="row">
+        <!-- <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Nama</label>
@@ -35,35 +33,35 @@
                 </div>
             </div> -->
 
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label>Jenis Cuti</label>
-                        <input type="text" class="form-control" id="kategori" name="kategori" value="{{$cuti->kategori->nama}}" disabled>
-                    </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Jenis Cuti</label>
+                    <input type="text" class="form-control" id="kategori" name="kategori" value="{{$cuti->kategori->nama}}" disabled>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Tanggal Mulai</label>
-                        <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai" value="{{$cuti->tgl_mulai}}" disabled>
-                    </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Tanggal Mulai</label>
+                    <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai" value="{{$cuti->tgl_mulai}}" disabled>
                 </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Tanggal Selesai</label>
-                        <input type="date" class="form-control" id="tgl_selesai" name="tgl_selesai" value="{{$cuti->tgl_selesai}}" disabled>
-                    </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Tanggal Selesai</label>
+                    <input type="date" class="form-control" id="tgl_selesai" name="tgl_selesai" value="{{$cuti->tgl_selesai}}" disabled>
                 </div>
-                <div class="col-sm-6">
-                    <!-- textarea -->
-                    <div class="form-group">
-                        <label>Deskripsi</label>
-                        <textarea class="form-control" rows="3" disabled>{{$cuti->keterangan}}</textarea>
-                    </div>
+            </div>
+            <div class="col-sm-6">
+                <!-- textarea -->
+                <div class="form-group">
+                    <label>Deskripsi</label>
+                    <textarea class="form-control" rows="3" disabled>{{$cuti->keterangan}}</textarea>
                 </div>
-                <!-- <div class="col-sm-6">
+            </div>
+            <!-- <div class="col-sm-6">
                     <div class="form-group">
                         <label for="exampleInputFile">Lampiran(optional)</label>
                         <div class="input-group">
@@ -74,31 +72,30 @@
                         </div>
                     </div>
                 </div> -->
-            </div>
-            <div class="flex">
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label>Acc Mandiv</label>
-                        <input type="text" class="form-control" id="acc_mandiv" name="acc_mandiv" value="{{$cuti->acc_mandiv->nama}}" disabled>
-                    </div>
-                </div>
-            </div>
-            @if($cuti->acc_mandiv_id == 3)
+        </div>
+        <div class="flex">
             <div class="col-sm-3">
                 <div class="form-group">
-                    <label>Acc HRD</label>
-                    <input type="text" class="form-control" id="acc_hrd" name="acc_hrd" value="{{$cuti->acc_hrd->nama}}" disabled>
+                    <label>Acc Mandiv</label>
+                    <input type="text" class="form-control" id="acc_mandiv" name="acc_mandiv" value="{{$cuti->acc_mandiv->nama}}" disabled>
                 </div>
             </div>
-            @endif
+        </div>
+        @if($cuti->acc_mandiv_id >= 2)
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label>Acc HRD</label>
+                <input type="text" class="form-control" id="acc_hrd" name="acc_hrd" value="{{$cuti->acc_hrd->nama}}" disabled>
+            </div>
+        </div>
+        @endif
 
-            <!-- <div class="row justify-content-center">
+        <!-- <div class="row justify-content-center">
                 <button type="submit" class="btn btn-info">
                     <i class="fas fa-plus-square"></i>
                     Aksi
                 </button>
             </div> -->
-        </form>
 
     </div>
     <!-- /.card-body -->

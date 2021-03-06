@@ -15,13 +15,6 @@
             <p>(1) Tabel berisi pengajuan anggota pada divisi anda yang belum ditanggapi oleh manajer divisi atau admin.</p>
             <p>(2) Pastikan memeriksa pengajuan karyawan lain untuk menghindari pengajuan secara bersamaan.</p>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <a href="{{ route('izin.create') }}" class="btn btn-success">
-                    <i class="fas fa-plus-square"></i>
-                    Ajukan Permohonan Izin</a>
-            </div>
-        </div>
         <hr>
         <div class="row">
             <div class="col-12">
@@ -48,7 +41,7 @@
                                     <td>{{$izin->wkt_mulai}}</td>
                                     <td>{{$izin->wkt_selesai}}</td>
                                     <td>
-                                        <a href="/izin/{{$izin->slug}}" class="btn btn-sm btn-info">detail</a>
+                                        <a href="/izin/{{$izin->slug}}/edit" class="btn btn-sm btn-info">detail</a>
                                     </td>
                                 </tr>
                                 @endforeach

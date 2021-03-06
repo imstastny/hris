@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CutiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IzinController;
+use App\Http\Controllers\KelolaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LoginController::class, 'showLoginForm'])->name('login');
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/rekap/cuti', [DashboardController::class, 'cuti'])->name('rekap.cuti');
+    Route::get('/rekap/izin', [DashboardController::class, 'izin'])->name('rekap.izin');
+    Route::prefix('/anggota')->group(function () {
+        Route::get('/', [KelolaController::class, 'index'])->name('kelola.index');
+    });
 
     Route::prefix('/cuti')->group(function () {
         Route::get('/', [CutiController::class, 'index'])->name('cuti.index');
@@ -36,7 +42,12 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('/izin')->group(function () {
         Route::get('/', [IzinController::class, 'index'])->name('izin.index');
+        Route::get('/admin', [IzinController::class, 'admin'])->name('izin.admin');
         Route::get('/create', [IzinController::class, 'create'])->name('izin.create');
+        Route::post('/create', [IzinController::class, 'store'])->name('izin.store');
+        Route::get('/{izin:slug}', [IzinController::class, 'show']);
+        Route::get('/{izin:slug}/edit', [IzinController::class, 'edit'])->name('izin.edit');
+        Route::patch('/{izin:slug}/edit', [IzinController::class, 'update'])->name('izin.update');
     });
 });
 

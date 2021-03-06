@@ -76,7 +76,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('izin.index') }}" class="nav-link{{request()->is('izin') ? ' active' : ''}}">
+                            <a href="{{ route('izin.admin') }}" class="nav-link{{request()->is('izin') ? ' active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Persetujuan Izin</p>
                             </a>
@@ -90,7 +90,14 @@
                     </ul>
                 </li>
 
-
+                <li class="nav-item">
+                    <a href="{{route('kelola.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Kelola Karyawan
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>

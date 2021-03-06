@@ -15,8 +15,8 @@ return [
 
     'accepted' => 'The :attribute must be accepted.',
     'active_url' => 'The :attribute is not a valid URL.',
-    'after' => 'Isian :attribute harus tanggal setelah :date.',
-    'after_or_equal' => 'Isian :attribute harus berupa tanggal setelah atau sama dengan tanggal :date.',
+    'after' => 'Isian tanggal harus tanggal setelah tanggal mulai',
+    'after_or_equal' => 'Isian tanggal harus berupa tanggal setelah atau sama dengan tanggal mulai',
     'alpha' => 'The :attribute may only contain letters.',
     'alpha_dash' => 'The :attribute may only contain letters, numbers, dashes and underscores.',
     'alpha_num' => 'Isian :attribute hanya boleh berisi huruf dan angka.',
@@ -45,13 +45,13 @@ return [
     'file' => 'Bidang :attribute harus berupa sebuah berkas.',
     'filled' => 'The :attribute field must have a value.',
     'gt' => [
-        'numeric' => 'The :attribute must be greater than :value.',
+        'numeric' => 'Harus lebih besar dari nilai sebelumnya',
         'file' => 'The :attribute must be greater than :value kilobytes.',
         'string' => 'The :attribute must be greater than :value characters.',
         'array' => 'The :attribute must have more than :value items.',
     ],
     'gte' => [
-        'numeric' => 'The :attribute must be greater than or equal :value.',
+        'numeric' => 'Waktu harus lebih dari atau sama dengan waktu mulai',
         'file' => 'The :attribute must be greater than or equal :value kilobytes.',
         'string' => 'The :attribute must be greater than or equal :value characters.',
         'array' => 'The :attribute must have :value items or more.',
