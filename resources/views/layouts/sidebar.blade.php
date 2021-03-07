@@ -91,6 +91,14 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="{{route('profil.show')}}" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Profil
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('kelola.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>

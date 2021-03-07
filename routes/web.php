@@ -5,6 +5,7 @@ use App\Http\Controllers\CutiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IzinController;
 use App\Http\Controllers\KelolaController;
+use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,8 +26,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/rekap/cuti', [DashboardController::class, 'cuti'])->name('rekap.cuti');
     Route::get('/rekap/izin', [DashboardController::class, 'izin'])->name('rekap.izin');
+
+    Route::prefix('/profil')->group(function () {
+        Route::get('/', [ProfilController::class, 'show'])->name('profil.show');
+    });
+
     Route::prefix('/anggota')->group(function () {
         Route::get('/', [KelolaController::class, 'index'])->name('kelola.index');
+        Route::get('/{user:name}/edit', [KelolaController::class, 'edit']);
+        Route::patch('/{user:name}/edit', [KelolaController::class, 'update']);
+        Route::delete('/{user:name}/delete', [KelolaController::class, 'destroy']);
     });
 
     Route::prefix('/cuti')->group(function () {

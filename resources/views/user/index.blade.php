@@ -29,7 +29,9 @@
                                     <td>{{$user->name}}</td>
                                     <td>Jabatan</td>
                                     <td>Divisi</td>
-                                    <td>Aksi</td>
+                                    <td>
+                                        <a href="/anggota/{{$user->name}}/edit">aksi</a>
+                                    </td>
 
                                 </tr>
                                 @endforeach

@@ -2,8 +2,10 @@
 @section('title','Dashboard')
 
 @section('content')
-<div class="content-header px-3">
-    <h4> Dashboard</h4>
+<div class="card card-info col-sm-12 p-0">
+    <div class="card-header">
+        <h3 class="card-title">Dashboard</h3>
+    </div>
 </div>
 
 <div class="container">

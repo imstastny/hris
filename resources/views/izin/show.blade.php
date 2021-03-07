@@ -10,12 +10,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>Tanggal Izin</label>
-                    <input type="text" class="form-control" id="tgl_izin" name="tgl_izin" value="{{$izin->tgl_izin}}" disabled>
-                    <div class="text-danger">
-                        @error('tgl_izin')
-                        {{$message}}
-                        @enderror
-                    </div>
+                    <text class="form-control" id="tgl_izin" name="tgl_izin" value="{{$izin->tgl_izin}}" disabled>{{$izin->tgl_izin}}</text>
                 </div>
             </div>
         </div>
@@ -23,18 +18,13 @@
             <div class="col-sm-2">
                 <div class="form-group">
                     <label for="exampleSelectRounded0">Waktu Mulai</label>
-                    <input type="text" class="form-control" id="wkt_mulai" name="wkt_mulai" value="{{$izin->wkt_mulai}}" disabled>
-                    <div class="text-danger">
-                        @error('wkt_mulai')
-                        {{$message}}
-                        @enderror
-                    </div>
+                    <text class="form-control" id="wkt_mulai" name="wkt_mulai" disabled>{{$izin->wkt_mulai}}</text>
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
                     <label for="exampleSelectRounded0">Waktu Selesai</label>
-                    <input type="text" class="form-control" id="wkt_selesai" name="wkt_selesai" value="{{$izin->wkt_selesai}}" disabled>
+                    <text class="form-control" id="wkt_selesai" name="wkt_selesai" disabled>{{$izin->wkt_selesai}}</text>
                 </div>
             </div>
 
@@ -45,12 +35,7 @@
                 <!-- textarea -->
                 <div class="form-group">
                     <label>Keterangan</label>
-                    <textarea class="form-control" rows="3" id="keterangan" name="keterangan" disabled>{{$izin->keterangan}}</textarea>
-                    <div class="text-danger">
-                        @error('keterangan')
-                        {{$message}}
-                        @enderror
-                    </div>
+                    <text class="form-control" rows="3" id="keterangan" name="keterangan">{{$izin->keterangan}}</text>
                 </div>
             </div>
             <!-- <div class="col-sm-6">
@@ -69,7 +54,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>Acc Mandiv</label>
-                    <input type="text" class="form-control" id="acc_mandiv" name="acc_mandiv" value="{{$izin->acc_mandiv->nama}}" disabled>
+                    <text class="form-control" id="acc_mandiv" name="acc_mandiv" value="" disabled>{{$izin->acc_mandiv->nama}}</text>
                 </div>
             </div>
         </div>
@@ -77,13 +62,14 @@
         <div class="col-sm-3">
             <div class="form-group">
                 <label>Acc HRD</label>
-                <input type="text" class="form-control" id="acc_hrd" name="acc_hrd" value="{{$izin->acc_hrd->nama}}" disabled>
+                <text class="form-control" id="acc_mandiv" name="acc_mandiv" value="" disabled>{{$izin->acc_hrd->nama}}</text>
             </div>
         </div>
-        @endif
-
     </div>
-    <!-- /.card-body -->
+    @endif
+
+</div>
+<!-- /.card-body -->
 </div>
 
 @endsection
