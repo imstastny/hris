@@ -30,7 +30,7 @@
                                     <td>Jabatan</td>
                                     <td>Divisi</td>
                                     <td>
-                                        <a href="/anggota/{{$user->name}}/edit">aksi</a>
+                                        <a href="/anggota/{{$user->nik}}/edit">aksi</a>
                                     </td>
 
                                 </tr>

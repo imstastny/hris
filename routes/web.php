@@ -33,9 +33,9 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('/anggota')->group(function () {
         Route::get('/', [KelolaController::class, 'index'])->name('kelola.index');
-        Route::get('/{user:name}/edit', [KelolaController::class, 'edit']);
-        Route::patch('/{user:name}/edit', [KelolaController::class, 'update']);
-        Route::delete('/{user:name}/delete', [KelolaController::class, 'destroy']);
+        Route::get('/{user:nik}/edit', [KelolaController::class, 'edit']);
+        Route::patch('/{user:nik}/edit', [KelolaController::class, 'update']);
+        Route::delete('/{user:nik}/delete', [KelolaController::class, 'destroy']);
     });
 
     Route::prefix('/cuti')->group(function () {

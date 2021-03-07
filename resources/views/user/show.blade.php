@@ -20,7 +20,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="/anggota/{{$user->name}}/delete" method="post">
+                        <form action="/anggota/{{$user->nik}}/delete" method="post">
                             @method('delete')
                             @csrf
                             <div class="d-flex justify-content-between">

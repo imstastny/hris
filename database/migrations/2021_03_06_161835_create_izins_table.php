@@ -15,6 +15,7 @@ class CreateIzinsTable extends Migration
     {
         Schema::create('izins', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id', 20);
             $table->string('slug', 191);
             $table->date('tgl_izin');
             $table->tinyInteger('wkt_mulai');

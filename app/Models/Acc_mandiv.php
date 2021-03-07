@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Acc_mandiv extends Model
 {
     use HasFactory;
+    protected $fillable = ['nama'];
     public function cutis()
     {
         return $this->hasMany(Cuti::class);

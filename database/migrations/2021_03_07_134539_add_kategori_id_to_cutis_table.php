@@ -14,7 +14,7 @@ class AddKategoriIdToCutisTable extends Migration
     public function up()
     {
         Schema::table('cutis', function (Blueprint $table) {
-            $table->foreignId('kategori_id')->after('id');
+            $table->foreignId('kategori_id')->after('acc_hrd_id');
         });
     }
 

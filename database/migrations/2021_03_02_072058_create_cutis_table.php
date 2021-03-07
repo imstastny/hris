@@ -15,6 +15,7 @@ class CreateCutisTable extends Migration
     {
         Schema::create('cutis', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('slug', 191);
             $table->date('tgl_mulai');
             $table->date('tgl_selesai');

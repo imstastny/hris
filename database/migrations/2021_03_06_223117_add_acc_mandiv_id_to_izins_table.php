@@ -14,7 +14,7 @@ class AddAccMandivIdToIzinsTable extends Migration
     public function up()
     {
         Schema::table('izins', function (Blueprint $table) {
-            $table->foreignId('acc_mandiv_id')->default(1)->after('id');
+            $table->foreignId('acc_mandiv_id')->default(1)->after('user_id');
             $table->foreignId('acc_hrd_id')->default(4)->after('acc_mandiv_id');
         });
     }
