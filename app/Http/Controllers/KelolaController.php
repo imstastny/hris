@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Ui\Presets\React;
 
 class KelolaController extends Controller
@@ -12,6 +14,17 @@ class KelolaController extends Controller
     {
         $users = User::all();
         return view('user.index', compact('users'));
+    }
+    public function create()
+    {
+        return view('user.create');
+    }
+    public function store(UserRequest $request)
+    {
+        $attr = $request->all();
+        $attr['password'] = Hash::make($request['password']);
+        User::create($attr);
+        return redirect(route('user.index'));
     }
     public function edit(User $user)
     {

@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('/anggota')->group(function () {
         Route::get('/', [KelolaController::class, 'index'])->name('kelola.index');
+        Route::get('/daftar', [KelolaController::class, 'create'])->name('kelola.daftar');
+        Route::post('/daftar', [KelolaController::class, 'store'])->name('kelola.store');
         Route::get('/{user:nik}/edit', [KelolaController::class, 'edit']);
         Route::patch('/{user:nik}/edit', [KelolaController::class, 'update']);
         Route::delete('/{user:nik}/delete', [KelolaController::class, 'destroy']);

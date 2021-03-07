@@ -1,15 +1,25 @@
 @extends('layouts.main',['title' => 'Rekap Pengajuan Cuti'])
 @section('content')
-<div class="content-header px-3">
-    <h4> Rekap Data Pengajuan Izin Karyawan</h4>
+<div class="card card-info col-sm-12 p-0">
+    <div class="card-header">
+        <h3 class="card-title">Kelola Data Karyawan</h3>
+    </div>
 </div>
 <section class="container">
     <div class="container-fluid">
         <div class="row">
+            <div class="col-sm-12">
+                <a href="{{ route('kelola.daftar') }}" class="btn btn-success">
+                    <i class="fas fa-plus-square"></i>
+                    Tambah Karyawan Baru</a>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title"><strong>Rekap Permohonan Izin Karyawan</strong></h3>
+                        <h3 class="card-title"><strong>Daftar Karyawan</strong></h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
