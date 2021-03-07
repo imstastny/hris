@@ -1,7 +1,9 @@
 @extends('layouts.main',['title' => 'Daftar Pengajuan'])
 @section('content')
-<div class="content-header px-3">
-    <h4> Daftar Pengajuan Izin</h4>
+<div class="card card-info col-sm-12 p-0">
+    <div class="card-header">
+        <h1 class="card-title">Daftar Pengajuan Izin</h1>
+    </div>
 </div>
 
 @include('layouts.alert')

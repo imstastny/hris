@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class DivisisTableSeeder extends Seeder
+class RolesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,9 +13,9 @@ class DivisisTableSeeder extends Seeder
      */
     public function run()
     {
-        $divisis = collect(['Divisi Admin', 'Divisi A', 'Divisi B', 'Divisi C', 'Divisi D']);
-        $divisis->each(function ($c) {
-            \App\Models\Divisi::create([
+        $roles = collect(['Admin', 'Manajer Divisi', 'Karyawan']);
+        $roles->each(function ($c) {
+            \App\Models\Role::create([
                 'nama' => $c
             ]);
         });

@@ -10,64 +10,49 @@
 
 <div class="container">
     <div class="container-fluid">
-
         <div class="row">
-            <div class="col-sm-4">
-                <a href="/rekap/cuti">
-                    <div class="info-box bg-info">
-                        <span class="info-box-icon"><i class="fas fa-table"></i></span>
-
-                        <div class="info-box-content">
-                            <span class="info-box-text"></span>
-                            <h5><span class="info-box-text">Rekap Data Cuti Karyawan</span></h5>
-
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 100%"></div>
-                            </div>
-
-                        </div>
-                        <!-- /.info-box-content -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>{{$cuti}}</h3>
+                        <p>Rekap Data Cuti Karyawan</p>
                     </div>
-                    <!-- /.info-box -->
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="/rekap/izin">
-                    <div class="info-box bg-success">
-                        <span class="info-box-icon"><i class="fas fa-clock"></i></span>
-
-                        <div class="info-box-content">
-                            <span class="info-box-text"></span>
-                            <h5><span class="info-box-text">Rekap Data Izin Karyawan</span></h5>
-
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 100%"></div>
-                            </div>
-
-                        </div>
-                        <!-- /.info-box-content -->
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
                     </div>
-                    <!-- /.info-box -->
-                </a>
+                    <a href="/rekap/cuti" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <a href="{{route('kelola.index')}}">
-                    <div class="info-box bg-danger">
-                        <span class="info-box-icon"><i class="fas fa-user"></i></span>
-
-                        <div class="info-box-content">
-                            <h5> <span class="info-box-text">Kelola Data Karyawan</span> </h5>
-
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 100%"></div>
-                            </div>
-
-                        </div>
-                        <!-- /.info-box-content -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-teal">
+                    <div class="inner">
+                        <h3>{{$izin}}</h3>
+                        <p>Rekap Data Izin Karyawan</p>
                     </div>
-                    <!-- /.info-box -->
-                </a>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="/rekap/izin" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+
             </div>
+            <div class="col-lg-6 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>{{$user}}</h3>
+                        <p>Kelola Data Karyawan</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="{{route('kelola.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+
+            </div>
+
         </div>
 
     </div>

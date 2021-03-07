@@ -36,6 +36,7 @@
 
                             <thead>
                                 <tr>
+                                    <th>Nama</th>
                                     <th>Tanggal Mulai</th>
                                     <th>Tanggal Selesai</th>
                                     <th>Acc Mandiv</th>
@@ -46,6 +47,7 @@
                             <tbody>
                                 @foreach($cutis as $cuti)
                                 <tr>
+                                    <td>{{$cuti->user->name}}</td>
                                     <td>{{$cuti->tgl_mulai}}</td>
                                     <td>{{$cuti->tgl_selesai}}</td>
                                     <td>{{$cuti->acc_mandiv->nama}}</td>

@@ -10,10 +10,34 @@
         <form action="{{ route('kelola.store') }}" method="post">
             @csrf
             <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="exampleSelectRounded0">Jabatan</label>
+                        <select class="custom-select rounded-0" id="role" name="role">
+                            @foreach($roles as $role)
+                            <option value="{{$role->id}}">{{$role->nama}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="exampleSelectRounded0">Divisi</label>
+                        <select class="custom-select rounded-0" id="divisi" name="divisi">
+                            @foreach($divisis as $divisi)
+                            <option value="{{$divisi->id}}">{{$divisi->nama}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Nama</label>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <input type="text" class="form-control" id="name" name="name" autocomplete="off">
                         <div class="text-danger">
                             @error('name')
                             {{$message}}

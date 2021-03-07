@@ -68,4 +68,11 @@ class IzinController extends Controller
         session()->flash('error', 'Tanggapan anda gagal disimpan!');
         return redirect(route('cuti.admin'));
     }
+    public function destroy(Izin $izin)
+    {
+        $izin->delete();
+        session()->flash('success', 'Data pengajuan terhapus!');
+        session()->flash('error', 'Data pengajuan gagal terhapus!');
+        return redirect(route('izin.admin'));
+    }
 }

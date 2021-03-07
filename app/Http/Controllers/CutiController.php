@@ -35,13 +35,11 @@ class CutiController extends Controller
     }
     public function store(CutiRequest $request)
     {
-
         $attr = $request->all();
         $attr['slug'] = Str::random(9);
         $attr['kategori_id'] = request('kategori');
         // dd($attr);
-        Cuti::create($attr);
-
+        auth()->user()->cutis()->create($attr);
         session()->flash('success', 'Permintaan anda sudah diajukan');
         session()->flash('error', 'Permintaan anda gagal diajukan');
 

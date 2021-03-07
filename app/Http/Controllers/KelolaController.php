@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Models\Divisi;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Laravel\Ui\Presets\React;
 
 class KelolaController extends Controller
 {
@@ -17,14 +18,19 @@ class KelolaController extends Controller
     }
     public function create()
     {
-        return view('user.create');
+        return view('user.create', [
+            'roles' => Role::get(),
+            'divisis' => Divisi::get(),
+        ]);
     }
     public function store(UserRequest $request)
     {
         $attr = $request->all();
+        $attr['role_id'] = request('role');
+        $attr['divisi_id'] = request('divisi');
         $attr['password'] = Hash::make($request['password']);
         User::create($attr);
-        return redirect(route('user.index'));
+        return redirect(route('kelola.index'));
     }
     public function edit(User $user)
     {

@@ -15,6 +15,8 @@ class UsersTableSeeder extends Seeder
     {
         \App\Models\User::create([
             'name' => 'Admin HRD',
+            'role_id' => 1,
+            'divisi_id' => 1,
             'nik' => 'adminhrd',
             'password' => bcrypt('password'),
             'email' => 'admin@mail.com'

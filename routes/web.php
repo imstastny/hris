@@ -59,6 +59,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/{izin:slug}', [IzinController::class, 'show']);
         Route::get('/{izin:slug}/edit', [IzinController::class, 'edit'])->name('izin.edit');
         Route::patch('/{izin:slug}/edit', [IzinController::class, 'update'])->name('izin.update');
+        Route::delete('/{izin:slug}/delete', [IzinController::class, 'destroy']);
     });
 });
 

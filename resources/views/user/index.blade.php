@@ -5,6 +5,7 @@
         <h3 class="card-title">Kelola Data Karyawan</h3>
     </div>
 </div>
+@include('layouts.alert')
 <section class="container">
     <div class="container-fluid">
         <div class="row">
@@ -37,10 +38,10 @@
                                 @foreach($users as $user)
                                 <tr>
                                     <td>{{$user->name}}</td>
-                                    <td>Jabatan</td>
-                                    <td>Divisi</td>
+                                    <td>{{$user->role->nama}}</td>
+                                    <td>{{$user->divisi->nama}}</td>
                                     <td>
-                                        <a href="/anggota/{{$user->nik}}/edit">aksi</a>
+                                        <a href="/anggota/{{$user->nik}}/edit" class="btn btn-sm btn-success">edit</a>
                                     </td>
 
                                 </tr>
