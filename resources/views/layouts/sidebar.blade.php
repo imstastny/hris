@@ -99,6 +99,8 @@
                         </p>
                     </a>
                 </li>
+
+                @can('isAdmin')
                 <li class="nav-item">
                     <a href="{{route('kelola.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-user-friends"></i>
@@ -107,6 +109,7 @@
                         </p>
                     </a>
                 </li>
+                @endcan
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>

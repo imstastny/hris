@@ -18,7 +18,6 @@ class CutiController extends Controller
     public function admin()
     {
         $cutis = Cuti::latest()->get();
-
         return view('cuti.admin', compact('cutis'));
     }
     public function show(Cuti $cuti)

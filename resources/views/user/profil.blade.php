@@ -36,7 +36,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>Jumlah Cuti</label>
-                    <p class="form-control">{{count($user->cutis)}}</p>
+                    <p class="form-control">{{$cuti}}</p>
                 </div>
             </div>
             <div class="col-sm-6">

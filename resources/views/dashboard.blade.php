@@ -11,7 +11,7 @@
 <div class="container">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-3 col-6">
+            <div class="col">
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
@@ -24,7 +24,7 @@
                     <a href="/rekap/cuti" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-lg-3 col-6">
+            <div class="col">
                 <!-- small box -->
                 <div class="small-box bg-teal">
                     <div class="inner">
@@ -38,7 +38,8 @@
                 </div>
 
             </div>
-            <div class="col-lg-6 col-6">
+            @can('isAdmin')
+            <div class="col">
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
@@ -52,6 +53,7 @@
                 </div>
 
             </div>
+            @endcan
 
         </div>
 
