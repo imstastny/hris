@@ -23,8 +23,10 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <li class="nav-item nav-item{{request()->is('dashboard') ? ' menu-is-opening menu-open' : ''}}">
-                    <a href="{{route ('dashboard') }}" class="nav-link{{request()->is('dashboard') ? '' : ''}}">
+                <li class="nav-item nav-item
+                {{request()->is('dashboard') || request()->is('rekap/cuti') ||request()->is('rekap/izin') ?
+                     ' menu-is-opening menu-open' : ''}}">
+                    <a href="{{route ('dashboard') }}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -32,7 +34,9 @@
                     </a>
 
                 </li>
-                <li class="nav-item{{request()->is('cuti')  ? ' menu-open' : ''}}">
+                <li class="nav-item
+                {{request()->is('cuti') || request()->is('cuti/create') || request()->is('izin') || request()->is('izin/create')  ? 
+                ' menu-open' : ''}}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-plus-square"></i>
                         <p>
@@ -42,13 +46,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('cuti.index')}}" class="nav-link{{request()->is('cuti') ? ' active' : ''}}">
+                            <a href="{{route('cuti.index')}}" class="nav-link
+                            {{request()->is('cuti') || request()->is('cuti/create') ?
+                             ' active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Pengajuan Cuti</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('izin.index') }}" class="nav-link{{request()->is('izin') ? ' active' : ''}}">
+                            <a href="{{ route('izin.index') }}" class="nav-link{{request()->is('izin') || request()->is('izin/create')||request()->is('izin') ? ' active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Pengajuan Izin</p>
                             </a>
@@ -61,7 +67,8 @@
                         </li> -->
                     </ul>
                 </li>
-                <li class="nav-item{{request()->is('cuti')  ? ' menu-open' : ''}}">
+                @can('persetujuan')
+                <li class="nav-item{{request()->is('cuti/admin') ||  request()->is('izin/admin')   ? ' menu-open' : ''}}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-plus-square"></i>
                         <p>
@@ -77,21 +84,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('izin.admin') }}" class="nav-link{{request()->is('izin') ? ' active' : ''}}">
+                            <a href="{{ route('izin.admin') }}" class="nav-link{{request()->is('izin/admin') ? ' active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Persetujuan Izin</p>
                             </a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Inactive Page</p>
-                            </a>
-                        </li> -->
                     </ul>
                 </li>
-
-                <li class="nav-item">
+                @endcan
+                <li class="nav-item {{request()->is('profil') ? ' menu-open':''}}">
                     <a href="{{route('profil.show')}}" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
@@ -101,7 +102,7 @@
                 </li>
 
                 @can('isAdmin')
-                <li class="nav-item">
+                <li class="nav-item{{request()->is('anggota') || request()->is('anggota/*') ? ' menu-open':''}}">
                     <a href="{{route('kelola.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-user-friends"></i>
                         <p>
@@ -110,7 +111,7 @@
                     </a>
                 </li>
                 @endcan
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
@@ -118,7 +119,7 @@
                             <span class="right badge badge-danger">New</span>
                         </p>
                     </a>
-                </li>
+                </li> -->
 
                 <li class="nav-item">
                     <a href="{{route('logout') }}" class="nav-link " onclick="event.preventDefault();

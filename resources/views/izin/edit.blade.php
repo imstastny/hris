@@ -1,10 +1,12 @@
 @extends('layouts.main',['title' => 'Form Pengajuan Izin'])
 @section('content')
-<div class="d-flex justify-content-end">
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
-        <i class="fas fa-trash-alt"></i>
-    </button>
+<div class="container">
+    <div class="d-flex justify-content-end">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -167,7 +169,7 @@
 
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-success">
-                    <i class="fas fa-plus-square"></i>
+                    <i class="fas fa-plus-save"></i>
                     Simpan
                 </button>
             </div>

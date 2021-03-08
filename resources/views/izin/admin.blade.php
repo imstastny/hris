@@ -14,8 +14,9 @@
         <div class="callout callout-info col-sm-12 mb-4">
             <h6><b>Informasi</b></h6>
 
-            <p>(1) Tabel berisi pengajuan anggota pada divisi anda yang belum ditanggapi oleh manajer divisi atau admin.</p>
-            <p>(2) Pastikan memeriksa pengajuan karyawan lain untuk menghindari pengajuan secara bersamaan.</p>
+            <p>(1) jika admin hrd yang login (nik = adminhrd, role_id = 1, divisi_id =1), HANYA akan menampilkan pengajuan yang sudah disetujui mandiv (acc_mandiv_id=3).
+            <p>(2)jika manajer divisi yang login(role_id = 2) HANYA akan menampilkan berdasarkan divisinya masing masing.</p>
+            <p>(3) Belum dapat di filter, masih daftar semua user</p>
         </div>
         <hr>
         <div class="row">

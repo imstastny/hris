@@ -42,24 +42,24 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('/cuti')->group(function () {
         Route::get('/', [CutiController::class, 'index'])->name('cuti.index');
-        Route::get('/admin', [CutiController::class, 'admin'])->name('cuti.admin')->middleware('can:isAdmin', 'can:isMandiv');
+        Route::get('/admin', [CutiController::class, 'admin'])->middleware('can:edit')->name('cuti.admin');
         Route::get('/create', [CutiController::class, 'create'])->name('cuti.create');
         Route::post('/create', [CutiController::class, 'store'])->name('cuti.store');
         Route::get('/{cuti:slug}', [CutiController::class, 'show']);
-        Route::get('/{cuti:slug}/edit', [CutiController::class, 'edit'])->name('cuti.edit')->middleware('can:isAdmin', 'can:isMandiv');
-        Route::patch('/{cuti:slug}/edit', [CutiController::class, 'update'])->name('cuti.update')->middleware('can:isAdmin', 'can:isMandiv');
-        Route::delete('/{cuti:slug}/delete', [CutiController::class, 'destroy'])->middleware('can:isAdmin', 'can:isMandiv');
+        Route::get('/{cuti:slug}/edit', [CutiController::class, 'edit'])->middleware('can:edit')->name('cuti.edit');
+        Route::patch('/{cuti:slug}/edit', [CutiController::class, 'update'])->middleware('can:update')->name('cuti.update');
+        Route::delete('/{cuti:slug}/delete', [CutiController::class, 'destroy'])->middleware('can:delete');
     });
 
     Route::prefix('/izin')->group(function () {
         Route::get('/', [IzinController::class, 'index'])->name('izin.index');
-        Route::get('/admin', [IzinController::class, 'admin'])->name('izin.admin')->middleware('can:isAdmin', 'can:isMandiv');
+        Route::get('/admin', [IzinController::class, 'admin'])->middleware('can:edit')->name('izin.admin');
         Route::get('/create', [IzinController::class, 'create'])->name('izin.create');
         Route::post('/create', [IzinController::class, 'store'])->name('izin.store');
         Route::get('/{izin:slug}', [IzinController::class, 'show']);
-        Route::get('/{izin:slug}/edit', [IzinController::class, 'edit'])->name('izin.edit')->middleware('can:isAdmin', 'can:isMandiv');
-        Route::patch('/{izin:slug}/edit', [IzinController::class, 'update'])->name('izin.update')->middleware('can:isAdmin', 'can:isMandiv');
-        Route::delete('/{izin:slug}/delete', [IzinController::class, 'destroy'])->middleware('can:isAdmin', 'can:isMandiv');
+        Route::get('/{izin:slug}/edit', [IzinController::class, 'edit'])->middleware('can:edit')->name('izin.edit');
+        Route::patch('/{izin:slug}/edit', [IzinController::class, 'update'])->middleware('can:update')->name('izin.update');
+        Route::delete('/{izin:slug}/delete', [IzinController::class, 'destroy'])->middleware('can:delete');
     });
 });
 
@@ -68,4 +68,4 @@ Auth::routes([
     'register' => false,
     'reset' => false
 ]);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

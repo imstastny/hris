@@ -29,6 +29,8 @@ class IzinController extends Controller
     {
         $attr = $request->all();
         $attr['slug'] = Str::random(9);
+
+        //create izin
         auth()->user()->izins()->create($attr);
         session()->flash('success', 'Permintaan anda sudah diajukan');
         session()->flash('error', 'Permintaan anda gagal diajukan');
@@ -41,42 +43,38 @@ class IzinController extends Controller
     }
     public function edit(Izin $izin)
     {
-        if (Gate::denies('isKaryawan')) {
-            return view('izin.edit', [
-                'izin' => $izin,
-                'acc_mandivs' => Acc_mandiv::get(),
-                'acc_hrds' => Acc_hrd::get(),
-            ]);
-        }
+        return view('izin.edit', [
+            'izin' => $izin,
+            'acc_mandivs' => Acc_mandiv::get(),
+            'acc_hrds' => Acc_hrd::get(),
+        ]);
     }
     public function update(IzinRequest $request, Izin $izin)
     {
-        if (Gate::denies('isKaryawan')) {
-            $attr = $request->all();
-            $attr['acc_mandiv_id'] = request('acc_mandiv');
-            $attr['acc_hrd_id'] = request('acc_hrd');
 
-            if (request('acc_mandiv') == 1) {
-                $attr['acc_hrd_id'] = 4;
-            } elseif (request('acc_mandiv') == 2) {
-                $attr['acc_hrd_id'] = 2;
-            } elseif (request('acc_mandiv') == 3 && !request('acc_hrd')) {
-                $attr['acc_hrd_id'] = 1;
-            }
-            $izin->update($attr);
+        $attr = $request->all();
+        $attr['acc_mandiv_id'] = request('acc_mandiv');
+        $attr['acc_hrd_id'] = request('acc_hrd');
 
-            session()->flash('success', 'Tanggapan anda sudah disimpan!');
-            session()->flash('error', 'Tanggapan anda gagal disimpan!');
-            return redirect(route('izin.admin'));
+        if (request('acc_mandiv') == 1) {
+            $attr['acc_hrd_id'] = 4;
+        } elseif (request('acc_mandiv') == 2) {
+            $attr['acc_hrd_id'] = 2;
+        } elseif (request('acc_mandiv') == 3 && !request('acc_hrd')) {
+            $attr['acc_hrd_id'] = 1;
         }
+        $izin->update($attr);
+
+        session()->flash('success', 'Tanggapan anda sudah disimpan!');
+        session()->flash('error', 'Tanggapan anda gagal disimpan!');
+        return redirect(route('izin.admin'));
     }
     public function destroy(Izin $izin)
     {
-        if (Gate::denies('isKaryawan')) {
-            $izin->delete();
-            session()->flash('success', 'Data pengajuan terhapus!');
-            session()->flash('error', 'Data pengajuan gagal terhapus!');
-            return redirect(route('izin.admin'));
-        }
+
+        $izin->delete();
+        session()->flash('success', 'Data pengajuan terhapus!');
+        session()->flash('error', 'Data pengajuan gagal terhapus!');
+        return redirect(route('izin.admin'));
     }
 }
