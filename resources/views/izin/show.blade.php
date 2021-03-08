@@ -10,7 +10,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>Tanggal Izin</label>
-                    <text class="form-control" id="tgl_izin" name="tgl_izin" value="{{$izin->tgl_izin}}" disabled>{{$izin->tgl_izin}}</text>
+                    <text class="form-control" id="tgl_izin" name="tgl_izin" disabled>{{\Carbon\Carbon::parse($izin->tgl_izin)->format('d/m/Y')}}</text>
                 </div>
             </div>
         </div>
@@ -18,13 +18,13 @@
             <div class="col-sm-2">
                 <div class="form-group">
                     <label for="exampleSelectRounded0">Waktu Mulai</label>
-                    <text class="form-control" id="wkt_mulai" name="wkt_mulai" disabled>{{$izin->wkt_mulai}}</text>
+                    <text class="form-control" id="wkt_mulai" name="wkt_mulai" disabled>{{$izin->wkt_mulai}}.00</text>
                 </div>
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
                     <label for="exampleSelectRounded0">Waktu Selesai</label>
-                    <text class="form-control" id="wkt_selesai" name="wkt_selesai" disabled>{{$izin->wkt_selesai}}</text>
+                    <text class="form-control" id="wkt_selesai" name="wkt_selesai" disabled>{{$izin->wkt_selesai}}.00</text>
                 </div>
             </div>
 

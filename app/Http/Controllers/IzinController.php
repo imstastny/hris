@@ -28,9 +28,7 @@ class IzinController extends Controller
     {
         $attr = $request->all();
         $attr['slug'] = Str::random(9);
-        // dd($attr);
-        Izin::create($attr);
-
+        auth()->user()->izins()->create($attr);
         session()->flash('success', 'Permintaan anda sudah diajukan');
         session()->flash('error', 'Permintaan anda gagal diajukan');
 
@@ -42,11 +40,10 @@ class IzinController extends Controller
     }
     public function edit(Izin $izin)
     {
-
         return view('izin.edit', [
             'izin' => $izin,
             'acc_mandivs' => Acc_mandiv::get(),
-            'acc_hrds' => Acc_hrd::get()
+            'acc_hrds' => Acc_hrd::get(),
         ]);
     }
     public function update(IzinRequest $request, Izin $izin)
@@ -66,7 +63,7 @@ class IzinController extends Controller
 
         session()->flash('success', 'Tanggapan anda sudah disimpan!');
         session()->flash('error', 'Tanggapan anda gagal disimpan!');
-        return redirect(route('cuti.admin'));
+        return redirect(route('izin.admin'));
     }
     public function destroy(Izin $izin)
     {

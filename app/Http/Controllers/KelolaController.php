@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 class KelolaController extends Controller
 {
@@ -25,6 +26,9 @@ class KelolaController extends Controller
     }
     public function store(UserRequest $request)
     {
+        $request->validate([
+            'password' => 'required|min:6'
+        ]);
         $attr = $request->all();
         $attr['role_id'] = request('role');
         $attr['divisi_id'] = request('divisi');
@@ -34,12 +38,21 @@ class KelolaController extends Controller
     }
     public function edit(User $user)
     {
-        return view('user.show', compact('user'));
+
+        return view('user.edit', [
+            'user' => $user,
+            'roles' => Role::get(),
+            'divisis' => Divisi::get(),
+            // 'password' => Crypt::decrypt($user->password);
+        ]);
     }
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
         $attr = $request->all();
+        $attr['role_id'] = request('role');
+        $attr['divisi_id'] = request('divisi');
         $user->update($attr);
+        return redirect(route('kelola.index'));
     }
     public function destroy(User $user)
     {

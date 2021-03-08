@@ -29,7 +29,6 @@ class UserRequest extends FormRequest
             'divisi' => 'required',
             'nik' => 'required|alpha_num|min:8|max:20',
             'email' => 'required|email',
-            'password' => 'required|min:6'
         ];
     }
 }

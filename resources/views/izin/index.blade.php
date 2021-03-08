@@ -36,18 +36,24 @@
 
                             <thead>
                                 <tr>
+                                    <th>Nama</th>
                                     <th>Tanggal Izin</th>
                                     <th>Waktu Mulai</th>
                                     <th>Waktu Selesai</th>
+                                    <th>Acc Mandiv</th>
+                                    <th>Acc HRD</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($izins as $izin)
                                 <tr>
-                                    <td>{{$izin->tgl_izin}}</td>
-                                    <td>{{$izin->wkt_mulai}}</td>
-                                    <td>{{$izin->wkt_selesai}}</td>
+                                    <td>{{$izin->user->name}}</td>
+                                    <td>{{\Carbon\Carbon::parse($izin->tgl_izin)->format('d/m/Y')}}</td>
+                                    <td>{{$izin->wkt_mulai}}.00</td>
+                                    <td>{{$izin->wkt_selesai}}.00</td>
+                                    <td>{{$izin->acc_mandiv->nama}}</td>
+                                    <td>{{$izin->acc_hrd->nama}}</td>
                                     <td>
                                         <a href="/izin/{{$izin->slug}}" class="btn btn-sm btn-info">detail</a>
                                     </td>

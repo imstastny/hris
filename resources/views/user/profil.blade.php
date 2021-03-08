@@ -10,11 +10,42 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>Nama</label>
-                    <text class="form-control" id="name" name="name" value="{{$user->name}}" disabled>{{$user->name}}</text>
+                    <p class="form-control">{{$user->name}}</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>NIK</label>
+                    <p class="form-control">{{$user->nik}}</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Jabatan</label>
+                    <p class="form-control">{{$user->role->nama}}</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Divisi</label>
+                    <p class="form-control">{{$user->divisi->nama}}</p>
                 </div>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Jumlah Cuti</label>
+                    <p class="form-control">{{count($user->cutis)}}</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Jumlah Izin</label>
+                    <p class="form-control">{{count($user->izins)}}</p>
+                </div>
+            </div>
+        </div>
 
     </div>
     <!-- /.card-body -->

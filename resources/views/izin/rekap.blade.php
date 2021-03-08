@@ -17,6 +17,10 @@
 
                             <thead>
                                 <tr>
+                                    <th>Nama</th>
+                                    <th>NIK</th>
+                                    <th>Jabatan</th>
+                                    <th>Divisi</th>
                                     <th>Tanggal Pengajuan</th>
                                     <th>Tanggal Izin</th>
                                     <th>Jam Mulai</th>
@@ -28,8 +32,12 @@
                             <tbody>
                                 @foreach($izins as $izin)
                                 <tr>
-                                    <td>{{$izin->created_at}}</td>
-                                    <td>{{$izin->tgl_izin}}</td>
+                                    <td>{{$izin->user->role->nama}}</td>
+                                    <td>{{$izin->user->nik}}</td>
+                                    <td>{{$izin->user->role->nama}}</td>
+                                    <td>{{$izin->user->divisi->nama}}</td>
+                                    <td>{{$izin->created_at->format('d/m/Y')}}</td>
+                                    <td>{{\Carbon\Carbon::parse($izin->tgl_izin)->format('d/m/Y')}}</td>
                                     <td>{{$izin->wkt_mulai}}</td>
                                     <td>{{$izin->wkt_selesai}}</td>
                                     <td>{{$izin->acc_mandiv->nama}}</td>

@@ -29,8 +29,11 @@
                             <thead>
                                 <tr>
                                     <th>Nama</th>
+                                    <th>NIK</th>
                                     <th>Jabatan</th>
                                     <th>Divisi</th>
+                                    <th>Jumlah Cuti</th>
+                                    <th>Jumlah Izin</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -38,8 +41,11 @@
                                 @foreach($users as $user)
                                 <tr>
                                     <td>{{$user->name}}</td>
+                                    <td>{{$user->nik}}</td>
                                     <td>{{$user->role->nama}}</td>
                                     <td>{{$user->divisi->nama}}</td>
+                                    <td>{{count($user->cutis)}}</td>
+                                    <td>{{count($user->izins)}}</td>
                                     <td>
                                         <a href="/anggota/{{$user->nik}}/edit" class="btn btn-sm btn-success">edit</a>
                                     </td>

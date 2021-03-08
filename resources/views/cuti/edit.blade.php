@@ -40,37 +40,38 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Nama</label>
+                    <p class="form-control">{{$cuti->user->name}}</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>NIK</label>
+                    <p class="form-control">{{$cuti->user->nik}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Jabatan</label>
+                    <p class="form-control">{{$cuti->user->role->nama}}</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Divisi</label>
+                    <p class="form-control">{{$cuti->user->divisi->nama}}</p>
+                </div>
+            </div>
+        </div>
+        <hr>
         <form action="/cuti/{{$cuti->slug}}/edit" method="post">
             @method('patch')
             @csrf
-            <!-- <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Nama</label>
-                        <input type="text" class="form-control" value="{{Auth::user()->name}}" disabled>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>NIP</label>
-                        <input type="text" class="form-control" value="1234" disabled>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Jabatan</label>
-                        <input type="text" class="form-control" value="Jabatan" disabled>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Divisi</label>
-                        <input type="text" class="form-control" value="Divisi" disabled>
-                    </div>
-                </div>
-            </div> -->
-
             <div class="row">
                 <div class="col-sm-3">
                     <div class="form-group">

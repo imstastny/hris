@@ -37,8 +37,36 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-
-        <form action="" method="post">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Nama</label>
+                    <p class="form-control">{{$izin->user->name}}</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>NIK</label>
+                    <p class="form-control">{{$izin->user->nik}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Jabatan</label>
+                    <p class="form-control">{{$izin->user->role->nama}}</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Divisi</label>
+                    <p class="form-control">{{$izin->user->divisi->nama}}</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <form action="/izin/{{$izin->slug}}/edit" method="post">
             @method('patch')
             @csrf
             <div class="row">
