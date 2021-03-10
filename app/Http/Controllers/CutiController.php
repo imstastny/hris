@@ -5,19 +5,30 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CutiRequest;
 use App\Models\{Cuti, Kategori, Acc_mandiv, Acc_hrd};
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class CutiController extends Controller
 {
     public function index()
     {
-        $cutis = Cuti::latest()->get();
+        $id = Auth::id();
+        $cutis = Cuti::where('user_id', $id)->get();
 
         return view('cuti.index', compact('cutis'));
     }
     public function admin()
     {
-        $cutis = Cuti::latest()->get();
+        $role_id = Auth::user()->role_id;
+        if ($role_id == 1) {
+            $cutis = Cuti::where('acc_mandiv_id', 3)->latest()->get();
+        } else {
+            $cutis = Cuti::whereHas('user', function ($query) {
+                $divisi_id = Auth::user()->divisi_id;
+                $query->whereDivisiId($divisi_id);
+            })->get();
+        }
         return view('cuti.admin', compact('cutis'));
     }
     public function show(Cuti $cuti)

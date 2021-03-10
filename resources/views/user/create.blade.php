@@ -50,7 +50,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>NIK</label>
-                        <input type="text" class="form-control" id="nik" name="nik">
+                        <input type="text" class="form-control" id="nik" name="nik" autocomplete="off">
                         <div class="text-danger">
                             @error('nik')
                             {{$message}}
@@ -63,7 +63,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" class="form-control" id="email" name="email">
+                        <input type="text" class="form-control" id="email" name="email" autocomplete="off">
                         <div class="text-danger">
                             @error('email')
                             {{$message}}

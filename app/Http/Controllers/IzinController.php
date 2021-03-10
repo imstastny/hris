@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\IzinRequest;
 use App\Models\{Izin, Acc_mandiv, Acc_hrd};
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 
@@ -12,11 +13,22 @@ class IzinController extends Controller
 {
     public function index()
     {
-        $izins = Izin::latest()->get();
+        $id = Auth::id();
+        $izins = Izin::where('user_id', $id)->get();
+
         return view('izin.index', compact('izins'));
     }
     public function admin()
     {
+        $role_id = Auth::user()->role_id;
+        if ($role_id == 1) {
+            $cutis = Izin::where('acc_mandiv_id', 3)->latest()->get();
+        } else {
+            $cutis = Izin::whereHas('user', function ($query) {
+                $divisi_id = Auth::user()->divisi_id;
+                $query->whereDivisiId($divisi_id);
+            })->get();
+        }
         $izins = Izin::latest()->get();
         return view('izin.admin', compact('izins'));
     }
@@ -71,7 +83,6 @@ class IzinController extends Controller
     }
     public function destroy(Izin $izin)
     {
-
         $izin->delete();
         session()->flash('success', 'Data pengajuan terhapus!');
         session()->flash('error', 'Data pengajuan gagal terhapus!');

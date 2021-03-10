@@ -27,7 +27,7 @@
                 <form action="{{ route('login') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="text" name="nik" id="nik" class="form-control" placeholder="Username">
+                        <input type="text" name="nik" id="nik" class="form-control" placeholder="Username" autocomplete="off">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>

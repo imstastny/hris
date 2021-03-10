@@ -13,8 +13,8 @@
         <div class="callout callout-info col-sm-12 mb-4">
             <h6><b>Informasi</b></h6>
 
-            <p>(1) Disini saya ingin menampilkan daftar riwayat seluruh pengajuan oleh user ini.</p>
-            <p>(2) Belum dapat di filter, masih riwayat semua user</p>
+            <p>(1) Halaman pengajuan cuti karyawan.</p>
+            <p>(2) Tabel riwayat pengajuan cuti anda.</p>
         </div>
         <div class="row">
             <div class="col-sm-12">

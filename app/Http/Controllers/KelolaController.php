@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Models\Cuti;
 use App\Models\Divisi;
+use App\Models\Izin;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
@@ -15,6 +17,20 @@ class KelolaController extends Controller
     public function index()
     {
         $users = User::all();
+        foreach ($users as $user) {
+            $cuti = Cuti::where([
+                ['user_id', '=', $user->id],
+                ['acc_hrd_id', '=', 3]
+            ])->get();
+            $izin = Izin::where([
+                ['user_id', '=', $user->id],
+                ['acc_hrd_id', '=', 3]
+            ])->get();
+        }
+
+        $user->cutis = $cuti;
+        $user->izins = $izin;
+
         return view('user.index', compact('users'));
     }
     public function create()
