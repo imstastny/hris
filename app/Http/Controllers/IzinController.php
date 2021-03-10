@@ -22,14 +22,14 @@ class IzinController extends Controller
     {
         $role_id = Auth::user()->role_id;
         if ($role_id == 1) {
-            $cutis = Izin::where('acc_mandiv_id', 3)->latest()->get();
+            $izins = Izin::where('acc_mandiv_id', 3)->latest()->get();
         } else {
-            $cutis = Izin::whereHas('user', function ($query) {
+            $izins = Izin::whereHas('user', function ($query) {
                 $divisi_id = Auth::user()->divisi_id;
                 $query->whereDivisiId($divisi_id);
             })->get();
         }
-        $izins = Izin::latest()->get();
+
         return view('izin.admin', compact('izins'));
     }
 
@@ -87,5 +87,12 @@ class IzinController extends Controller
         session()->flash('success', 'Data pengajuan terhapus!');
         session()->flash('error', 'Data pengajuan gagal terhapus!');
         return redirect(route('izin.admin'));
+    }
+    public function destroyAll()
+    {
+        Izin::truncate();
+        session()->flash('success', 'Tanggapan anda sudah disimpan!');
+        session()->flash('error', 'Tanggapan anda gagal disimpan!');
+        return redirect(route('cuti.admin'));
     }
 }

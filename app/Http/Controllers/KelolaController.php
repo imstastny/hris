@@ -21,17 +21,18 @@ class KelolaController extends Controller
             $cuti = Cuti::where([
                 ['user_id', '=', $user->id],
                 ['acc_hrd_id', '=', 3]
-            ])->get();
+            ]);
             $izin = Izin::where([
                 ['user_id', '=', $user->id],
                 ['acc_hrd_id', '=', 3]
-            ])->get();
+            ]);
         }
+        $users = User::with('cutis', 'izins')->orderBy('divisi_id', 'ASC')->get();
 
         $user->cutis = $cuti;
         $user->izins = $izin;
 
-        return view('user.index', compact('users'));
+        return view('user.index', compact('users', 'cuti', 'izin'));
     }
     public function create()
     {

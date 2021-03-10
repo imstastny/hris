@@ -87,8 +87,15 @@ class CutiController extends Controller
     public function destroy(Cuti $cuti)
     {
         $cuti->delete();
-        session()->flash('success', 'Data pengajuan terhapus!');
+        session()->flash('error', 'Data pengajuan terhapus!');
         session()->flash('error', 'Data pengajuan gagal terhapus!');
+        return redirect(route('cuti.admin'));
+    }
+    public function destroyAll()
+    {
+        Cuti::truncate();
+        session()->flash('success', 'Tanggapan anda sudah disimpan!');
+        session()->flash('error', 'Tanggapan anda gagal disimpan!');
         return redirect(route('cuti.admin'));
     }
 }
