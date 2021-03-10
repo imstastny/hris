@@ -16,24 +16,34 @@ class KelolaController extends Controller
 {
     public function index()
     {
-        $users = User::all();
-        foreach ($users as $user) {
-            $cuti = Cuti::where([
-                ['user_id', '=', $user->id],
-                ['acc_hrd_id', '=', 3]
-            ]);
-            $izin = Izin::where([
-                ['user_id', '=', $user->id],
-                ['acc_hrd_id', '=', 3]
-            ]);
-        }
-        $users = User::with('cutis', 'izins')->orderBy('divisi_id', 'ASC')->get();
+        $query = User::withCount([
+            'izins', 'cutis' => function ($query) {
+                $query->where('acc_hrd_id', 3);
+            }
+        ])->orderBy('divisi_id', 'asc')->get();
 
-        $user->cutis = $cuti;
-        $user->izins = $izin;
+        $users = ($query->toArray());
+        // dd($users);
 
-        return view('user.index', compact('users', 'cuti', 'izin'));
+        // $users = User::all();
+        // foreach ($users as $user) {
+        //     $cuti = Cuti::where([
+        //         ['user_id', '=', $user->id],
+        //         ['acc_hrd_id', '=', 3]
+        //     ]);
+        //     $izin = Izin::where([
+        //         ['user_id', '=', $user->id],
+        //         ['acc_hrd_id', '=', 3]
+        //     ]);
+        //     $users = User::with('cutis', 'izins')->orderBy('divisi_id', 'ASC')->get();
+
+        //     $user->cutis = $cuti;
+        //     $user->izins = $izin;
+        return view('user.index', compact('users'));
     }
+
+
+
     public function create()
     {
         return view('user.create', [
