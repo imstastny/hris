@@ -25,6 +25,7 @@
                                     <th>Nama</th>
                                     <th>Jabatan</th>
                                     <th>Divisi</th>
+                                    <th>Jenis Cuti</th>
                                     <th>Tanggal Mengajukan</th>
                                     <th>Tanggal Mulai</th>
                                     <th>Tanggal Selesai</th>
@@ -38,6 +39,7 @@
                                     <td>{{$cuti->user->name}}</td>
                                     <td>{{$cuti->user->role->nama}}</td>
                                     <td>{{$cuti->user->divisi->nama}}</td>
+                                    <td>{{$cuti->kategori->nama}}</td>
                                     <td>{{$cuti->created_at->format('d/m/Y')}}</td>
                                     <td>{{\Carbon\Carbon::parse($cuti->tgl_izin)->format('d/m/Y')}}</td>
                                     <td>{{\Carbon\Carbon::parse($cuti->tgl_izin)->format('d/m/Y')}}</td>

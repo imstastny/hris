@@ -41,15 +41,15 @@
                 <table class="table table-bordered">
                     <tr>
                         <td>Cuti Tahunan</td>
-                        <td>{{$cuti1}}</td>
+                        <td align="center">{{$cuti1}}</td>
                     </tr>
                     <tr>
                         <td>Cuti Haid</td>
-                        <td>{{$cuti2}}</td>
+                        <td align="center">{{$cuti2}}</td>
                     </tr>
                     <tr>
                         <td>Izin</td>
-                        <td>{{$izin}}</td>
+                        <td align="center">{{$izin}}</td>
                     </tr>
                 </table>
             </div>
