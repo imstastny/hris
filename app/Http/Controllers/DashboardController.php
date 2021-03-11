@@ -25,7 +25,7 @@ class DashboardController extends Controller
             ->join('divisis', 'users.divisi_id', '=', 'divisis.id')
             ->select('users.name', 'nik', 'divisis.nama', 'izins.wkt_mulai', 'izins.wkt_selesai')
             ->where('acc_hrd_id', 3)
-            ->whereDate('tgl_izin', '<=', Carbon::today())
+            ->whereDate('tgl_izin', '=', Carbon::today())
             ->get();
         $cuti = Cuti::count();
         $izin = Izin::count();

@@ -153,7 +153,7 @@
             </div>
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-success">
-                    <i class="fas fa-plus-save"></i>
+                    <i class="fas fa-save"></i>
                     Simpan
                 </button>
             </div>
