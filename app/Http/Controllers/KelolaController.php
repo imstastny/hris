@@ -10,19 +10,22 @@ use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Crypt;
+
 
 class KelolaController extends Controller
 {
     public function index()
     {
-        $query = User::withCount([
-            'izins', 'cutis' => function ($query) {
+        $cuti1 = User::withCount([
+            'cutis' => function ($query) {
+                $query->where('acc_hrd_id', 3);
+            },
+            'izins' => function ($query) {
                 $query->where('acc_hrd_id', 3);
             }
-        ])->orderBy('divisi_id', 'asc')->get();
+        ])->orderBy('divisi_id', 'asc')->with('role', 'divisi')->get();
 
-        $users = ($query->toArray());
+        $users = ($cuti1->toArray());
         // dd($users);
 
         // $users = User::all();
@@ -65,9 +68,26 @@ class KelolaController extends Controller
     }
     public function edit(User $user)
     {
+        $cuti1 = Cuti::where([
+            ['user_id', '=', $user->id],
+            ['kategori_id', '=', 1],
+            ['acc_hrd_id', '=', 3]
+        ])->count();
+        $cuti2 = Cuti::where([
+            ['user_id', '=', $user->id],
+            ['kategori_id', '=', 1],
+            ['acc_hrd_id', '=', 3]
+        ])->count();
+        $izin = Izin::where([
+            ['user_id', '=', $user->id],
+            ['acc_hrd_id', '=', 3]
+        ])->count();
 
         return view('user.edit', [
             'user' => $user,
+            'cuti1' => $cuti1,
+            'cuti2' => $cuti2,
+            'izin' => $izin,
             'roles' => Role::get(),
             'divisis' => Divisi::get(),
             // 'password' => Crypt::decrypt($user->password);

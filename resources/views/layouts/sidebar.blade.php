@@ -34,6 +34,7 @@
                     </a>
 
                 </li>
+                @can('pengajuan')
                 <li class="nav-item
                 {{request()->is('cuti') || request()->is('cuti/create') || request()->is('izin') || request()->is('izin/create')  ? 
                 ' menu-open' : ''}}">
@@ -67,6 +68,7 @@
                         </li> -->
                     </ul>
                 </li>
+                @endcan
                 @can('persetujuan')
                 <li class="nav-item{{request()->is('cuti/admin') ||  request()->is('izin/admin')   ? ' menu-open' : ''}}">
                     <a href="#" class="nav-link">

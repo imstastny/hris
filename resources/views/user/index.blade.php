@@ -42,22 +42,13 @@
                                 <tr>
                                     <td>{{$user['name']}}</td>
                                     <td>{{$user['nik']}}</td>
-                                    @switch($user['role_id'])
-                                    @case(1)<td>Admin</td>@break
-                                    @case(2)<td>Manajer Divisi</td> @break
-                                    @case(3)<td>Karyawan</td>@break
-                                    @endswitch
-
-                                    @switch($user['divisi_id'])
-                                    @case(1)<td>Divisi Admin</td>@break
-                                    @case(2)<td>Divisi A</td> @break
-                                    @case(3)<td>Divisi B</td>@break
-                                    @case(4)<td>Divisi C</td>@break
-                                    @case(5)<td>Divisi D</td>@break
-                                    @endswitch
-
+                                    <td>{{$user['role']['nama']}}</td>
+                                    <td>{{$user['divisi']['nama']}}</td>
                                     <td>{{$user['cutis_count']}}</td>
                                     <td>{{$user['izins_count']}}</td>
+                                    <td>
+                                        <a href="/anggota/{{$user['nik']}}/edit" class="btn btn-sm btn-info">detail</a>
+                                    </td>
 
 
                                 </tr>

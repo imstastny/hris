@@ -12,18 +12,22 @@ class ProfilController extends Controller
     public function show()
     {
         $user = Auth::user();
-        $cuti = Cuti::where([
+        $cuti1 = Cuti::where([
             ['user_id', '=', $user->id],
+            ['kategori_id', '=', 1],
             ['acc_hrd_id', '=', 3]
-        ])->get();
+        ])->count();
+        $cuti2 = Cuti::where([
+            ['user_id', '=', $user->id],
+            ['kategori_id', '=', 1],
+            ['acc_hrd_id', '=', 3]
+        ])->count();
         $izin = Izin::where([
             ['user_id', '=', $user->id],
             ['acc_hrd_id', '=', 3]
-        ])->get();
+        ])->count();
 
-        $user->cutis = $cuti;
-        $user->izins = $izin;
 
-        return view('user.profil', compact('user', 'cuti', 'izin'));
+        return view('user.profil', compact('user', 'cuti1', 'cuti2', 'izin'));
     }
 }

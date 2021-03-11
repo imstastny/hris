@@ -36,17 +36,22 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Jumlah Cuti</label>
-                    <p class="form-control">{{count($cuti)}}</p>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Jumlah Izin</label>
-                    <p class="form-control">{{count($izin)}}</p>
-                </div>
+            <div class="col-sm-4">
+                <label>Rekap Izin dan Cuti Karyawan</label>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Cuti Tahunan</td>
+                        <td>{{$cuti1}}</td>
+                    </tr>
+                    <tr>
+                        <td>Cuti Haid</td>
+                        <td>{{$cuti2}}</td>
+                    </tr>
+                    <tr>
+                        <td>Izin</td>
+                        <td>{{$izin}}</td>
+                    </tr>
+                </table>
             </div>
         </div>
 

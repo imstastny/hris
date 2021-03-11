@@ -50,8 +50,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>NIK</label>
@@ -75,8 +73,7 @@
                         </select>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Divisi</label>
@@ -87,8 +84,7 @@
                         </select>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Email</label>
@@ -101,19 +97,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <!-- <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" id="password" name="password" value="{{old('password') ?? $user->password}}" autocomplete="off">
-                        <div class="text-danger">
-                            @error('password')
-                            {{$message}}
-                            @enderror
-                        </div>
-                    </div>
-                </div> -->
-            </div>
+
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-success">
                     <i class="fas fa-save"></i>
@@ -121,6 +105,25 @@
                 </button>
             </div>
         </form>
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Rekap Izin dan Cuti Karyawan</label>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Cuti Tahunan</td>
+                        <td>{{$cuti1}}</td>
+                    </tr>
+                    <tr>
+                        <td>Cuti Haid</td>
+                        <td>{{$cuti2}}</td>
+                    </tr>
+                    <tr>
+                        <td>Izin</td>
+                        <td>{{$izin}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
     </div>
     <!-- /.card-body -->
