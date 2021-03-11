@@ -34,8 +34,9 @@
             <div class="col-sm-6">
                 <!-- textarea -->
                 <div class="form-group">
-                    <label>Keterangan</label>
-                    <text class="form-control" rows="3" id="keterangan" name="keterangan">{{$izin->keterangan}}</text>
+                    <label>Deskripsi</label>
+
+                    <p>{!! nl2br($izin->keterangan) !!}</p>
                 </div>
             </div>
             <!-- <div class="col-sm-6">
@@ -50,26 +51,26 @@
                     </div>
                 </div> -->
         </div>
-        <div class="flex">
+        <div class="row">
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>Acc Mandiv</label>
                     <text class="form-control" id="acc_mandiv" name="acc_mandiv" value="" disabled>{{$izin->acc_mandiv->nama}}</text>
                 </div>
             </div>
-        </div>
-        @if($izin->acc_mandiv_id >= 2)
-        <div class="col-sm-3">
-            <div class="form-group">
-                <label>Acc HRD</label>
-                <text class="form-control" id="acc_mandiv" name="acc_mandiv" value="" disabled>{{$izin->acc_hrd->nama}}</text>
+
+            @if($izin->acc_mandiv_id >= 2)
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Acc HRD</label>
+                    <text class="form-control" id="acc_mandiv" name="acc_mandiv" value="" disabled>{{$izin->acc_hrd->nama}}</text>
+                </div>
             </div>
         </div>
-    </div>
-    @endif
+        @endif
 
-</div>
-<!-- /.card-body -->
+    </div>
+    <!-- /.card-body -->
 </div>
 
 @endsection

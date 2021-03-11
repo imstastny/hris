@@ -67,6 +67,7 @@ class CutiController extends Controller
             'acc_hrds' => Acc_hrd::get(),
         ]);
     }
+
     public function update(CutiRequest $request, Cuti $cuti)
     {
         $attr = $request->all();
