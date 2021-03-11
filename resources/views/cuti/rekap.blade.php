@@ -23,12 +23,13 @@
                             <thead>
                                 <tr>
                                     <th>Nama</th>
+                                    <th>NIK</th>
                                     <th>Jabatan</th>
                                     <th>Divisi</th>
                                     <th>Jenis Cuti</th>
-                                    <th>Tanggal Mengajukan</th>
-                                    <th>Tanggal Mulai</th>
-                                    <th>Tanggal Selesai</th>
+                                    <th>Mengajukan</th>
+                                    <th>Mulai</th>
+                                    <th>Selesai</th>
                                     <th>Acc Mandiv</th>
                                     <th>Acc HRD</th>
                                 </tr>
@@ -37,6 +38,7 @@
                                 @foreach($cutis as $cuti)
                                 <tr>
                                     <td>{{$cuti->user->name}}</td>
+                                    <td>{{$cuti->user->nik}}</td>
                                     <td>{{$cuti->user->role->nama}}</td>
                                     <td>{{$cuti->user->divisi->nama}}</td>
                                     <td>{{$cuti->kategori->nama}}</td>

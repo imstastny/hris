@@ -19,7 +19,7 @@ class ProfilController extends Controller
         ])->count();
         $cuti2 = Cuti::where([
             ['user_id', '=', $user->id],
-            ['kategori_id', '=', 1],
+            ['kategori_id', '=', 2],
             ['acc_hrd_id', '=', 3]
         ])->count();
         $izin = Izin::where([
