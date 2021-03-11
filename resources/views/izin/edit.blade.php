@@ -143,7 +143,7 @@
                 </div> -->
             </div>
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-3" {{$role == 2 ? '' :'hidden'}}>
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Acc Mandiv</label>
                         <select class="custom-select rounded-0" id="acc_mandiv" name="acc_mandiv">
@@ -153,8 +153,8 @@
                         </select>
                     </div>
                 </div>
-                @if($izin->acc_mandiv_id == 3)
-                <div class="col-sm-3">
+
+                <div class="col-sm-3" {{$izin->acc_mandiv_id == 3 && $role == 1 ? '' :'hidden'}}>
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Acc HRD</label>
                         <select class="custom-select rounded-0" id="acc_hrd" name="acc_hrd">
@@ -164,7 +164,6 @@
                         </select>
                     </div>
                 </div>
-                @endif
             </div>
 
             <div class="row justify-content-center">

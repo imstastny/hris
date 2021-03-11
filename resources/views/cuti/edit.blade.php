@@ -130,8 +130,7 @@
                 </div> -->
             </div>
             <div class="row">
-                @if($role == 2)
-                <div class="col-sm-3">
+                <div class="col-sm-3" {{$role == 2  ?  '' : 'hidden' }}>
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Acc Mandiv</label>
                         <select class="custom-select rounded-0" id="acc_mandiv" name="acc_mandiv">
@@ -141,16 +140,7 @@
                         </select>
                     </div>
                 </div>
-                @endif
-                @if( $cuti->acc_mandiv_id == 3 && $role == 1)
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="exampleSelectRounded0">Acc Mandiv</label>
-                        <p class="form-control">{{$cuti->acc_mandiv->nama}}</p>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
+                <div class="col-sm-3" {{$cuti->acc_mandiv_id == 3 && $role == 1 ? '' :'hidden'}}>
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Acc HRD</label>
                         <select class="custom-select rounded-0" id="acc_hrd" name="acc_hrd">
@@ -160,11 +150,10 @@
                         </select>
                     </div>
                 </div>
-                @endif
             </div>
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-success">
-                    <i class="fas fa-save"></i>
+                    <i class="fas fa-plus-save"></i>
                     Simpan
                 </button>
             </div>

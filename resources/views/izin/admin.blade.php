@@ -71,12 +71,18 @@
                                     <th>Tanggal Izin</th>
                                     <th>Waktu Mulai</th>
                                     <th>Waktu Selesai</th>
+                                    <th>Acc Mandiv</th>
+                                    <th>Acc HRD</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($izins as $izin)
+                                @if($izin->acc_mandiv_id == 1 || $izin->acc_hrd_id == 1)
+                                <tr style="color:tomato;">
+                                    @else
                                 <tr>
+                                    @endif
                                     <td>{{$izin->user->name}}</td>
                                     <td>{{$izin->user->nik}}</td>
                                     <td>{{$izin->user->role->nama}}</td>
@@ -84,6 +90,8 @@
                                     <td>{{\Carbon\Carbon::parse($izin->tgl_izin)->format('d/m/Y')}}</td>
                                     <td>{{$izin->wkt_mulai}}.00</td>
                                     <td>{{$izin->wkt_selesai}}.00</td>
+                                    <td>{{$izin->acc_mandiv->nama}}</td>
+                                    <td>{{$izin->acc_hrd->nama}}</td>
                                     <td>
                                         <a href="/izin/{{$izin->slug}}/edit" class="btn btn-sm btn-info">detail</a>
                                     </td>

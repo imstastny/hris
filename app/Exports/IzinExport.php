@@ -8,7 +8,7 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\withHeadings;
 use Maatwebsite\Excel\Concerns\withMapping;
 
-class CutiExport implements FromCollection, withMapping, withHeadings
+class IzinExport implements FromCollection, withMapping, withHeadings
 {
     /**
      * @return \Illuminate\Support\Collection
@@ -40,8 +40,8 @@ class CutiExport implements FromCollection, withMapping, withHeadings
             'Divisi',
             'Mengajukan',
             'Tanggal Izin',
-            'Waktu Mulai',
-            'Waktu Selesai',
+            'Mulai',
+            'Selesai',
             'Acc Mandiv',
             'Acc HRD'
         ];

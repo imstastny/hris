@@ -58,7 +58,7 @@
                 <!-- textarea -->
                 <div class="form-group">
                     <label>Deskripsi</label>
-                    <textarea class="form-control" rows="3" disabled>{{$cuti->keterangan}}</textarea>
+                    <textarea class="form-control" rows="3" disabled>{!! nl2br($cuti->keterangan)!!}</textarea>
                 </div>
             </div>
             <!-- <div class="col-sm-6">

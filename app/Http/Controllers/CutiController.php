@@ -28,7 +28,7 @@ class CutiController extends Controller
             $cutis = Cuti::whereHas('user', function ($query) {
                 $divisi_id = Auth::user()->divisi_id;
                 $query->whereDivisiId($divisi_id);
-            })->get();
+            })->latest()->get();
         }
         return view('cuti.admin', compact('cutis'));
     }
@@ -79,6 +79,8 @@ class CutiController extends Controller
         } elseif (request('acc_mandiv') == 2) {
             $attr['acc_hrd_id'] = 2;
         } elseif (request('acc_mandiv') == 3 && !request('acc_hrd')) {
+            $attr['acc_hrd_id'] = 1;
+        } elseif (request('acc_mandiv') == 3 && request('acc_hrd') == 4) {
             $attr['acc_hrd_id'] = 1;
         }
         $cuti->update($attr);

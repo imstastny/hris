@@ -58,7 +58,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin', [IzinController::class, 'admin'])->middleware('can:edit')->name('izin.admin');
         Route::get('/create', [IzinController::class, 'create'])->name('izin.create');
         Route::post('/create', [IzinController::class, 'store'])->name('izin.store');
-        Route::get('/export', [CutiController::class, 'export'])->middleware('can:isAdmin')->name('izin.export');
+        Route::get('/export', [IzinController::class, 'export'])->middleware('can:isAdmin')->name('izin.export');
         Route::delete('/delete-all', [IzinController::class, 'destroyAll'])->middleware('can:isAdmin')->name('izin.delete.all');
         Route::get('/{izin:slug}', [IzinController::class, 'show']);
         Route::get('/{izin:slug}/edit', [IzinController::class, 'edit'])->middleware('can:edit')->name('izin.edit');

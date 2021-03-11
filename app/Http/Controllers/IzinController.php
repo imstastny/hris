@@ -57,7 +57,9 @@ class IzinController extends Controller
     }
     public function edit(Izin $izin)
     {
+        $role_id = Auth::user()->role_id;
         return view('izin.edit', [
+            'role' => $role_id,
             'izin' => $izin,
             'acc_mandivs' => Acc_mandiv::get(),
             'acc_hrds' => Acc_hrd::get(),
@@ -75,6 +77,8 @@ class IzinController extends Controller
         } elseif (request('acc_mandiv') == 2) {
             $attr['acc_hrd_id'] = 2;
         } elseif (request('acc_mandiv') == 3 && !request('acc_hrd')) {
+            $attr['acc_hrd_id'] = 1;
+        } elseif (request('acc_mandiv') == 3 && request('acc_hrd') == 4) {
             $attr['acc_hrd_id'] = 1;
         }
         $izin->update($attr);
@@ -99,7 +103,7 @@ class IzinController extends Controller
     }
     public function export()
     {
-        return Excel::download(new IzinExport(), 'rekap-cuti.xlsx');
-        return redirect("route('rekap.cuti')");
+        return Excel::download(new IzinExport(), 'rekap-izin.xlsx');
+        return redirect("route('rekap.izin')");
     }
 }
