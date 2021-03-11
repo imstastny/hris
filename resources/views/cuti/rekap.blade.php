@@ -49,8 +49,8 @@
                                 <td>{{$cuti->user->divisi->nama}}</td>
                                 <td>{{$cuti->kategori->nama}}</td>
                                 <td>{{$cuti->created_at->format('d/m/Y')}}</td>
-                                <td>{{\Carbon\Carbon::parse($cuti->tgl_izin)->format('d/m/Y')}}</td>
-                                <td>{{\Carbon\Carbon::parse($cuti->tgl_izin)->format('d/m/Y')}}</td>
+                                <td>{{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</td>
+                                <td>{{\Carbon\Carbon::parse($cuti->tgl_selesai)->format('d/m/Y')}}</td>
                                 <td>{{$cuti->acc_mandiv->nama}}</td>
                                 <td>{{$cuti->acc_hrd->nama}}</td>
                             </tr>

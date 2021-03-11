@@ -74,11 +74,44 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($isCuti as $is)
                                 <tr>
-                                    <td>Nama</td>
-                                    <td>NIK</td>
-                                    <td>Divisi</td>
+                                    <td>{{$is->name}}</td>
+                                    <td>{{$is->nik}}</td>
+                                    <td>{{$is->nama}}</td>
                                 </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><strong>Daftar Karyawan Izin Hari ini</strong></h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+
+                            <thead>
+                                <tr>
+                                    <th>Nama</th>
+                                    <th>NIK</th>
+                                    <th>Divisi</th>
+                                    <th>Waktu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($isIzin as $isizin)
+                                <tr>
+                                    <td>{{$isizin->name}}</td>
+                                    <td>{{$isizin->nik}}</td>
+                                    <td>{{$isizin->nama}}</td>
+                                    <td>{{$isizin->wkt_mulai}}.00 - {{$isizin->wkt_selesai}}.00</td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
