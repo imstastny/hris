@@ -130,6 +130,7 @@
                 </div> -->
             </div>
             <div class="row">
+                @if($role == 2)
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Acc Mandiv</label>
@@ -140,7 +141,8 @@
                         </select>
                     </div>
                 </div>
-                @if( $cuti->acc_mandiv_id == 3)
+                @endif
+                @if( $cuti->acc_mandiv_id == 3 && $role == 1)
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Acc HRD</label>

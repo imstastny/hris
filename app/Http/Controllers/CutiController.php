@@ -58,8 +58,9 @@ class CutiController extends Controller
     }
     public function edit(Cuti $cuti)
     {
-
+        $role_id = Auth::user()->role_id;
         return view('cuti.edit', [
+            'role' => $role_id,
             'cuti' => $cuti,
             'kategoris' => Kategori::get(),
             'acc_mandivs' => Acc_mandiv::get(),

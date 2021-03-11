@@ -18,7 +18,9 @@
             <p>(2)jika manajer divisi yang login(role_id = 2) HANYA akan menampilkan berdasarkan divisinya masing masing.</p>
             <p>(3) Belum dapat di filter, masih daftar semua user</p>
         </div>
+        @can('isAdmin')
         <div class="row">
+
             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
                 <i class="fas fa-trash-alt">
                 </i> Hapus Semua Data Izin
@@ -48,6 +50,7 @@
                 </div>
             </div>
         </div>
+        @endcan
         <hr>
         <div class="row">
             <div class="col-12">
