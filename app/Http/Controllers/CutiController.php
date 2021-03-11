@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CutiRequest;
 use App\Models\{Cuti, Kategori, Acc_mandiv, Acc_hrd};
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use App\Exports\CutiExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CutiController extends Controller
 {
@@ -57,6 +58,7 @@ class CutiController extends Controller
     }
     public function edit(Cuti $cuti)
     {
+
         return view('cuti.edit', [
             'cuti' => $cuti,
             'kategoris' => Kategori::get(),
@@ -97,5 +99,10 @@ class CutiController extends Controller
         session()->flash('success', 'Tanggapan anda sudah disimpan!');
         session()->flash('error', 'Tanggapan anda gagal disimpan!');
         return redirect(route('cuti.admin'));
+    }
+    public function export()
+    {
+        return Excel::download(new CutiExport(), 'rekap-cuti.xlsx');
+        return redirect("route('rekap.cuti')");
     }
 }

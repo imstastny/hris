@@ -5,6 +5,13 @@
 </div>
 <section class="container">
     <div class="container-fluid">
+        @can('isAdmin')
+        <div class="d-flex">
+            <a href="{{ route('izin.export') }}" class="btn btn-success">
+                <i class="fas fa-print"></i>
+                Print</a>
+        </div>
+        @endcan
         <div class="row">
             <div class="col-12">
                 <div class="card">

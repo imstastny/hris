@@ -140,7 +140,7 @@
                         </select>
                     </div>
                 </div>
-                @if($cuti->acc_mandiv_id == 3)
+                @if( $cuti->acc_mandiv_id == 3)
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Acc HRD</label>

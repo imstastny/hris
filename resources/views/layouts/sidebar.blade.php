@@ -72,7 +72,7 @@
                 @can('persetujuan')
                 <li class="nav-item{{request()->is('cuti/admin') ||  request()->is('izin/admin')   ? ' menu-open' : ''}}">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-plus-square"></i>
+                        <i class="nav-icon fas fa-check-square"></i>
                         <p>
                             Persetujuan
                             <i class="right fas fa-angle-left"></i>

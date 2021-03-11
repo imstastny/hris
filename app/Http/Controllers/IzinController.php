@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
+use App\Exports\IzinExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class IzinController extends Controller
 {
@@ -94,5 +96,10 @@ class IzinController extends Controller
         session()->flash('success', 'Tanggapan anda sudah disimpan!');
         session()->flash('error', 'Tanggapan anda gagal disimpan!');
         return redirect(route('cuti.admin'));
+    }
+    public function export()
+    {
+        return Excel::download(new IzinExport(), 'rekap-cuti.xlsx');
+        return redirect("route('rekap.cuti')");
     }
 }
