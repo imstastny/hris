@@ -36,6 +36,20 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Email</label>
+                    <p class="form-control">{{$user->email}}</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Gender</label>
+                    <p class="form-control">{{$user->gender}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-4">
                 <label>Rekap Izin dan Cuti Karyawan</label>
                 <table class="table table-bordered">

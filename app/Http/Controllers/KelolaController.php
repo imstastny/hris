@@ -57,7 +57,9 @@ class KelolaController extends Controller
     public function store(UserRequest $request)
     {
         $request->validate([
-            'password' => 'required|min:6'
+            'nik' => 'required|unique:users|alpha_num|min:3|max:20',
+            'password' => 'required|min:6',
+            'email' => 'required|email|unique:users',
         ]);
         $attr = $request->all();
         $attr['role_id'] = request('role');
@@ -89,8 +91,7 @@ class KelolaController extends Controller
             'cuti2' => $cuti2,
             'izin' => $izin,
             'roles' => Role::get(),
-            'divisis' => Divisi::get(),
-            // 'password' => Crypt::decrypt($user->password);
+            'divisis' => Divisi::get()
         ]);
     }
     public function update(UserRequest $request, User $user)

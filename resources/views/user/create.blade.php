@@ -10,26 +10,37 @@
         <form action="{{ route('kelola.store') }}" method="post">
             @csrf
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Jabatan</label>
                         <select class="custom-select rounded-0" id="role" name="role">
+                            <option disabled selected>-Pilih Jabatan-</option>
                             @foreach($roles as $role)
                             <option value="{{$role->id}}">{{$role->nama}}</option>
                             @endforeach
                         </select>
+                        <div class="text-danger">
+                            @error('role')
+                            {{$message}}
+                            @enderror
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
+
+                <div class="col-sm-6">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Divisi</label>
                         <select class="custom-select rounded-0" id="divisi" name="divisi">
+                            <option disabled selected>-Pilih Divisi-</option>
                             @foreach($divisis as $divisi)
                             <option value="{{$divisi->id}}">{{$divisi->nama}}</option>
                             @endforeach
                         </select>
+                        <div class="text-danger">
+                            @error('divisi')
+                            {{$message}}
+                            @enderror
+                        </div>
                     </div>
                 </div>
             </div>
@@ -45,8 +56,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>NIK</label>
@@ -57,6 +67,24 @@
                             @enderror
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="exampleSelectRounded0">Gender</label>
+                        <select class="custom-select rounded-0" id="gender" name="gender">
+                            <option disabled selected>-Pilih Gender-</option>
+                            <option value="Pria">Pria</option>
+                            <option value="Wanita">Wanita</option>
+                        </select>
+                        <div class="text-danger">
+                            @error('gender')
+                            {{$message}}
+                            @enderror
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="row">

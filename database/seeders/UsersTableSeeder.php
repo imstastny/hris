@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => 1,
                 'divisi_id' => 1,
                 'nik' => 'adminhrd',
+                'gender' => 'Pria',
                 'password' => bcrypt('password'),
                 'email' => 'admin@mail.com'
             ]
