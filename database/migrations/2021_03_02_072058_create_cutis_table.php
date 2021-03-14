@@ -20,6 +20,7 @@ class CreateCutisTable extends Migration
             $table->date('tgl_mulai');
             $table->date('tgl_selesai');
             $table->text('keterangan');
+            $table->string('lampiran')->nullable();
             $table->timestamps();
         });
     }

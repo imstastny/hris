@@ -21,6 +21,7 @@ class CreateIzinsTable extends Migration
             $table->tinyInteger('wkt_mulai');
             $table->tinyInteger('wkt_selesai');
             $table->text('keterangan');
+            $table->string('lampiran')->nullable();
             $table->timestamps();
         });
     }

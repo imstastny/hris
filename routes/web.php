@@ -43,10 +43,11 @@ Route::middleware('auth')->group(function () {
     Route::prefix('/cuti')->group(function () {
         Route::get('/', [CutiController::class, 'index'])->name('cuti.index');
         Route::get('/admin', [CutiController::class, 'admin'])->middleware('can:edit')->name('cuti.admin');
-        Route::get('/create', [CutiController::class, 'create'])->name('cuti.create');
+        Route::get('/create', [CutiController::class, 'create'])->middleware('can:pengajuan')->name('cuti.create');
         Route::post('/create', [CutiController::class, 'store'])->name('cuti.store');
         Route::get('/export', [CutiController::class, 'export'])->middleware('can:isAdmin')->name('cuti.export');
         Route::delete('/delete-all', [CutiController::class, 'destroyAll'])->middleware('can:isAdmin')->name('cuti.delete.all');
+        Route::get('/lampiran/{cuti:slug}', [CutiController::class, 'lampiran'])->name('cuti.lampiran');
         Route::get('/{cuti:slug}', [CutiController::class, 'show']);
         Route::get('/{cuti:slug}/edit', [CutiController::class, 'edit'])->middleware('can:edit')->name('cuti.edit');
         Route::patch('/{cuti:slug}/edit', [CutiController::class, 'update'])->middleware('can:update')->name('cuti.update');
@@ -56,10 +57,11 @@ Route::middleware('auth')->group(function () {
     Route::prefix('/izin')->group(function () {
         Route::get('/', [IzinController::class, 'index'])->name('izin.index');
         Route::get('/admin', [IzinController::class, 'admin'])->middleware('can:edit')->name('izin.admin');
-        Route::get('/create', [IzinController::class, 'create'])->name('izin.create');
+        Route::get('/create', [IzinController::class, 'create'])->middleware('can:pengajuan')->name('izin.create');
         Route::post('/create', [IzinController::class, 'store'])->name('izin.store');
         Route::get('/export', [IzinController::class, 'export'])->middleware('can:isAdmin')->name('izin.export');
         Route::delete('/delete-all', [IzinController::class, 'destroyAll'])->middleware('can:isAdmin')->name('izin.delete.all');
+        Route::get('/lampiran/{izin:slug}', [IzinController::class, 'lampiran'])->name('izin.lampiran');
         Route::get('/{izin:slug}', [IzinController::class, 'show']);
         Route::get('/{izin:slug}/edit', [IzinController::class, 'edit'])->middleware('can:edit')->name('izin.edit');
         Route::patch('/{izin:slug}/edit', [IzinController::class, 'update'])->middleware('can:update')->name('izin.update');

@@ -41,8 +41,17 @@ class IzinController extends Controller
     }
     public function store(IzinRequest $request)
     {
+        $divisi_id = Auth::user()->divisi_id;
+        $lampiran = request()->file('lampiran');
+        $lampiranUrl = $lampiran->store("images/izin");
         $attr = $request->all();
         $attr['slug'] = Str::random(9);
+        $attr['lampiran'] = $lampiranUrl;
+
+        if ($divisi_id == 5) {
+            $attr['acc_mandiv_id'] = 3;
+        }
+
 
         //create izin
         auth()->user()->izins()->create($attr);
@@ -67,7 +76,7 @@ class IzinController extends Controller
     }
     public function update(IzinRequest $request, Izin $izin)
     {
-
+        $role_id = Auth::user()->role_id;
         $attr = $request->all();
         $attr['acc_mandiv_id'] = request('acc_mandiv');
         $attr['acc_hrd_id'] = request('acc_hrd');
@@ -79,6 +88,8 @@ class IzinController extends Controller
         } elseif (request('acc_mandiv') == 3 && !request('acc_hrd')) {
             $attr['acc_hrd_id'] = 1;
         } elseif (request('acc_mandiv') == 3 && request('acc_hrd') == 4) {
+            $attr['acc_hrd_id'] = 1;
+        } elseif (request('acc_mandiv') == 3 && request('acc_hrd') == 2 && $role_id == 2) {
             $attr['acc_hrd_id'] = 1;
         }
         $izin->update($attr);
@@ -105,5 +116,9 @@ class IzinController extends Controller
     {
         return Excel::download(new IzinExport(), 'rekap-izin.xlsx');
         return redirect("route('rekap.izin')");
+    }
+    public function lampiran(Izin $izin)
+    {
+        return view('izin.lampiran', compact('izin'));
     }
 }

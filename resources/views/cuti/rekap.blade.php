@@ -2,11 +2,9 @@
 @section('content')
 <div class="card card-info col-sm-12 p-0">
     <div class="card-header">
-        <h1 class="card-title">Daftar Pengajuan Cuti</h1>
+        <h1 class="card-title">Rekap Pengajuan Cuti Karyawan</h1>
     </div>
 </div>
-@include('layouts.alert')
-
 <section class="container">
 
     <div class="container-fluid">

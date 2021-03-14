@@ -13,8 +13,7 @@
         <div class="callout callout-info col-sm-12 mb-4">
             <h6><b>Informasi</b></h6>
 
-            <p>(1) Disini saya ingin menampilkan daftar riwayat seluruh pengajuan oleh user ini.</p>
-            <p>(2) Belum dapat di filter, masih riwayat semua user</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed condimentum nunc, in porta sapien. Vestibulum lacinia est magna. Suspendisse at venenatis risus, nec laoreet eros. Donec ex diam, dapibus sed rhoncus sit amet, rhoncus sit amet nulla. Fusce commodo dapibus velit. Etiam dui sapien, sollicitudin vel quam eget, mollis tempor lacus.</p>
         </div>
         <div class="row">
             <div class="col-sm-12">
@@ -28,7 +27,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title"><strong>Rekap Permohonan Izin Karyawan</strong></h3>
+                        <h3 class="card-title"><strong>Riwayat Pengajuan Izin Anda</strong></h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">

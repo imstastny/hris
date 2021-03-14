@@ -39,17 +39,12 @@
                     <p>{!! nl2br($izin->keterangan) !!}</p>
                 </div>
             </div>
-            <!-- <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="exampleInputFile">Lampiran(optional)</label>
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+            <div class="col-sm-6">
+                <label>Lampiran</label><br>
+                <a href="/izin/lampiran/{{$izin->slug}}" target="_blank">
+                    <img class="img-fluid" src="{{asset($izin->takeImageIzin)}}" width="100" height="120">
+                </a>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-3">

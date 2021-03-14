@@ -9,7 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 class Izin extends Model
 {
     use HasFactory;
-    protected $fillable = ['slug', 'user_id', 'acc_mandiv_id', 'acc_hrd_id', 'tgl_izin', 'wkt_mulai', 'wkt_selesai', 'keterangan'];
+    protected $fillable = ['slug', 'user_id', 'acc_mandiv_id', 'acc_hrd_id', 'tgl_izin', 'wkt_mulai', 'wkt_selesai', 'keterangan', 'lampiran'];
+    public function getTakeImageIzinAttribute()
+    {
+        return "/storage/" . $this->lampiran;
+    }
     public function user()
     {
         return $this->belongsTo(User::class);

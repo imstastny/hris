@@ -14,9 +14,7 @@
         <div class="callout callout-info col-sm-12 mb-4">
             <h6><b>Informasi</b></h6>
 
-            <p>(1) jika admin hrd yang login (nik = adminhrd, role_id = 1, divisi_id =1), HANYA akan menampilkan pengajuan yang sudah disetujui mandiv (acc_mandiv_id=3).
-            <p>(2)jika manajer divisi yang login(role_id = 2) HANYA akan menampilkan berdasarkan divisinya masing masing.</p>
-            <p>(3) Belum dapat di filter, masih daftar semua user</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed condimentum nunc, in porta sapien. Vestibulum lacinia est magna. Suspendisse at venenatis risus, nec laoreet eros. Donec ex diam, dapibus sed rhoncus sit amet, rhoncus sit amet nulla. Fusce commodo dapibus velit. Etiam dui sapien, sollicitudin vel quam eget, mollis tempor lacus.</p>
         </div>
         @can('isAdmin')
         <div class="row">

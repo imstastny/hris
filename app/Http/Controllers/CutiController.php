@@ -46,9 +46,17 @@ class CutiController extends Controller
     }
     public function store(CutiRequest $request)
     {
+        $divisi_id = Auth::user()->divisi_id;
+        $lampiran = request()->file('lampiran');
+        $lampiranUrl = $lampiran->store("images/cuti");
         $attr = $request->all();
         $attr['slug'] = Str::random(9);
         $attr['kategori_id'] = request('kategori');
+        $attr['lampiran'] = $lampiranUrl;
+        if ($divisi_id == 5) {
+            $attr['acc_mandiv_id'] = 3;
+            $attr['acc_hrd_id'] = 1;
+        }
         // dd($attr);
         auth()->user()->cutis()->create($attr);
         session()->flash('success', 'Permintaan anda sudah diajukan');
@@ -70,6 +78,7 @@ class CutiController extends Controller
 
     public function update(CutiRequest $request, Cuti $cuti)
     {
+        $role_id = Auth::user()->role_id;
         $attr = $request->all();
         $attr['kategori_id'] = request('kategori');
         $attr['acc_mandiv_id'] = request('acc_mandiv');
@@ -82,6 +91,8 @@ class CutiController extends Controller
         } elseif (request('acc_mandiv') == 3 && !request('acc_hrd')) {
             $attr['acc_hrd_id'] = 1;
         } elseif (request('acc_mandiv') == 3 && request('acc_hrd') == 4) {
+            $attr['acc_hrd_id'] = 1;
+        } elseif (request('acc_mandiv') == 3 && request('acc_hrd') == 2 && $role_id == 2) {
             $attr['acc_hrd_id'] = 1;
         }
         $cuti->update($attr);
@@ -108,5 +119,9 @@ class CutiController extends Controller
     {
         return Excel::download(new CutiExport(), 'rekap-cuti.xlsx');
         return redirect("route('rekap.cuti')");
+    }
+    public function lampiran(Cuti $cuti)
+    {
+        return view('cuti.lampiran', compact('cuti'));
     }
 }

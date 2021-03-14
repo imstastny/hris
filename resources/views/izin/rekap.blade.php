@@ -1,7 +1,9 @@
 @extends('layouts.main',['title' => 'Rekap Pengajuan Cuti'])
 @section('content')
-<div class="content-header px-3">
-    <h4> Rekap Data Pengajuan Izin Karyawan</h4>
+<div class="card card-info col-sm-12 p-0">
+    <div class="card-header">
+        <h1 class="card-title">Rekap Pengajuan Izin Karyawan</h1>
+    </div>
 </div>
 <section class="container">
     <div class="container-fluid">

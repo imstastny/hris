@@ -7,7 +7,7 @@
     <!-- /.card-header -->
     <div class="card-body">
 
-        <form action="{{ route('izin.store') }}" method="post">
+        <form action="{{ route('izin.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-sm-6">
@@ -66,17 +66,17 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-sm-6">
+                <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="exampleInputFile">Lampiran(optional)</label>
+                        <label for="lampiran">Lampiran(optional)</label>
+                        <small><i>*file format gambar maks 2000kb.</i></small>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                <input type="file" id="lampiran" name="lampiran">
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
             </div>
 
             <div class="row justify-content-center">

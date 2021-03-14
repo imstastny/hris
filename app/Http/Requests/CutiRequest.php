@@ -24,6 +24,7 @@ class CutiRequest extends FormRequest
     public function rules()
     {
         return [
+            'kategori' => 'required',
             'tgl_mulai' => 'required|date',
             'tgl_selesai' => 'required|date|after_or_equal:tgl_mulai',
             'keterangan' => 'required',

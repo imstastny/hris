@@ -7,43 +7,24 @@
     <!-- /.card-header -->
     <div class="card-body">
 
-        <form action="{{ route('cuti.store') }}" method="post">
+        <form action="{{ route('cuti.store') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <!-- <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Nama</label>
-                        <input type="text" class="form-control" value="{{Auth::user()->name}}" disabled>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>NIP</label>
-                        <input type="text" class="form-control" value="1234" disabled>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Jabatan</label>
-                        <input type="text" class="form-control" value="Jabatan" disabled>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Divisi</label>
-                        <input type="text" class="form-control" value="Divisi" disabled>
-                    </div>
-                </div>
-            </div> -->
+
             <div class="row">
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Jenis Cuti</label>
                         <select class="custom-select rounded-0" id="kategori" name="kategori">
+                            <option disabled selected>-Pilih Cuti-</option>
                             @foreach($kategoris as $kategori)
                             <option value="{{$kategori->id}}">{{$kategori->nama}}</option>
                             @endforeach
                         </select>
+                        <div class="text-danger">
+                            @error('kategori')
+                            {{$message}}
+                            @enderror
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,17 +63,17 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-sm-6">
+                <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="exampleInputFile">Lampiran(optional)</label>
+                        <label for="lampiran">Lampiran(optional)</label>
+                        <small><i>*hanya menerima file dengan format gambar.</i></small>
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                <input type="file" id="lampiran" name="lampiran">
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
             </div>
 
             <div class="row justify-content-center">
