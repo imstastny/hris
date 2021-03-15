@@ -41,13 +41,22 @@ class IzinController extends Controller
     }
     public function store(IzinRequest $request)
     {
+        //validasi lampiran
+        $request->validate([
+            'lampiran' => 'image|mimes:jpg,jpeg,png,svg|max:2048'
+        ]);
+        if (request()->file('lampiran')) {
+            $lampiran = request()->file('lampiran')->store("images/izin");
+        } else {
+            $lampiran = null;
+        }
         $divisi_id = Auth::user()->divisi_id;
-        $lampiran = request()->file('lampiran');
-        $lampiranUrl = $lampiran->store("images/izin");
+
         $attr = $request->all();
         $attr['slug'] = Str::random(9);
-        $attr['lampiran'] = $lampiranUrl;
+        $attr['lampiran'] = $lampiran;
 
+        //jika divisi non divisi,langsung menuju hrd
         if ($divisi_id == 5) {
             $attr['acc_mandiv_id'] = 3;
         }
@@ -81,6 +90,8 @@ class IzinController extends Controller
         $attr['acc_mandiv_id'] = request('acc_mandiv');
         $attr['acc_hrd_id'] = request('acc_hrd');
 
+        //pengkondisian status acc, saling berelasi antara acc mandiv dan acc hrd
+        // 1 = diproses, 2 = ditolak, 3 = disetujui, (acc hrd, 4 = - ) 
         if (request('acc_mandiv') == 1) {
             $attr['acc_hrd_id'] = 4;
         } elseif (request('acc_mandiv') == 2) {

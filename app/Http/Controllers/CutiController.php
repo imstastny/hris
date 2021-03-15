@@ -47,17 +47,27 @@ class CutiController extends Controller
     public function store(CutiRequest $request)
     {
         $divisi_id = Auth::user()->divisi_id;
-        $lampiran = request()->file('lampiran');
-        $lampiranUrl = $lampiran->store("images/cuti");
         $attr = $request->all();
+
+        //validasi lampiran
+        $request->validate([
+            'lampiran' => 'image|mimes:jpg,jpeg,png,svg|max:2048'
+        ]);
+        if (request()->file('lampiran')) {
+            $lampiran = request()->file('lampiran')->store("images/cuti");
+        } else {
+            $lampiran = null;
+        }
+
         $attr['slug'] = Str::random(9);
         $attr['kategori_id'] = request('kategori');
-        $attr['lampiran'] = $lampiranUrl;
+        $attr['lampiran'] = $lampiran;
+
         if ($divisi_id == 5) {
             $attr['acc_mandiv_id'] = 3;
             $attr['acc_hrd_id'] = 1;
         }
-        // dd($attr);
+        // dd($attr);`
         auth()->user()->cutis()->create($attr);
         session()->flash('success', 'Permintaan anda sudah diajukan');
         session()->flash('error', 'Permintaan anda gagal diajukan');

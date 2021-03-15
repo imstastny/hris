@@ -63,11 +63,15 @@
 
                 </div>
             </div>
+
             <div class="col-sm-6">
                 <label>Lampiran</label><br>
+                @if($cuti->lampiran)
                 <a href="/cuti/lampiran/{{$cuti->slug}}" target="_blank">
                     <img class="img-fluid" src="{{asset($cuti->takeImageCuti)}}" width="100" height="120">
                 </a>
+                @else -
+                @endif
             </div>
         </div>
         <div class="row">

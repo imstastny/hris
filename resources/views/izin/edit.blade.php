@@ -132,9 +132,12 @@
                 </div>
                 <div class="col-sm-6">
                     <label>Lampiran</label><br>
+                    @if($izin->lampiran)
                     <a href="/cuti/lampiran/{{$cuti->slug}}" target="_blank">
                         <img class="img-fluid" src="{{asset($izin->takeImageIzin)}}" width="10" height="20">
                     </a>
+                    @else -
+                    @endif
                 </div>
             </div>
             <div class="row">
