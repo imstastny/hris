@@ -35,6 +35,7 @@ class CutiExport implements FromCollection, withMapping, withHeadings
     {
         return [
             'Nama',
+            'NIK',
             'Jabatan',
             'Divisi',
             'Mengajukan',

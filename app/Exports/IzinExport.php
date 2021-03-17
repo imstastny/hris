@@ -36,6 +36,7 @@ class IzinExport implements FromCollection, withMapping, withHeadings
     {
         return [
             'Nama',
+            'NIK',
             'Jabatan',
             'Divisi',
             'Mengajukan',

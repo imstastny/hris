@@ -128,7 +128,7 @@
                          document.getElementById('formLogout').submit()">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>
-                            Log out
+                            Keluar
                             <i class="right fas fa-angle"></i>
                         </p>
                     </a>

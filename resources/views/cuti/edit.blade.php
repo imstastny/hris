@@ -1,74 +1,92 @@
 @extends('layouts.main',['title' => 'Form Pengajuan Cuti'])
 @section('content')
-<div class="container">
-    <div class="d-flex justify-content-end">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
-            <i class="fas fa-trash-alt"></i>
-        </button>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h6 class="modal-title" id="exampleModalLabel">Yakin ingin menghapus data ini ?</h6>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="/cuti/{{$cuti->slug}}/delete" method="post">
-                            @method('delete')
-                            @csrf
-                            <div class="d-flex justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button class="btn btn-sm btn-danger" type="submit">Hapus</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
 
 <div class="card card-info col-sm-12">
     <div class="card-header">
-        <h3 class="card-title">Formulir Pengajuan Cuti</h3>
+        <h3 class="card-title">Persetujuan Cuti Atas Nama : {{$cuti->user->name}}
+            @if($cuti->acc_hrd_id < 4) <strong>{{$cuti->acc_hrd->nama}} </strong> Admin HRD</h3>@endif
     </div>
     <!-- /.card-header -->
     <div class="card-body">
         <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Nama</label>
-                    <p class="form-control">{{$cuti->user->name}}</p>
-                </div>
+            <div class="col-sm-1">
+                <p>Nama</p>
+                <p>NIK</p>
+                <p>Jabatan</p>
+                <p>Divisi</p>
             </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>NIK</label>
-                    <p class="form-control">{{$cuti->user->nik}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Jabatan</label>
-                    <p class="form-control">{{$cuti->user->role->nama}}</p>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Divisi</label>
-                    <p class="form-control">{{$cuti->user->divisi->nama}}</p>
-                </div>
+            <div class="col-sm-3">
+                <p>: {{$cuti->user->name}}</p>
+                <p>: {{$cuti->user->nik}}</p>
+                <p>: {{$cuti->user->role->nama}}</p>
+                <p>: {{$cuti->user->divisi->nama}}</p>
             </div>
         </div>
         <hr>
+        @if($role == 2 && $cuti->acc_mandiv_id == 3 && $cuti->acc_hrd_id >= 2)
+        <!-- /.card-header -->
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Jenis Cuti</label>
+                    <text class="form-control" id="kategori" name="kategori">{{$cuti->kategori->nama}}</text>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Tanggal Mulai</label>
+                    <text class="form-control" id="tgl_mulai" name="tgl_mulai">{{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</text>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Tanggal Selesai</label>
+                    <text class="form-control" id="tgl_selesai" name="tgl_selesai">{{\Carbon\Carbon::parse($cuti->tgl_selesai)->format('d/m/Y')}}</text>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <!-- textarea -->
+                <div class="form-group">
+                    <label>Deskripsi</label>
+
+                    <p>{!! nl2br($cuti->keterangan) !!}</p>
+
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label>Lampiran</label><br>
+                @if($cuti->lampiran)
+                <a href="/cuti/lampiran/{{$cuti->slug}}" target="_blank">
+                    <img class="img-fluid" src="{{asset($cuti->takeImageCuti)}}" width="100" height="120">
+                </a>
+                @else -
+                @endif
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Acc Mandiv</label>
+                    <text class="form-control" id="acc_mandiv" name="acc_mandiv">{{$cuti->acc_mandiv->nama}}</text>
+                </div>
+            </div>
+
+            @if($cuti->acc_mandiv_id >= 2)
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Acc HRD</label>
+                    <text class="form-control" id="acc_hrd" name="acc_hrd">{{$cuti->acc_hrd->nama}}</text>
+                </div>
+            </div>
+            @endif
+        </div>
+        <!-- /.card-body -->
+
+
+
+        @else
         <form action="/cuti/{{$cuti->slug}}/edit" method="post">
             @method('patch')
             @csrf
@@ -81,9 +99,7 @@
                         </select>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label>Tanggal Mulai</label>
                         <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai" value="{{old('tgl_mulai') ?? $cuti->tgl_mulai}}">
@@ -94,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label>Tanggal Selesai</label>
                         <input type="date" class="form-control" id="tgl_selesai" name="tgl_selesai" value="{{old('tgl_selesai') ?? $cuti->tgl_selesai}}">
@@ -105,7 +121,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-7">
                     <!-- textarea -->
                     <div class="form-group">
                         <label>Keterangan</label>
@@ -117,7 +133,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                     <label>Lampiran</label><br>
                     @if($cuti->lampiran)
                     <a href="/cuti/lampiran/{{$cuti->slug}}" target="_blank">
@@ -157,7 +173,7 @@
                 </button>
             </div>
         </form>
-
+        @endif
     </div>
     <!-- /.card-body -->
 </div>

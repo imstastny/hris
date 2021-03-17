@@ -62,10 +62,10 @@
                                 <tr>
                                     <th>Nama</th>
                                     <th>NIK</th>
-                                    <th>Jabatan</th>
+                                    @if($role_id == 1)
                                     <th>Divisi</th>
-                                    <th>Tanggal Mulai</th>
-                                    <th>Tanggal Selesai</th>
+                                    @endif
+                                    <th>Tanggal Mengajukan</th>
                                     <th>Acc Mandiv</th>
                                     <th>Acc HRD</th>
                                     <th>Aksi</th>
@@ -80,10 +80,10 @@
                                     @endif
                                     <td>{{$cuti->user->name}}</td>
                                     <td>{{$cuti->user->nik}}</td>
-                                    <td>{{$cuti->user->role->nama}}</td>
+                                    @if($role_id == 1)
                                     <td>{{$cuti->user->divisi->nama}}</td>
-                                    <td>{{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</td>
-                                    <td>{{\Carbon\Carbon::parse($cuti->tgl_selesai)->format('d/m/Y')}}</td>
+                                    @endif
+                                    <td>{{\Carbon\Carbon::parse($cuti->created_at)->format('d/m/Y')}}</td>
                                     <td>{{$cuti->acc_mandiv->nama}}</td>
                                     <td>{{$cuti->acc_hrd->nama}}</td>
                                     <td>

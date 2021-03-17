@@ -6,7 +6,6 @@ use App\Http\Requests\IzinRequest;
 use App\Models\{Izin, Acc_mandiv, Acc_hrd};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use App\Exports\IzinExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -50,6 +49,7 @@ class IzinController extends Controller
         } else {
             $lampiran = null;
         }
+
         $divisi_id = Auth::user()->divisi_id;
 
         $attr = $request->all();

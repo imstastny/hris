@@ -30,7 +30,7 @@ class CutiController extends Controller
                 $query->whereDivisiId($divisi_id);
             })->latest()->get();
         }
-        return view('cuti.admin', compact('cutis'));
+        return view('cuti.admin', compact('cutis', 'role_id'));
     }
     public function show(Cuti $cuti)
     {
