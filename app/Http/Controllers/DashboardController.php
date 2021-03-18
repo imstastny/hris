@@ -33,14 +33,22 @@ class DashboardController extends Controller
         // dd($isIzin);
         return view('dashboard', compact('user', 'cuti', 'izin', 'isCuti', 'isIzin'));
     }
-    public function cuti()
+    public function cuti(Request $request)
     {
-        $cutis = Cuti::latest()->get();
-        return view('cuti.rekap', compact('cutis'));
+        $cutis = Cuti::latest()->whereYear('tgl_mulai', '=', $request->query("year"))->get();
+        $years = [];
+        for ($i = 0; $i < 5; $i++) {
+            $years[$i] = now()->year - $i;
+        }
+        return view('cuti.rekap', compact('cutis', 'years'));
     }
-    public function izin()
+    public function izin(Request $request)
     {
-        $izins = Izin::latest()->get();
-        return view('izin.rekap', compact('izins'));
+        $izins = Izin::latest()->whereYear('tgl_izin', '=', $request->query("year"))->get();
+        $years = [];
+        for ($i = 0; $i < 5; $i++) {
+            $years[$i] = now()->year - $i;
+        }
+        return view('izin.rekap', compact('izins', 'years'));
     }
 }

@@ -64,11 +64,9 @@
                                 <tr>
                                     <th>Nama</th>
                                     <th>NIK</th>
-                                    <th>Jabatan</th>
                                     <th>Divisi</th>
                                     <th>Tanggal Izin</th>
-                                    <th>Waktu Mulai</th>
-                                    <th>Waktu Selesai</th>
+                                    <th>Waktu</th>
                                     <th>Acc Mandiv</th>
                                     <th>Acc HRD</th>
                                     <th>Aksi</th>
@@ -83,11 +81,9 @@
                                     @endif
                                     <td>{{$izin->user->name}}</td>
                                     <td>{{$izin->user->nik}}</td>
-                                    <td>{{$izin->user->role->nama}}</td>
                                     <td>{{$izin->user->divisi->nama}}</td>
                                     <td>{{\Carbon\Carbon::parse($izin->tgl_izin)->format('d/m/Y')}}</td>
-                                    <td>{{$izin->wkt_mulai}}.00</td>
-                                    <td>{{$izin->wkt_selesai}}.00</td>
+                                    <td>{{$izin->wkt_mulai}}.00 - {{$izin->wkt_selesai}}.00</td>
                                     <td>{{$izin->acc_mandiv->nama}}</td>
                                     <td>{{$izin->acc_hrd->nama}}</td>
                                     <td>

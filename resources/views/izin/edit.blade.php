@@ -35,39 +35,96 @@
 </div>
 <div class="card card-info col-sm-12">
     <div class="card-header">
-        <h3 class="card-title">Formulir Pengajuan Izin</h3>
+        <h3 class="card-title">Persetujuan Izin Atas Nama : {{$izin->user->name}}
+            @if($izin->acc_hrd_id < 4) <strong>{{$izin->acc_hrd->nama}} </strong> Admin HRD @endif</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
         <div class="row">
+            <div class="col-sm-2">
+                <p>Nama</p>
+                <p>NIK</p>
+                <p>Jabatan</p>
+                <p>Divisi</p>
+                <p>Tanggal Izin</p>
+                <p>Waktu</p>
+                <p>Keterangan</p>
+            </div>
+            <div class="col-sm-3">
+                <p>: {{$izin->user->name}}</p>
+                <p>: {{$izin->user->nik}}</p>
+                <p>: {{$izin->user->role->nama}}</p>
+                <p>: {{$izin->user->divisi->nama}}</p>
+                <p>: {{$izin->tgl_izin}}</p>
+                <p>: {{$izin->wkt_mulai}}.00 - {{$izin->wkt_selesai}}.00</p>
+                <p> {!! nl2br($izin->keterangan) !!}</p>
+            </div>
+        </div>
+        <hr>
+        @if($role == 2 && $izin->acc_mandiv_id == 3 && $izin->acc_hrd_id >= 2)
+        <!-- /.card-header -->
+
+        <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label>Nama</label>
-                    <p class="form-control">{{$izin->user->name}}</p>
+                    <label>Tanggal Izin</label>
+                    <p>{{$izin->tgl_izin}}</p>
                 </div>
             </div>
-            <div class="col-sm-6">
+
+            <div class="col-sm-2">
                 <div class="form-group">
-                    <label>NIK</label>
-                    <p class="form-control">{{$izin->user->nik}}</p>
+                    <label>Waktu Mulai</label>
+                    <p>{{$izin->wkt_mulai}}.00</p>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label>Waktu Selesai</label>
+                    <p>{{$izin->wkt_selesai}}.00</p>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
+                <!-- textarea -->
                 <div class="form-group">
-                    <label>Jabatan</label>
-                    <p class="form-control">{{$izin->user->role->nama}}</p>
+                    <label>Deskripsi</label>
+
+                    <p>{!! nl2br($izin->keterangan) !!}</p>
+
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Divisi</label>
-                    <p class="form-control">{{$izin->user->divisi->nama}}</p>
-                </div>
+                <label>Lampiran</label><br>
+                @if($izin->lampiran)
+                <a href="/izin/lampiran/{{$izin->slug}}" target="_blank">
+                    <img class="img-fluid" src="{{asset($izin->takeImageCuti)}}" width="100" height="120">
+                </a>
+                @else -
+                @endif
             </div>
         </div>
-        <hr>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Acc Mandiv</label>
+                    <p>{{$izin->acc_mandiv->nama}}</p>
+                </div>
+            </div>
+
+            @if($izin->acc_mandiv_id >= 2)
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Acc HRD</label>
+                    <p>{{$izin->acc_hrd->nama}}</p>
+                </div>
+            </div>
+            @endif
+        </div>
+
+        @else
         <form action="/izin/{{$izin->slug}}/edit" method="post">
             @method('patch')
             @csrf
@@ -83,8 +140,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Waktu Mulai</label>
@@ -133,7 +188,7 @@
                 <div class="col-sm-6">
                     <label>Lampiran</label><br>
                     @if($izin->lampiran)
-                    <a href="/cuti/lampiran/{{$cuti->slug}}" target="_blank">
+                    <a href="/izin/lampiran/{{$izin->slug}}" target="_blank">
                         <img class="img-fluid" src="{{asset($izin->takeImageIzin)}}" width="10" height="20">
                     </a>
                     @else -
@@ -171,7 +226,7 @@
                 </button>
             </div>
         </form>
-
+        @endif
     </div>
     <!-- /.card-body -->
 </div>

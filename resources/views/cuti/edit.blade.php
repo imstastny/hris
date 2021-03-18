@@ -5,7 +5,7 @@
 <div class="card card-info col-sm-12">
     <div class="card-header">
         <h3 class="card-title">Persetujuan Cuti Atas Nama : {{$cuti->user->name}}
-            @if($cuti->acc_hrd_id < 4) <strong>{{$cuti->acc_hrd->nama}} </strong> Admin HRD</h3>@endif
+            @if($cuti->acc_hrd_id < 4) <strong>{{$cuti->acc_hrd->nama}} </strong> Admin HRD @endif</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -31,22 +31,22 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>Jenis Cuti</label>
-                    <text class="form-control" id="kategori" name="kategori">{{$cuti->kategori->nama}}</text>
+                    <p>{{$cuti->kategori->nama}}</p>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>Tanggal Mulai</label>
-                    <text class="form-control" id="tgl_mulai" name="tgl_mulai">{{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</text>
+                    <p>{{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</p>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>Tanggal Selesai</label>
-                    <text class="form-control" id="tgl_selesai" name="tgl_selesai">{{\Carbon\Carbon::parse($cuti->tgl_selesai)->format('d/m/Y')}}</text>
+                    <p>{{\Carbon\Carbon::parse($cuti->tgl_selesai)->format('d/m/Y')}}</p>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-7">
                 <!-- textarea -->
                 <div class="form-group">
                     <label>Deskripsi</label>
@@ -55,7 +55,7 @@
 
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-5">
                 <label>Lampiran</label><br>
                 @if($cuti->lampiran)
                 <a href="/cuti/lampiran/{{$cuti->slug}}" target="_blank">
@@ -69,7 +69,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>Acc Mandiv</label>
-                    <text class="form-control" id="acc_mandiv" name="acc_mandiv">{{$cuti->acc_mandiv->nama}}</text>
+                    <p>{{$cuti->acc_mandiv->nama}}</p>
                 </div>
             </div>
 
@@ -77,7 +77,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label>Acc HRD</label>
-                    <text class="form-control" id="acc_hrd" name="acc_hrd">{{$cuti->acc_hrd->nama}}</text>
+                    <p>{{$cuti->acc_hrd->nama}}</p>
                 </div>
             </div>
             @endif
