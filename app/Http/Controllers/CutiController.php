@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Exports\CutiExport;
+use DateTime;
 use Maatwebsite\Excel\Facades\Excel;
 
 class CutiController extends Controller
@@ -39,15 +40,41 @@ class CutiController extends Controller
 
     public function create()
     {
-        return view('cuti.create', [
-            'kategoris' => Kategori::get(),
-
-        ]);
+        $user = Auth::user();
+        $kategoris = Kategori::get();
+        $cutis = Cuti::where([
+            ['user_id', '=', $user->id],
+            ['kategori_id', '=', 1],
+            ['acc_hrd_id', '=', 3]
+        ])->whereYear('tgl_mulai', '=', now()->year)->get();
+        $totalCuti = 0;
+        foreach ($cutis as $cuti) {
+            $datetime1 = new DateTime($cuti->tgl_mulai);
+            $datetime2 = new DateTime($cuti->tgl_selesai);
+            $interval = $datetime1->diff($datetime2);
+            $days = $interval->format('%a') + 1;
+            $totalCuti += $days;
+        }
+        $sisaCutis = 12 - $totalCuti;
+        return view('cuti.create', compact('kategoris', 'sisaCutis'));
     }
     public function store(CutiRequest $request)
     {
         $divisi_id = Auth::user()->divisi_id;
         $attr = $request->all();
+
+        //check cuti tahunan tidak melebihi sisa cuti
+        if ($request->kategori == 1) {
+            $datetime1 = new DateTime($request->tgl_mulai);
+            $datetime2 = new DateTime($request->tgl_selesai);
+            $interval = $datetime1->diff($datetime2);
+            $days = $interval->format('%a') + 1;
+
+            if ($days > $request->sisa_cuti) {
+                session()->flash('error', 'Permintaan anda gagal diajukan');
+                return redirect(route('cuti.create'));
+            }
+        }
 
         //validasi lampiran
         $request->validate([

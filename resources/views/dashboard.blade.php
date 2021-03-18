@@ -21,7 +21,7 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="/rekap/cuti" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{route('rekap.cuti', ['year' => now()->year])}}" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <div class="col">
@@ -34,7 +34,7 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="/rekap/izin" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{route('rekap.izin', ['year' => now()->year])}}" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
 
             </div>
@@ -49,7 +49,7 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="{{route('kelola.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{route('kelola.index')}}" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
 
             </div>

@@ -1,5 +1,6 @@
 @extends('layouts.main',['title' => 'Form Pengajuan Cuti'])
 @section('content')
+@include('layouts.alert')
 <div class="card card-info col-sm-12">
     <div class="card-header">
         <h3 class="card-title">Formulir Pengajuan Cuti</h3>
@@ -25,6 +26,8 @@
                             {{$message}}
                             @enderror
                         </div>
+                        <h2>Sisa Cuti Tahunan : {{$sisaCutis}}</h2>
+                        <input value="{{$sisaCutis}}" id="sisa_cuti" name="sisa_cuti" hidden>
                     </div>
                 </div>
             </div>

@@ -19,6 +19,9 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title"><strong>Rekap Permohonan Cuti Karyawan</strong></h3>
+                    @foreach($years as $year)
+                    <a href={{route('rekap.cuti', ['year' => $year])}}>{{$year}}</a>
+                    @endforeach
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
