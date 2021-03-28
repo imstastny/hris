@@ -32,8 +32,6 @@
                                     <th>NIK</th>
                                     <th>Jabatan</th>
                                     <th>Divisi</th>
-                                    <th>Jumlah Cuti</th>
-                                    <th>Jumlah Izin</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -44,8 +42,6 @@
                                     <td>{{$user['nik']}}</td>
                                     <td>{{$user['role']['nama']}}</td>
                                     <td>{{$user['divisi']['nama']}}</td>
-                                    <td>{{$user['cutis_count']}}</td>
-                                    <td>{{$user['izins_count']}}</td>
                                     <td>
                                         <a href="/anggota/{{$user['nik']}}/edit" class="btn btn-sm btn-info">detail</a>
                                     </td>

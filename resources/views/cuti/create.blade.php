@@ -7,6 +7,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
+        <p>Sisa Cuti Tahunan : {{$sisaCutis}} Hari</p>
 
         <form action="{{ route('cuti.store') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -26,13 +27,11 @@
                             {{$message}}
                             @enderror
                         </div>
-                        <h2>Sisa Cuti Tahunan : {{$sisaCutis}}</h2>
+
                         <input value="{{$sisaCutis}}" id="sisa_cuti" name="sisa_cuti" hidden>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-3">
                     <div class="form-group">
                         <label>Tanggal Mulai</label>
                         <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai">
@@ -43,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-3">
                     <div class="form-group">
                         <label>Tanggal Selesai</label>
                         <input type="date" class="form-control" id="tgl_selesai" name="tgl_selesai">

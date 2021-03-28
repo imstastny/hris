@@ -13,7 +13,7 @@ class DivisisTableSeeder extends Seeder
      */
     public function run()
     {
-        $divisis = collect(['Divisi Admin', 'Divisi A', 'Divisi B', 'Divisi C', 'Divisi D']);
+        $divisis = collect(['Admin SDM', 'Konveksi dan Sablonase (Konsab)', 'Swalayan', 'Warparpostel', 'Non Divisi']);
         $divisis->each(function ($c) {
             \App\Models\Divisi::create([
                 'nama' => $c

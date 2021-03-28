@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label>NIK</label>
                         <input type="text" class="form-control" id="nik" name="nik" value="{{old('nik') ?? $user->nik}}" autocomplete="off">
@@ -61,32 +61,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="exampleSelectRounded0">Jabatan</label>
-                        <select class="custom-select rounded-0" id="role" name="role">
-                            @foreach($roles as $role)
-                            <option {{$role->id == $user->role_id ? 'selected' : ''}} value="{{$role->id}}">{{$role->nama}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="exampleSelectRounded0">Divisi</label>
-                        <select class="custom-select rounded-0" id="divisi" name="divisi">
-                            @foreach($divisis as $divisi)
-                            <option {{$divisi->id == $user->divisi_id ? 'selected' : ''}} value="{{$divisi->id}}">{{$divisi->nama}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Gender</label>
                         <select class="custom-select rounded-0" id="gender" name="gender">
@@ -105,6 +80,27 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="exampleSelectRounded0">Jabatan</label>
+                        <select class="custom-select rounded-0" id="role" name="role">
+                            @foreach($roles as $role)
+                            <option {{$role->id == $user->role_id ? 'selected' : ''}} value="{{$role->id}}">{{$role->nama}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="exampleSelectRounded0">Divisi</label>
+                        <select class="custom-select rounded-0" id="divisi" name="divisi">
+                            @foreach($divisis as $divisi)
+                            <option {{$divisi->id == $user->divisi_id ? 'selected' : ''}} value="{{$divisi->id}}">{{$divisi->nama}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Email</label>

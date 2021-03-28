@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label>Nama</label>
+                        <label>Nama Lengkap</label>
                         <input type="text" class="form-control" id="name" name="name" autocomplete="off">
                         <div class="text-danger">
                             @error('name')

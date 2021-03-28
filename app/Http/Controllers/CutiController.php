@@ -80,6 +80,11 @@ class CutiController extends Controller
         $request->validate([
             'lampiran' => 'image|mimes:jpg,jpeg,png,svg|max:2048'
         ]);
+        if ($request->kategori == 2) {
+            $request->validate([
+                'tgl_selesai' => 'date_equals:tgl_mulai'
+            ]);
+        }
         if (request()->file('lampiran')) {
             $lampiran = request()->file('lampiran')->store("images/cuti");
         } else {

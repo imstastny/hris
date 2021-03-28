@@ -57,34 +57,28 @@
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap">
-
+                            @if($role_id == 1)
                             <thead>
                                 <tr>
                                     <th>Nama</th>
                                     <th>NIK</th>
-                                    @if($role_id == 1)
                                     <th>Divisi</th>
-                                    @endif
-                                    <th>Tanggal Mengajukan</th>
-                                    <th>Acc Mandiv</th>
+                                    <th>Tanggal Mulai</th>
                                     <th>Acc HRD</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($cutis as $cuti)
-                                @if($cuti->acc_mandiv_id == 1 || $cuti->acc_hrd_id == 1)
+                                @if($cuti->acc_hrd_id == 1)
                                 <tr style="color:tomato;">
                                     @else
                                 <tr>
                                     @endif
                                     <td>{{$cuti->user->name}}</td>
                                     <td>{{$cuti->user->nik}}</td>
-                                    @if($role_id == 1)
                                     <td>{{$cuti->user->divisi->nama}}</td>
-                                    @endif
-                                    <td>{{\Carbon\Carbon::parse($cuti->created_at)->format('d/m/Y')}}</td>
-                                    <td>{{$cuti->acc_mandiv->nama}}</td>
+                                    <td>{{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</td>
                                     <td>{{$cuti->acc_hrd->nama}}</td>
                                     <td>
                                         <a href="/cuti/{{$cuti->slug}}/edit" class="btn btn-sm btn-info">detail</a>
@@ -92,6 +86,35 @@
                                 </tr>
                                 @endforeach
                             </tbody>
+                            @elseif($role_id == 2)
+                            <thead>
+                                <tr>
+                                    <th>Nama</th>
+                                    <th>NIK</th>
+                                    <th>Tanggal Mulai</th>
+                                    <th>Acc Mandiv</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($cutis as $cuti)
+                                @if($cuti->acc_mandiv_id == 1)
+                                <tr style="color:tomato;">
+                                    @else
+                                <tr>
+                                    @endif
+                                    <td>{{$cuti->user->name}}</td>
+                                    <td>{{$cuti->user->nik}}</td>
+                                    <td>{{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</td>
+                                    <td>{{$cuti->acc_mandiv->nama}}</td>
+                                    <td>
+                                        <a href="/cuti/{{$cuti->slug}}/edit" class="btn btn-sm btn-info">detail</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                            @endif
+
                         </table>
                     </div>
                     <!-- /.card-body -->

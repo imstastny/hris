@@ -4,89 +4,95 @@
 
 <div class="card card-info col-sm-12">
     <div class="card-header">
-        <h3 class="card-title">Persetujuan Cuti Atas Nama : {{$cuti->user->name}}
-            @if($cuti->acc_hrd_id < 4) <strong>{{$cuti->acc_hrd->nama}} </strong> Admin HRD @endif</h3>
+        <h3 class="card-title">Persetujuan Cuti Karyawan</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
         <div class="row">
-            <div class="col-sm-1">
-                <p>Nama</p>
-                <p>NIK</p>
-                <p>Jabatan</p>
-                <p>Divisi</p>
-            </div>
-            <div class="col-sm-3">
-                <p>: {{$cuti->user->name}}</p>
-                <p>: {{$cuti->user->nik}}</p>
-                <p>: {{$cuti->user->role->nama}}</p>
-                <p>: {{$cuti->user->divisi->nama}}</p>
-            </div>
+            @if($role == 2 && $cuti->acc_mandiv_id == 3 && $cuti->acc_hrd_id >= 2)
+            <table class="table table-bordered">
+                <tr>
+                    <td> <b>Nama Lengkap</b></td>
+                    <td> {{$cuti->user->name}}</td>
+                </tr>
+                <tr>
+                    <td> <b>Nomor Induk Karyawan</b></td>
+                    <td> {{$cuti->user->nik}}</td>
+                </tr>
+                <tr>
+                    <td><b>Jabatan</b></td>
+                    <td> {{$cuti->user->role->nama}}</td>
+                </tr>
+                <tr>
+                    <td><b>Divisi</b></td>
+                    <td> {{$cuti->user->divisi->nama}}</td>
+                </tr>
+                <tr>
+                    <td><b>Jenis Kelamin</b></td>
+                    <td> {{$cuti->user->gender}}</td>
+                </tr>
+                <tr>
+                    <td><b>Jenis Cuti</b></td>
+                    <td> {{$cuti->kategori->nama}}</td>
+                </tr>
+                <tr>
+                    <td><b>Tanggal Mulai</b></td>
+                    <td> {{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</td>
+                </tr>
+                <tr>
+                    <td><b>Tanggal Selesai</b></td>
+                    <td> {{\Carbon\Carbon::parse($cuti->tgl_selesai)->format('d/m/Y')}}</td>
+                </tr>
+                <tr>
+                    <td><b>Keterangan</b></td>
+                    <td> {!! nl2br($cuti->keterangan) !!}</td>
+                </tr>
+                <tr>
+                    <td><b>Lampiran</b></td>
+                    <td>
+                        @if($cuti->lampiran)
+                        <a href="/cuti/lampiran/{{$cuti->slug}}" target="_blank">
+                            <img class="img-fluid" src="{{asset($cuti->takeImageCuti)}}" width="100" height="120">
+                        </a>
+                        @else -
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Acc Mandiv</b></td>
+                    <td> {{$cuti->acc_mandiv->nama}}</td>
+                </tr>
+                <tr>
+                    <td><b>Acc HRD</b></td>
+                    <td> {{$cuti->acc_hrd->nama}}</td>
+                </tr>
+            </table>
         </div>
-        <hr>
-        @if($role == 2 && $cuti->acc_mandiv_id == 3 && $cuti->acc_hrd_id >= 2)
         <!-- /.card-header -->
-
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label>Jenis Cuti</label>
-                    <p>{{$cuti->kategori->nama}}</p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label>Tanggal Mulai</label>
-                    <p>{{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label>Tanggal Selesai</label>
-                    <p>{{\Carbon\Carbon::parse($cuti->tgl_selesai)->format('d/m/Y')}}</p>
-                </div>
-            </div>
-            <div class="col-sm-7">
-                <!-- textarea -->
-                <div class="form-group">
-                    <label>Deskripsi</label>
-
-                    <p>{!! nl2br($cuti->keterangan) !!}</p>
-
-                </div>
-            </div>
-            <div class="col-sm-5">
-                <label>Lampiran</label><br>
-                @if($cuti->lampiran)
-                <a href="/cuti/lampiran/{{$cuti->slug}}" target="_blank">
-                    <img class="img-fluid" src="{{asset($cuti->takeImageCuti)}}" width="100" height="120">
-                </a>
-                @else -
-                @endif
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label>Acc Mandiv</label>
-                    <p>{{$cuti->acc_mandiv->nama}}</p>
-                </div>
-            </div>
-
-            @if($cuti->acc_mandiv_id >= 2)
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label>Acc HRD</label>
-                    <p>{{$cuti->acc_hrd->nama}}</p>
-                </div>
-            </div>
-            @endif
-        </div>
-        <!-- /.card-body -->
-
-
-
         @else
+        <table class="table table-bordered">
+            <tr>
+                <td> <b>Nama Lengkap</b></td>
+                <td> {{$cuti->user->name}}</td>
+            </tr>
+            <tr>
+                <td> <b>Nomor Induk Karyawan</b></td>
+                <td> {{$cuti->user->nik}}</td>
+            </tr>
+            <tr>
+                <td><b>Jabatan</b></td>
+                <td> {{$cuti->user->role->nama}}</td>
+            </tr>
+            <tr>
+                <td><b>Divisi</b></td>
+                <td> {{$cuti->user->divisi->nama}}</td>
+            </tr>
+            <tr>
+                <td><b>Jenis Kelamin</b></td>
+                <td> {{$cuti->user->gender}}</td>
+            </tr>
+        </table>
+
         <form action="/cuti/{{$cuti->slug}}/edit" method="post">
             @method('patch')
             @csrf
@@ -99,6 +105,7 @@
                         </select>
                     </div>
                 </div>
+
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label>Tanggal Mulai</label>

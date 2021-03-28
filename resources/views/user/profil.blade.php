@@ -7,69 +7,55 @@
     <div class="card-header">
         <h3 class="card-title">Profil</h3>
     </div>
+    <br>
     <!-- /.card-header -->
-    <div class="card-body">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Nama</label>
-                    <p class="form-control">{{$user->name}}</p>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>NIK</label>
-                    <p class="form-control">{{$user->nik}}</p>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Jabatan</label>
-                    <p class="form-control">{{$user->role->nama}}</p>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Divisi</label>
-                    <p class="form-control">{{$user->divisi->nama}}</p>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-md-11 mx-2">
+            <table class="table table-bordered">
+                <tr>
+                    <td style="width: 15rem;"> <b>Nama Lengkap</b></td>
+                    <td> {{$user->name}}</td>
+                </tr>
+                <tr>
+                    <td style="width: 15rem;"> <b>Nomor Induk Karyawan</b></td>
+                    <td> {{$user->nik}}</td>
+                </tr>
+                <tr>
+                    <td style="width: 15rem;"><b>Jabatan</b></td>
+                    <td> {{$user->role->nama}}</td>
+                </tr>
+                <tr>
+                    <td style="width: 15rem;"><b>Divisi</b></td>
+                    <td> {{$user->divisi->nama}}</td>
+                </tr>
+                <tr>
+                    <td style="width: 15rem;"><b>Email</b></td>
+                    <td> {{$user->email}}</td>
+                </tr>
+                <tr>
+                    <td style="width: 15rem;"><b>Jenis Kelamin</b></td>
+                    <td> {{$user->gender}}</td>
+                </tr>
+                <tr>
+                    <td><b>Cuti Tahunan</b></td>
+                    <td>{{$totalCuti1}} Hari</td>
+                </tr>
+                <tr>
+                    <td><b>Cuti Haid</b></td>
+                    <td>{{$totalCuti2}} Hari</td>
+                </tr>
+                <tr>
+                    <td><b>Cuti Melahirkan</b></td>
+                    <td>{{$totalCuti3}} Hari</td>
+                </tr>
+                <tr>
+                    <td><b>Izin</b></td>
+                    <td>{{$izin}}</td>
+                </tr>
+            </table>
         </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Email</label>
-                    <p class="form-control">{{$user->email}}</p>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Gender</label>
-                    <p class="form-control">{{$user->gender}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <label>Rekap Izin dan Cuti Karyawan</label>
-                <table class="table table-bordered">
-                    <tr>
-                        <td>Cuti Tahunan</td>
-                        <td align="center">{{$totalCuti1}}</td>
-                    </tr>
-                    <tr>
-                        <td>Cuti Haid</td>
-                        <td align="center">{{$totalCuti2}}</td>
-                    </tr>
-                    <tr>
-                        <td>Izin</td>
-                        <td align="center">{{$izin}}</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
     </div>
+
     <!-- /.card-body -->
 </div>
 

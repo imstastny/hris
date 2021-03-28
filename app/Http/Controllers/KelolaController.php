@@ -17,18 +17,9 @@ class KelolaController extends Controller
 {
     public function index()
     {
-        $cuti1 = User::withCount([
-            'cutis' => function ($query) {
-                $query->where('acc_hrd_id', 3);
-            },
-            'izins' => function ($query) {
-                $query->where('acc_hrd_id', 3);
-            }
-        ])->orderBy('divisi_id', 'asc')->with('role', 'divisi')->get();
 
-        $users = ($cuti1->toArray());
 
-        // $users = User::all();
+        $users = User::all();
         // foreach ($users as $user) {
         //     $cuti = Cuti::where([
         //         ['user_id', '=', $user->id],
