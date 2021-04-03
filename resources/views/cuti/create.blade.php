@@ -7,11 +7,11 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
+
         <p>Sisa Cuti Tahunan : {{$sisaCutis}} Hari</p>
 
         <form action="{{ route('cuti.store') }}" method="post" enctype="multipart/form-data">
             @csrf
-
             <div class="row">
                 <div class="col-sm-3">
                     <div class="form-group">

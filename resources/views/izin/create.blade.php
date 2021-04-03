@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label>Tanggal Izin</label>
+                        <label>Tanggal Izina</label>
                         <input type="date" class="form-control" id="tgl_izin" name="tgl_izin">
                         <div class="text-danger">
                             @error('tgl_izin')

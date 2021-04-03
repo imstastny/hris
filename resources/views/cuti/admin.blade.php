@@ -122,6 +122,9 @@
                 <!-- /.card -->
             </div>
         </div>
+        <div class="d-flex justify-content-end">
+            {{$cutis->links()}}
+        </div>
     </div>
 </section>
 <script>
