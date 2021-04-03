@@ -44,7 +44,7 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-6">
-                            <button type="submit" class="btn btn-info btn-block">Sign In</button>
+                            <button type="submit" class="btn btn-info btn-block">Masuk</button>
                         </div>
                         <!-- /.col -->
                     </div>

@@ -9,6 +9,7 @@
     <!-- /.card-header -->
     <div class="card-body">
         <div class="row">
+            <p>sisa cuti : </p>
             @if($role == 2 && $cuti->acc_mandiv_id == 3 && $cuti->acc_hrd_id >= 2)
             <table class="table table-bordered">
                 <tr>

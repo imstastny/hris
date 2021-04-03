@@ -61,10 +61,10 @@
                             <thead>
                                 <tr>
                                     <th>Nama</th>
-                                    <th>NIK</th>
                                     <th>Divisi</th>
+                                    <th>Jenis Cuti</th>
                                     <th>Tanggal Mulai</th>
-                                    <th>Acc HRD</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -76,7 +76,7 @@
                                 <tr>
                                     @endif
                                     <td>{{$cuti->user->name}}</td>
-                                    <td>{{$cuti->user->nik}}</td>
+                                    <td>{{$cuti->kategori->nama}}</td>
                                     <td>{{$cuti->user->divisi->nama}}</td>
                                     <td>{{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</td>
                                     <td>{{$cuti->acc_hrd->nama}}</td>
@@ -90,9 +90,9 @@
                             <thead>
                                 <tr>
                                     <th>Nama</th>
-                                    <th>NIK</th>
+                                    <th>Jenis Cuti</th>
                                     <th>Tanggal Mulai</th>
-                                    <th>Acc Mandiv</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -104,7 +104,7 @@
                                 <tr>
                                     @endif
                                     <td>{{$cuti->user->name}}</td>
-                                    <td>{{$cuti->user->nik}}</td>
+                                    <td>{{$cuti->kategori->nama}}</td>
                                     <td>{{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</td>
                                     <td>{{$cuti->acc_mandiv->nama}}</td>
                                     <td>
