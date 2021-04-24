@@ -71,7 +71,7 @@ class CutiController extends Controller
             $days = $interval->format('%a') + 1;
 
             if ($days > $request->sisa_cuti) {
-                session()->flash('error', 'Permintaan anda gagal diajukan');
+                session()->flash('error', 'Permintaan anda gagal diajukan, Melebihi kuota cuti tahunan');
                 return redirect(route('cuti.create'));
             }
         }
@@ -108,10 +108,26 @@ class CutiController extends Controller
     }
     public function edit(Cuti $cuti)
     {
+        $cutis = Cuti::where([
+            ['user_id', '=', $cuti->user->id],
+            ['kategori_id', '=', 1],
+            ['acc_hrd_id', '=', 3]
+        ])->whereYear('tgl_mulai', '=', now()->year)->get();
+        $totalCuti = 0;
+        foreach ($cutis as $cuti) {
+            $datetime1 = new DateTime($cuti->tgl_mulai);
+            $datetime2 = new DateTime($cuti->tgl_selesai);
+            $interval = $datetime1->diff($datetime2);
+            $days = $interval->format('%a') + 1;
+            $totalCuti += $days;
+        }
+        $sisaCutis = 12 - $totalCuti;
+
         $role_id = Auth::user()->role_id;
         return view('cuti.edit', [
             'role' => $role_id,
             'cuti' => $cuti,
+            'sisaCutis' => $sisaCutis,
             'kategoris' => Kategori::get(),
             'acc_mandivs' => Acc_mandiv::get(),
             'acc_hrds' => Acc_hrd::get(),
@@ -125,6 +141,19 @@ class CutiController extends Controller
         $attr['kategori_id'] = request('kategori');
         $attr['acc_mandiv_id'] = request('acc_mandiv');
         $attr['acc_hrd_id'] = request('acc_hrd');
+
+        //check cuti tahunan tidak melebihi sisa cuti
+        if ($request->kategori == 1) {
+            $datetime1 = new DateTime($request->tgl_mulai);
+            $datetime2 = new DateTime($request->tgl_selesai);
+            $interval = $datetime1->diff($datetime2);
+            $days = $interval->format('%a') + 1;
+
+            if ($days > $request->sisa_cuti) {
+                session()->flash('error', 'Permintaan anda gagal diajukan, Melebihi kuota cuti tahunan');
+                return redirect(route('cuti.admin'));
+            }
+        }
 
         if (request('acc_mandiv') == 1) {
             $attr['acc_hrd_id'] = 4;

@@ -105,6 +105,7 @@
                     <div class="form-group">
                         <label>Password</label>
                         <input type="password" class="form-control" id="password" name="password">
+                        <input type="checkbox" onclick="myFunction()">Show Password
                         <div class="text-danger">
                             @error('password')
                             {{$message}}
@@ -125,4 +126,14 @@
     <!-- /.card-body -->
 </div>
 
+<script>
+    function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
 @endsection

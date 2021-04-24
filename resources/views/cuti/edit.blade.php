@@ -9,7 +9,7 @@
     <!-- /.card-header -->
     <div class="card-body">
         <div class="row">
-            <p>sisa cuti : </p>
+            <p>sisa cuti : {{$sisaCutis}} </p>
             @if($role == 2 && $cuti->acc_mandiv_id == 3 && $cuti->acc_hrd_id >= 2)
             <table class="table table-bordered">
                 <tr>
@@ -97,6 +97,8 @@
         <form action="/cuti/{{$cuti->slug}}/edit" method="post">
             @method('patch')
             @csrf
+
+            <input value="{{$sisaCutis}}" id="sisa_cuti" name="sisa_cuti" hidden>
             <div class="row">
                 <div class="col-sm-3">
                     <div class="form-group">

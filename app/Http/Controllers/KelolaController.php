@@ -17,22 +17,7 @@ class KelolaController extends Controller
 {
     public function index()
     {
-
-
-        $users = User::all();
-        // foreach ($users as $user) {
-        //     $cuti = Cuti::where([
-        //         ['user_id', '=', $user->id],
-        //         ['acc_hrd_id', '=', 3]
-        //     ]);
-        //     $izin = Izin::where([
-        //         ['user_id', '=', $user->id],
-        //         ['acc_hrd_id', '=', 3]
-        //     ]);
-        //     $users = User::with('cutis', 'izins')->orderBy('divisi_id', 'ASC')->get();
-
-        //     $user->cutis = $cuti;
-        //     $user->izins = $izin;
+        $users = User::orderBy('divisi_id', 'ASC')->get();
         return view('user.index', compact('users'));
     }
 
@@ -45,6 +30,8 @@ class KelolaController extends Controller
             'divisis' => Divisi::get(),
         ]);
     }
+
+
     public function store(UserRequest $request)
     {
         $request->validate([
@@ -56,9 +43,19 @@ class KelolaController extends Controller
         $attr['role_id'] = request('role');
         $attr['divisi_id'] = request('divisi');
         $attr['password'] = Hash::make($request['password']);
+
+        if ($attr['role_id'] == 1 && $attr['divisi_id'] > 1) {
+            session()->flash('error', 'Permintaan anda gagal diajukan');
+            return redirect(route('kelola.index'));
+        }
         User::create($attr);
         return redirect(route('kelola.index'));
+        session()->flash('success', 'Data akun karyawan berhasil dibuat');
+        session()->flash('error', 'Data akun karyawan gagal dibuat');
     }
+
+
+
     public function edit(User $user)
     {
         $year = now()->year;
@@ -102,16 +99,31 @@ class KelolaController extends Controller
             'divisis' => Divisi::get()
         ]);
     }
+
+
+
     public function update(UserRequest $request, User $user)
     {
         $attr = $request->all();
         $attr['role_id'] = request('role');
         $attr['divisi_id'] = request('divisi');
+
+        if ($attr['role_id'] == 1 && $attr['divisi_id'] > 1) {
+            session()->flash('error', 'Permintaan anda gagal diajukan');
+            return redirect(route('kelola.index'));
+        }
         $user->update($attr);
+        session()->flash('success', 'Data akun karyawan berhasil diperbarui');
+        session()->flash('error', 'Data akun karyawan gagal diperbarui');
         return redirect(route('kelola.index'));
     }
+
+
     public function destroy(User $user)
     {
         $user->delete();
+        session()->flash('success', 'Data akun karyawan berhasil dihapus');
+        session()->flash('error', 'Data akun karyawan gagal dihapus');
+        return redirect(route('kelola.index'));
     }
 }

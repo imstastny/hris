@@ -76,8 +76,8 @@
                                 <tr>
                                     @endif
                                     <td>{{$cuti->user->name}}</td>
-                                    <td>{{$cuti->kategori->nama}}</td>
                                     <td>{{$cuti->user->divisi->nama}}</td>
+                                    <td>{{$cuti->kategori->nama}}</td>
                                     <td>{{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</td>
                                     <td>{{$cuti->acc_hrd->nama}}</td>
                                     <td>

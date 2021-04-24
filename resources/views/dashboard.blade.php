@@ -65,7 +65,7 @@
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap">
-
+                            @if(count($isCuti))
                             <thead>
                                 <tr>
                                     <th>Nama</th>
@@ -82,6 +82,11 @@
                                 </tr>
                                 @endforeach
                             </tbody>
+                            @else
+                            <tr>
+                                <td>Tidak ada</td>
+                            </tr>
+                            @endif
                         </table>
                     </div>
                 </div>
@@ -94,7 +99,7 @@
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap">
-
+                            @if(count($isIzin))
                             <thead>
                                 <tr>
                                     <th>Nama</th>
@@ -113,6 +118,11 @@
                                 </tr>
                                 @endforeach
                             </tbody>
+                            @else
+                            <tr>
+                                <td>Tidak ada</td>
+                            </tr>
+                            @endif
                         </table>
                     </div>
                 </div>
