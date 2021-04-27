@@ -48,6 +48,10 @@ class KelolaController extends Controller
             session()->flash('error', 'Permintaan anda gagal diajukan');
             return redirect(route('kelola.index'));
         }
+        if ($attr['role_id'] > 1 && $attr['divisi_id'] == 1) {
+            session()->flash('error', 'Permintaan anda gagal diajukan');
+            return redirect(route('kelola.index'));
+        }
         User::create($attr);
         return redirect(route('kelola.index'));
         session()->flash('success', 'Data akun karyawan berhasil dibuat');
@@ -85,6 +89,19 @@ class KelolaController extends Controller
             $days = $interval->format('%a') + 1;
             $totalCuti2 += $days;
         }
+        $cuti3 = Cuti::where([
+            ['user_id', '=', $user->id],
+            ['kategori_id', '=', 2],
+            ['acc_hrd_id', '=', 3]
+        ])->whereYear('tgl_mulai', '=', $year)->get();
+        $totalCuti3 = 0;
+        foreach ($cuti3 as $cuti) {
+            $datetime1 = new DateTime($cuti->tgl_mulai);
+            $datetime2 = new DateTime($cuti->tgl_selesai);
+            $interval = $datetime1->diff($datetime2);
+            $days = $interval->format('%a') + 1;
+            $totalCuti3 += $days;
+        }
         $izin = Izin::where([
             ['user_id', '=', $user->id],
             ['acc_hrd_id', '=', 3]
@@ -94,6 +111,7 @@ class KelolaController extends Controller
             'user' => $user,
             'cuti1' => $totalCuti1,
             'cuti2' => $totalCuti2,
+            'cuti3' => $totalCuti3,
             'izin' => $izin,
             'roles' => Role::get(),
             'divisis' => Divisi::get()
@@ -109,6 +127,10 @@ class KelolaController extends Controller
         $attr['divisi_id'] = request('divisi');
 
         if ($attr['role_id'] == 1 && $attr['divisi_id'] > 1) {
+            session()->flash('error', 'Permintaan anda gagal diajukan');
+            return redirect(route('kelola.index'));
+        }
+        if ($attr['role_id'] > 1 && $attr['divisi_id'] == 1) {
             session()->flash('error', 'Permintaan anda gagal diajukan');
             return redirect(route('kelola.index'));
         }

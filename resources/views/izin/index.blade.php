@@ -35,7 +35,6 @@
 
                             <thead>
                                 <tr>
-                                    <th>Nama</th>
                                     <th>Tanggal Izin</th>
                                     <th>Waktu Mulai</th>
                                     <th>Waktu Selesai</th>
@@ -47,7 +46,6 @@
                             <tbody>
                                 @foreach($izins as $izin)
                                 <tr>
-                                    <td>{{$izin->user->name}}</td>
                                     <td>{{\Carbon\Carbon::parse($izin->tgl_izin)->format('d/m/Y')}}</td>
                                     <td>{{$izin->wkt_mulai}}.00</td>
                                     <td>{{$izin->wkt_selesai}}.00</td>

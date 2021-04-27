@@ -45,12 +45,27 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label>Nama Lengkap</label>
                         <input type="text" class="form-control" id="name" name="name" autocomplete="off">
                         <div class="text-danger">
                             @error('name')
+                            {{$message}}
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="exampleSelectRounded0">Jenis Kelamin</label>
+                        <select class="custom-select rounded-0" id="gender" name="gender">
+                            <option disabled selected>-Pilih Gender-</option>
+                            <option value="Pria">Pria</option>
+                            <option value="Wanita">Wanita</option>
+                        </select>
+                        <div class="text-danger">
+                            @error('gender')
                             {{$message}}
                             @enderror
                         </div>
@@ -70,24 +85,6 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="exampleSelectRounded0">Gender</label>
-                        <select class="custom-select rounded-0" id="gender" name="gender">
-                            <option disabled selected>-Pilih Gender-</option>
-                            <option value="Pria">Pria</option>
-                            <option value="Wanita">Wanita</option>
-                        </select>
-                        <div class="text-danger">
-                            @error('gender')
-                            {{$message}}
-                            @enderror
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Email</label>
@@ -99,13 +96,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Password</label>
                         <input type="password" class="form-control" id="password" name="password">
-                        <input type="checkbox" onclick="myFunction()">Show Password
+                        <input type="checkbox" onclick="myFunction()"> tampilkan
                         <div class="text-danger">
                             @error('password')
                             {{$message}}
@@ -114,6 +109,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-success">
                     <i class="fas fa-plus-square"></i>

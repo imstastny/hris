@@ -31,7 +31,7 @@ class IzinController extends Controller
             })->get();
         }
 
-        return view('izin.admin', compact('izins'));
+        return view('izin.admin', compact('izins', 'role_id'));
     }
 
     public function create()

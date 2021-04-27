@@ -10,9 +10,9 @@
         <form action="{{ route('izin.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-3">
                     <div class="form-group">
-                        <label>Tanggal Izina</label>
+                        <label>Tanggal Izin</label>
                         <input type="date" class="form-control" id="tgl_izin" name="tgl_izin">
                         <div class="text-danger">
                             @error('tgl_izin')
@@ -21,9 +21,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Waktu Mulai</label>
                         <select class="custom-select rounded-0" id="wkt_mulai" name="wkt_mulai">
@@ -37,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Waktu Selesai</label>
                         <select class="custom-select rounded-0" id="wkt_selesai" name="wkt_selesai">
@@ -58,7 +56,7 @@
                     <!-- textarea -->
                     <div class="form-group">
                         <label>Keterangan</label>
-                        <textarea class="form-control" rows="3" id="keterangan" name="keterangan" placeholder="Enter ..."></textarea>
+                        <textarea class="form-control" rows="3" id="keterangan" name="keterangan" placeholder="Tambahkan keterangan ..."></textarea>
                         <div class="text-danger">
                             @error('keterangan')
                             {{$message}}

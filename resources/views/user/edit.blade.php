@@ -123,16 +123,20 @@
             </div>
         </form>
         <div class="row">
-            <div class="col-sm-4">
-                <label>Rekap Izin dan Cuti Karyawan</label>
+            <div class="col-sm-6">
+                <label>Jumlah Cuti Karyawan</label>
                 <table class="table table-bordered">
                     <tr>
                         <td>Cuti Tahunan</td>
-                        <td align="center">{{$cuti1}}</td>
+                        <td align="center">{{$cuti1}} Hari</td>
                     </tr>
                     <tr>
                         <td>Cuti Haid</td>
-                        <td align="center">{{$cuti2}}</td>
+                        <td align="center">{{$cuti2}} Hari</td>
+                    </tr>
+                    <tr>
+                        <td>Cuti Melahirkan</td>
+                        <td align="center">{{$cuti3}} Hari</td>
                     </tr>
                     <tr>
                         <td>Izin</td>

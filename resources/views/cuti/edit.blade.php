@@ -8,9 +8,8 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
+        @if($role == 2 && $cuti->acc_mandiv_id == 3 && $cuti->acc_hrd_id >= 2)
         <div class="row">
-            <p>sisa cuti : {{$sisaCutis}} </p>
-            @if($role == 2 && $cuti->acc_mandiv_id == 3 && $cuti->acc_hrd_id >= 2)
             <table class="table table-bordered">
                 <tr>
                     <td> <b>Nama Lengkap</b></td>
@@ -71,28 +70,31 @@
         </div>
         <!-- /.card-header -->
         @else
-        <table class="table table-bordered">
-            <tr>
-                <td> <b>Nama Lengkap</b></td>
-                <td> {{$cuti->user->name}}</td>
-            </tr>
-            <tr>
-                <td> <b>Nomor Induk Karyawan</b></td>
-                <td> {{$cuti->user->nik}}</td>
-            </tr>
-            <tr>
-                <td><b>Jabatan</b></td>
-                <td> {{$cuti->user->role->nama}}</td>
-            </tr>
-            <tr>
-                <td><b>Divisi</b></td>
-                <td> {{$cuti->user->divisi->nama}}</td>
-            </tr>
-            <tr>
-                <td><b>Jenis Kelamin</b></td>
-                <td> {{$cuti->user->gender}}</td>
-            </tr>
-        </table>
+        <div>
+            <p><b> Sisa Cuti : {{$sisaCutis}}</b> </p>
+            <table class="table table-bordered">
+                <tr>
+                    <td> <b>Nama Lengkap</b></td>
+                    <td> {{$cuti->user->name}}</td>
+                </tr>
+                <tr>
+                    <td> <b>Nomor Induk Karyawan</b></td>
+                    <td> {{$cuti->user->nik}}</td>
+                </tr>
+                <tr>
+                    <td><b>Jabatan</b></td>
+                    <td> {{$cuti->user->role->nama}}</td>
+                </tr>
+                <tr>
+                    <td><b>Divisi</b></td>
+                    <td> {{$cuti->user->divisi->nama}}</td>
+                </tr>
+                <tr>
+                    <td><b>Jenis Kelamin</b></td>
+                    <td> {{$cuti->user->gender}}</td>
+                </tr>
+            </table>
+        </div>
 
         <form action="/cuti/{{$cuti->slug}}/edit" method="post">
             @method('patch')
