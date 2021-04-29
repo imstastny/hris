@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(Acc_mandivsTableSeeder::class);
         $this->call(Acc_hrdsTableSeeder::class);
+        $this->call(CutisTableSeeder::class);
     }
 }

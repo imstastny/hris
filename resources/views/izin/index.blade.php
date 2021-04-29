@@ -2,7 +2,7 @@
 @section('content')
 <div class="card card-info col-sm-12 p-0">
     <div class="card-header">
-        <h1 class="card-title">Daftar Pengajuan Cuti</h1>
+        <h1 class="card-title">Daftar Pengajuan Izin</h1>
     </div>
 </div>
 @include('layouts.alert')

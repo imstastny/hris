@@ -24,5 +24,27 @@ class UsersTableSeeder extends Seeder
                 'email' => 'admin@mail.com'
             ]
         );
+        \App\Models\User::create(
+            [
+                'name' => 'Harry',
+                'role_id' => 2,
+                'divisi_id' => 2,
+                'nik' => '19800731',
+                'gender' => 'Pria',
+                'password' => bcrypt('password'),
+                'email' => 'harry@mail.com'
+            ]
+        );
+        \App\Models\User::create(
+            [
+                'name' => 'Malfoy',
+                'role_id' => 3,
+                'divisi_id' => 2,
+                'nik' => '19800605',
+                'gender' => 'Pria',
+                'password' => bcrypt('password'),
+                'email' => 'malfoy@mail.com'
+            ]
+        );
     }
 }
