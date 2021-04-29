@@ -106,10 +106,9 @@
                                 <tr>
                                     @endif
                                     <td>{{$izin->user->name}}</td>
-                                    <td>{{$izin->user->divisi->nama}}</td>
                                     <td>{{\Carbon\Carbon::parse($izin->tgl_izin)->format('d/m/Y')}}</td>
                                     <td>{{$izin->wkt_mulai}}.00 - {{$izin->wkt_selesai}}.00</td>
-                                    <td>{{$izin->acc_hrd->nama}}</td>
+                                    <td>{{$izin->acc_mandiv->nama}}</td>
                                     <td>
                                         <a href="/izin/{{$izin->slug}}/edit" class="btn btn-sm btn-info">detail</a>
                                     </td>
@@ -123,6 +122,9 @@
                 </div>
                 <!-- /.card -->
             </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            {{$izins->links()}}
         </div>
     </div>
 </section>

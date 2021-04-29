@@ -70,7 +70,7 @@
         </div>
         <!-- /.card-header -->
         @else
-        <div>
+        <div class="row">
             <p><b> Sisa Cuti : {{$sisaCutis}}</b> </p>
             <table class="table table-bordered">
                 <tr>

@@ -100,7 +100,7 @@
                     <div class="form-group">
                         <label>Password</label>
                         <input type="password" class="form-control" id="password" name="password">
-                        <input type="checkbox" onclick="myFunction()"> tampilkan
+                        <input type="checkbox" onclick="password()"> tampilkan
                         <div class="text-danger">
                             @error('password')
                             {{$message}}
@@ -123,7 +123,7 @@
 </div>
 
 <script>
-    function myFunction() {
+    function password() {
         var x = document.getElementById("password");
         if (x.type === "password") {
             x.type = "text";

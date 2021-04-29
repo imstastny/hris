@@ -15,7 +15,7 @@ class IzinController extends Controller
     public function index()
     {
         $id = Auth::id();
-        $izins = Izin::where('user_id', $id)->get();
+        $izins = Izin::where('user_id', $id)->orderBy('created_at', 'desc')->simplePaginate(12);
 
         return view('izin.index', compact('izins'));
     }
@@ -23,12 +23,12 @@ class IzinController extends Controller
     {
         $role_id = Auth::user()->role_id;
         if ($role_id == 1) {
-            $izins = Izin::where('acc_mandiv_id', 3)->latest()->get();
+            $izins = Izin::where('acc_mandiv_id', 3)->latest()->simplePaginate(12);
         } else {
             $izins = Izin::whereHas('user', function ($query) {
                 $divisi_id = Auth::user()->divisi_id;
                 $query->whereDivisiId($divisi_id);
-            })->get();
+            })->latest()->simplePaginate(12);
         }
 
         return view('izin.admin', compact('izins', 'role_id'));

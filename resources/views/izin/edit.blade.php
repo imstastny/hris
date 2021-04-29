@@ -35,96 +35,101 @@
 </div>
 <div class="card card-info col-sm-12">
     <div class="card-header">
-        <h3 class="card-title">Persetujuan Izin Atas Nama : {{$izin->user->name}}
-            @if($izin->acc_hrd_id < 4) <strong>{{$izin->acc_hrd->nama}} </strong> Admin HRD @endif</h3>
+        <h3 class="card-title">Persetujuan Izin Karyawan</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <div class="row">
-            <div class="col-sm-2">
-                <p>Nama</p>
-                <p>NIK</p>
-                <p>Jabatan</p>
-                <p>Divisi</p>
-                <p>Tanggal Izin</p>
-                <p>Waktu</p>
-                <p>Keterangan</p>
-            </div>
-            <div class="col-sm-3">
-                <p>: {{$izin->user->name}}</p>
-                <p>: {{$izin->user->nik}}</p>
-                <p>: {{$izin->user->role->nama}}</p>
-                <p>: {{$izin->user->divisi->nama}}</p>
-                <p>: {{$izin->tgl_izin}}</p>
-                <p>: {{$izin->wkt_mulai}}.00 - {{$izin->wkt_selesai}}.00</p>
-                <p> {!! nl2br($izin->keterangan) !!}</p>
-            </div>
-        </div>
-        <hr>
         @if($role == 2 && $izin->acc_mandiv_id == 3 && $izin->acc_hrd_id >= 2)
-        <!-- /.card-header -->
-
         <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Tanggal Izin</label>
-                    <p>{{$izin->tgl_izin}}</p>
-                </div>
-            </div>
-
-            <div class="col-sm-2">
-                <div class="form-group">
-                    <label>Waktu Mulai</label>
-                    <p>{{$izin->wkt_mulai}}.00</p>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="form-group">
-                    <label>Waktu Selesai</label>
-                    <p>{{$izin->wkt_selesai}}.00</p>
-                </div>
-            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <td style="width:20em"> <b>Nama Lengkap</b></td>
+                    <td> {{$izin->user->name}}</td>
+                </tr>
+                <tr>
+                    <td> <b>Nomor Induk Karyawan</b></td>
+                    <td> {{$izin->user->nik}}</td>
+                </tr>
+                <tr>
+                    <td><b>Jabatan</b></td>
+                    <td> {{$izin->user->role->nama}}</td>
+                </tr>
+                <tr>
+                    <td><b>Divisi</b></td>
+                    <td> {{$izin->user->divisi->nama}}</td>
+                </tr>
+                <tr>
+                    <td><b>Jenis Kelamin</b></td>
+                    <td> {{$izin->user->gender}}</td>
+                </tr>
+            </table>
         </div>
+        <br>
         <div class="row">
-            <div class="col-sm-6">
-                <!-- textarea -->
-                <div class="form-group">
-                    <label>Deskripsi</label>
-
-                    <p>{!! nl2br($izin->keterangan) !!}</p>
-
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <label>Lampiran</label><br>
-                @if($izin->lampiran)
-                <a href="/izin/lampiran/{{$izin->slug}}" target="_blank">
-                    <img class="img-fluid" src="{{asset($izin->takeImageCuti)}}" width="100" height="120">
-                </a>
-                @else -
-                @endif
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label>Acc Mandiv</label>
-                    <p>{{$izin->acc_mandiv->nama}}</p>
-                </div>
-            </div>
-
-            @if($izin->acc_mandiv_id >= 2)
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label>Acc HRD</label>
-                    <p>{{$izin->acc_hrd->nama}}</p>
-                </div>
-            </div>
-            @endif
+            <table class="table table-bordered">
+                <tr>
+                    <td style="width:20em"><b>Tanggal Izin</b></td>
+                    <td> {{\Carbon\Carbon::parse($izin->tgl_izin)->format('d/m/Y')}}</td>
+                </tr>
+                <tr>
+                    <td><b>Waktu Mulai</b></td>
+                    <td> {{$izin->wkt_mulai}}.00</td>
+                </tr>
+                <tr>
+                    <td><b>Waktu Selesai</b></td>
+                    <td>{{$izin->wkt_selesai}}.00</td>
+                </tr>
+                <tr>
+                    <td><b>Keterangan</b></td>
+                    <td> {!! nl2br($izin->keterangan) !!}</td>
+                </tr>
+                <tr>
+                    <td><b>Lampiran</b></td>
+                    <td>
+                        @if($izin->lampiran)
+                        <a href="/izin/lampiran/{{$izin->slug}}" target="_blank">
+                            <img class="img-fluid" src="{{asset($izin->takeImageCuti)}}" width="100" height="120">
+                        </a>
+                        @else -
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Acc Mandiv</b></td>
+                    <td> {{$izin->acc_mandiv->nama}}</td>
+                </tr>
+                <tr>
+                    <td><b>Acc HRD</b></td>
+                    <td> {{$izin->acc_hrd->nama}}</td>
+                </tr>
+            </table>
         </div>
 
         @else
+        <div class="row">
+            <table class="table table-bordered">
+                <tr>
+                    <td style="width:20em"> <b>Nama Lengkap</b></td>
+                    <td> {{$izin->user->name}}</td>
+                </tr>
+                <tr>
+                    <td> <b>Nomor Induk Karyawan</b></td>
+                    <td> {{$izin->user->nik}}</td>
+                </tr>
+                <tr>
+                    <td><b>Jabatan</b></td>
+                    <td> {{$izin->user->role->nama}}</td>
+                </tr>
+                <tr>
+                    <td><b>Divisi</b></td>
+                    <td> {{$izin->user->divisi->nama}}</td>
+                </tr>
+                <tr>
+                    <td><b>Jenis Kelamin</b></td>
+                    <td> {{$izin->user->gender}}</td>
+                </tr>
+            </table>
+        </div>
         <form action="/izin/{{$izin->slug}}/edit" method="post">
             @method('patch')
             @csrf

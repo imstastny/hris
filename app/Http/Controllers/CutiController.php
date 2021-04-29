@@ -56,6 +56,7 @@ class CutiController extends Controller
             $totalCuti += $days;
         }
         $sisaCutis = 12 - $totalCuti;
+
         return view('cuti.create', compact('kategoris', 'sisaCutis'));
     }
     public function store(CutiRequest $request)
