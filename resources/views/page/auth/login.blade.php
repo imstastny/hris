@@ -19,15 +19,15 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-info">
             <div class="card-header text-center">
-                <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+                <img src="{{ asset('layout/dist/img/logo-kopma.png') }}" style="height: 5em;" alt="User Image">
+                <h4>Sistem Manajemen Cuti Karyawan</h4>
+                <h4><strong>KOPMA UGM</strong></h4>
             </div>
             <div class="card-body">
-
-
                 <form action="{{ route('login') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="text" name="nik" id="nik" class="form-control" placeholder="Username" autocomplete="off">
+                        <input type="text" name="nik" id="nik" class="form-control" placeholder="Nomor Induk Karyawan" autocomplete="off">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" id="password">
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Kata Sandi" id="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
