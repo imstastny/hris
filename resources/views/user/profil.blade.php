@@ -1,4 +1,4 @@
-@extends('layouts.main',['title' => 'Form Pengajuan Cuti'])
+@extends('layouts.main',['title' => 'Profil'])
 @section('content')
 <div class="container">
 
@@ -10,35 +10,48 @@
     <br>
     <!-- /.card-header -->
     <div class="row">
-        <div class="col-md-11 mx-2">
+        <div class="card-body box-profile">
+            <div class="text-center">
+                <img src="{{ asset('layout/dist/img/user.png') }}" class="img-circle elevation-1" style="height: 5em;" alt="User Image">
+            </div>
+
+            <h3 class="profile-username text-center">{{$user->name}}</h3>
+
+            <!-- <p class="text-muted text-center">Software Engineer</p> -->
+
+            <ul class="list-group list-group-unbordered mb-3">
+                <li class="list-group-item">
+                    <b>Nama Lengkap</b>
+                    <ul class="float-right">{{$user->name}}</ul>
+                </li>
+                <li class="list-group-item">
+                    <b>Nomor Induk Karyawan</b>
+                    <ul class="float-right">{{$user->nik}}</ul>
+                </li>
+                <li class="list-group-item">
+                    <b>Divisi</b>
+                    <ul class="float-right">{{$user->divisi->nama}}</ul>
+                </li>
+                <li class="list-group-item">
+                    <b>Jabatan</b>
+                    <ul class="float-right">{{$user->role->nama}}</ul>
+                </li>
+                <li class="list-group-item">
+                    <b>Jenis Kelamin</b>
+                    <ul class="float-right"> {{$user->gender}}</ul>
+                </li>
+                <li class="list-group-item">
+                    <b>Email</b>
+                    <ul class="float-right"> {{$user->email}}</ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.card-body -->
+        <div class="col-md-12">
             <table class="table table-bordered">
                 <tr>
-                    <td style="width: 15rem;"> <b>Nama Lengkap</b></td>
-                    <td> {{$user->name}}</td>
-                </tr>
-                <tr>
-                    <td style="width: 15rem;"> <b>Nomor Induk Karyawan</b></td>
-                    <td> {{$user->nik}}</td>
-                </tr>
-                <tr>
-                    <td style="width: 15rem;"><b>Jabatan</b></td>
-                    <td> {{$user->role->nama}}</td>
-                </tr>
-                <tr>
-                    <td style="width: 15rem;"><b>Divisi</b></td>
-                    <td> {{$user->divisi->nama}}</td>
-                </tr>
-                <tr>
-                    <td style="width: 15rem;"><b>Email</b></td>
-                    <td> {{$user->email}}</td>
-                </tr>
-                <tr>
-                    <td style="width: 15rem;"><b>Jenis Kelamin</b></td>
-                    <td> {{$user->gender}}</td>
-                </tr>
-                <tr>
                     <td><b>Cuti Tahunan</b></td>
-                    <td>{{$totalCuti1}} Hari</td>
+                    <td class="float-right">{{$totalCuti1}} Hari</td>
                 </tr>
                 <tr>
                     <td><b>Cuti Haid</b></td>

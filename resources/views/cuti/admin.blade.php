@@ -1,8 +1,8 @@
-@extends('layouts.main',['title' => 'Daftar Pengajuan'])
+@extends('layouts.main',['title' => 'Daftar Persetujuan Cuti'])
 @section('content')
 <div class="card card-info col-sm-12 p-0">
     <div class="card-header">
-        <h1 class="card-title">Daftar Pengajuan Cuti</h1>
+        <h1 class="card-title">Daftar Persetujuan Cuti</h1>
     </div>
 </div>
 @include('layouts.alert')
@@ -52,7 +52,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title"><strong>Rekap Permohonan Cuti Karyawan</strong></h3>
+                        <h3 class="card-title"><strong>Daftar Pengajuan Cuti Karyawan</strong></h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">

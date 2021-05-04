@@ -16,7 +16,7 @@ class DashboardController extends Controller
         $user = User::count();
         $isCuti = Cuti::join('users', 'users.id', '=', 'cutis.user_id')
             ->join('divisis', 'users.divisi_id', '=', 'divisis.id')
-            ->select('users.name', 'nik', 'divisis.nama')
+            ->select('users.name', 'cutis.tgl_selesai', 'divisis.nama')
             ->where('acc_hrd_id', 3)
             ->whereDate('tgl_mulai', '<=', Carbon::today())
             ->whereDate('tgl_selesai', '>=', Carbon::today())

@@ -1,4 +1,4 @@
-@extends('layouts.main',['title' => 'Form Pengajuan Cuti'])
+@extends('layouts.main',['title' => 'Edit Karyawan'])
 @section('content')
 <div class="card card-info col-sm-12">
     <div class="card-header">
@@ -123,7 +123,7 @@
             </div>
         </form>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <label>Jumlah Cuti Karyawan</label>
                 <table class="table table-bordered">
                     <tr>

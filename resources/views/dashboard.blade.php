@@ -69,16 +69,17 @@
                             <thead>
                                 <tr>
                                     <th>Nama</th>
-                                    <th>NIK</th>
                                     <th>Divisi</th>
+                                    <th>Tanggal Selesai</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($isCuti as $is)
+                                @foreach ($isCuti as $iscuti)
                                 <tr>
-                                    <td>{{$is->name}}</td>
-                                    <td>{{$is->nik}}</td>
-                                    <td>{{$is->nama}}</td>
+                                    <td>{{$iscuti->name}}</td>
+                                    <td>{{$iscuti->nama}}</td>
+                                    <td>{{\Carbon\Carbon::parse($iscuti->tgl_selesai)->format('d/m/Y')}}</td>
+
                                 </tr>
                                 @endforeach
                             </tbody>

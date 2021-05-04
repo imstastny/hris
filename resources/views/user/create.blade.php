@@ -1,4 +1,4 @@
-@extends('layouts.main',['title' => 'Form Pengajuan Cuti'])
+@extends('layouts.main',['title' => 'Tambah Karyawan'])
 @section('content')
 <div class="card card-info col-sm-12">
     <div class="card-header">
@@ -98,9 +98,10 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label>Password</label>
+                        <label>Password</label> <i class="fas fa-eye" style="float: right;" onclick="myfunction()"></i>
                         <input type="password" class="form-control" id="password" name="password">
-                        <input type="checkbox" onclick="password()"> tampilkan
+                        <!-- <input type="checkbox" onclick="myfunction()"> tampilkan -->
+
                         <div class="text-danger">
                             @error('password')
                             {{$message}}
@@ -123,7 +124,7 @@
 </div>
 
 <script>
-    function password() {
+    function myfunction() {
         var x = document.getElementById("password");
         if (x.type === "password") {
             x.type = "text";

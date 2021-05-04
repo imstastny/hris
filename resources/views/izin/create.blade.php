@@ -39,7 +39,7 @@
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Waktu Selesai</label>
                         <select class="custom-select rounded-0" id="wkt_selesai" name="wkt_selesai">
-                            @for ($i = 7; $i < 22; $i++) <option value="{{$i}}">{{$i}}.00</option>
+                            @for ($i = 7; $i < 22; $i++) <option value="{{$i.}}">{{$i}}.00</option>
                                 @endfor
                         </select>
                         <div class="text-danger">
