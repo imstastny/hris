@@ -1,4 +1,4 @@
-@extends('layouts.main',['title' => 'Rekap Pengajuan Cuti'])
+@extends('layouts.main',['title' => 'Rekap Data Izin'])
 @section('content')
 <div class="card card-info col-sm-12 p-0">
     <div class="card-header">
@@ -46,7 +46,7 @@
                             <tbody>
                                 @foreach($izins as $izin)
                                 <tr>
-                                    <td>{{$izin->user->role->nama}}</td>
+                                    <td>{{$izin->user->name}}</td>
                                     <td>{{$izin->user->nik}}</td>
                                     <td>{{$izin->user->role->nama}}</td>
                                     <td>{{$izin->user->divisi->nama}}</td>

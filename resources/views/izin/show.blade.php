@@ -7,65 +7,51 @@
     <!-- /.card-header -->
     <div class="card-body">
         <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label>Tanggal Izin</label>
-                    <text class="form-control" id="tgl_izin" name="tgl_izin" disabled>{{\Carbon\Carbon::parse($izin->tgl_izin)->format('d/m/Y')}}</text>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2">
-                <div class="form-group">
-                    <label for="exampleSelectRounded0">Waktu Mulai</label>
-                    <text class="form-control" id="wkt_mulai" name="wkt_mulai" disabled>{{$izin->wkt_mulai}}.00</text>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="form-group">
-                    <label for="exampleSelectRounded0">Waktu Selesai</label>
-                    <text class="form-control" id="wkt_selesai" name="wkt_selesai" disabled>{{$izin->wkt_selesai}}.00</text>
-                </div>
-            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <td style="width: 14rem;"><b>Tanggal Mengajukan</b></td>
+                    <td> {{\Carbon\Carbon::parse($izin->created_at)->format('d/m/Y')}}</td>
+                </tr>
+                <tr>
+                    <td><b>Tanggal Izin</b></td>
+                    <td> {{\Carbon\Carbon::parse($izin->tgl_izin)->format('d/m/Y')}}</td>
+                </tr>
+                <tr>
+                    <td><b>Waktu Mulai</b></td>
+                    <td> {{$izin->wkt_mulai}}.00</td>
+                </tr>
+                <tr>
+                    <td><b>Waktu Selesai</b></td>
+                    <td> {{$izin->wkt_selesai}}.00</td>
+                </tr>
+                <tr>
+                    <td><b>Keterangan</b></td>
+                    <td> {!! nl2br($izin->keterangan) !!}</td>
+                </tr>
+                <tr>
+                    <td><b>Lampiran</b></td>
+                    <td>
+                        @if($izin->lampiran)
+                        <a href="/izin/lampiran/{{$izin->slug}}" target="_blank">
+                            <img class="img-fluid" src="{{asset($izin->takeImageCuti)}}" width="100" height="120">
+                        </a>
+                        @else -
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Acc Mandiv</b></td>
+                    <td> {{$izin->acc_mandiv->nama}}</td>
+                </tr>
+                <tr>
+                    <td><b>Acc HRD</b></td>
+                    <td> {{$izin->acc_hrd->nama}}</td>
+                </tr>
+            </table>
+            <!-- /.card-body -->
 
         </div>
 
-        <div class="row">
-            <div class="col-sm-6">
-                <!-- textarea -->
-                <div class="form-group">
-                    <label>Deskripsi</label>
-
-                    <p>{!! nl2br($izin->keterangan) !!}</p>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <label>Lampiran</label><br>
-                @if($izin->lampiran)
-                <a href="/izin/lampiran/{{$izin->slug}}" target="_blank">
-                    <img class="img-fluid" src="{{asset($izin->takeImageIzin)}}" width="100" height="120">
-                </a>
-                @else -
-                @endif
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label>Acc Mandiv</label>
-                    <text class="form-control" id="acc_mandiv" name="acc_mandiv" value="" disabled>{{$izin->acc_mandiv->nama}}</text>
-                </div>
-            </div>
-
-            @if($izin->acc_mandiv_id >= 2)
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label>Acc HRD</label>
-                    <text class="form-control" id="acc_mandiv" name="acc_mandiv" value="" disabled>{{$izin->acc_hrd->nama}}</text>
-                </div>
-            </div>
-        </div>
-        @endif
 
     </div>
     <!-- /.card-body -->

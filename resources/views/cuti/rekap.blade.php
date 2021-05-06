@@ -1,4 +1,4 @@
-@extends('layouts.main',['title' => 'Rekap Pengajuan Cuti'])
+@extends('layouts.main',['title' => 'Rekap Data Cuti'])
 @section('content')
 <div class="card card-info col-sm-12 p-0">
     <div class="card-header">
