@@ -13,7 +13,7 @@
         <div class="callout callout-info col-sm-12 mb-4">
             <h6><b>Informasi</b></h6>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed condimentum nunc, in porta sapien. Vestibulum lacinia est magna. Suspendisse at venenatis risus, nec laoreet eros. Donec ex diam, dapibus sed rhoncus sit amet, rhoncus sit amet nulla. Fusce commodo dapibus velit. Etiam dui sapien, sollicitudin vel quam eget, mollis tempor lacus.</p>
+            <p>Halaman Create Cuti raiso diubah yudd html e, mboh rangerti kenangopo, coba dicek ning nggonmu iso gak. masalah kedua silahkan klik halaman persetujuan cuti</p>
         </div>
         <div class="row">
             <div class="col-sm-12">
