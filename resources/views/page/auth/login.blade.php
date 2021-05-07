@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>HRIS | Login</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -20,7 +20,7 @@
         <div class="card card-outline card-info">
             <div class="card-header text-center">
                 <img src="{{ asset('layout/dist/img/logo-kopma.png') }}" style="height: 5em;" alt="User Image">
-                <h4>Sistem Manajemen Cuti Karyawan</h4>
+                <h4>Sistem Informasi Manajemen Cuti Karyawan</h4>
                 <h4><strong>KOPMA UGM</strong></h4>
             </div>
             <div class="card-body">
