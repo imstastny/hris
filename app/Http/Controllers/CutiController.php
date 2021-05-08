@@ -115,15 +115,14 @@ class CutiController extends Controller
             ['acc_hrd_id', '=', 3]
         ])->whereYear('tgl_mulai', '=', now()->year)->get();
         $totalCuti = 0;
-        foreach ($cutis as $cuti) {
-            $datetime1 = new DateTime($cuti->tgl_mulai);
-            $datetime2 = new DateTime($cuti->tgl_selesai);
+        foreach ($cutis as $c) {
+            $datetime1 = new DateTime($c->tgl_mulai);
+            $datetime2 = new DateTime($c->tgl_selesai);
             $interval = $datetime1->diff($datetime2);
             $days = $interval->format('%a') + 1;
             $totalCuti += $days;
         }
         $sisaCutis = 12 - $totalCuti;
-
         $role_id = Auth::user()->role_id;
         return view('cuti.edit', [
             'role' => $role_id,
