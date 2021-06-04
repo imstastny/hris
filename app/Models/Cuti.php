@@ -12,6 +12,11 @@ class Cuti extends Model
     use HasFactory;
 
     protected $fillable = ['slug', 'user_id', 'kategori_id', 'acc_mandiv_id', 'acc_hrd_id', 'tgl_mulai', 'tgl_selesai', 'keterangan', 'lampiran'];
+
+    protected $with = ['User', 'Kategori', 'Acc_hrd', 'Acc_mandiv'];
+
+
+
     public function getTakeImageCutiAttribute()
     {
         return "/storage/" . $this->lampiran;

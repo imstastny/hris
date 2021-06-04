@@ -21,7 +21,7 @@
         <div class="card card-outline card-info">
             <div class="card-header text-center">
                 <img src="{{ asset('layout/dist/img/logo-kopma.png') }}" style="height: 5em;" alt="User Image">
-                <h4>Sistem Informasi Manajemen Cuti Karyawan</h4>
+                <h4>Sistem Informasi Cuti Karyawan</h4>
                 <h4><strong>KOPMA UGM</strong></h4>
             </div>
             <div class="card-body">

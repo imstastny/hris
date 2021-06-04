@@ -109,9 +109,9 @@ class KelolaController extends Controller
 
         return view('user.edit', [
             'user' => $user,
-            'cuti1' => $totalCuti1,
-            'cuti2' => $totalCuti2,
-            'cuti3' => $totalCuti3,
+            'cuti1' => $totalCuti1, //cuti id 1
+            'cuti2' => $totalCuti2, //cuti id 2
+            'cuti3' => $totalCuti3, //cuti id 3
             'izin' => $izin,
             'roles' => Role::get(),
             'divisis' => Divisi::get()
