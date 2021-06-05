@@ -109,6 +109,7 @@ class IzinController extends Controller
         session()->flash('error', 'Tanggapan anda gagal disimpan!');
         return redirect(route('izin.admin'));
     }
+
     public function destroy(Izin $izin)
     {
         $izin->delete();
@@ -116,6 +117,8 @@ class IzinController extends Controller
         session()->flash('error', 'Data pengajuan gagal terhapus!');
         return redirect(route('izin.admin'));
     }
+
+    //hapus semua data, tidak digunakan di sistem
     public function destroyAll()
     {
         Izin::truncate();
@@ -123,6 +126,7 @@ class IzinController extends Controller
         session()->flash('error', 'Tanggapan anda gagal disimpan!');
         return redirect(route('cuti.admin'));
     }
+
     public function export()
     {
         return Excel::download(new IzinExport(), 'rekap-izin.xlsx');

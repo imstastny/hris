@@ -71,7 +71,10 @@
         <!-- /.card-header -->
         @else
         <div class="row">
-            <p><b> Sisa Cuti : {{$sisaCutis}}</b> </p>
+            <div class="callout callout-info col-sm-12 mb-4">
+                <h6><b>Informasi</b></h6>
+                <p>Sisa Cuti Tahunan {{$cuti->user->name}}: {{$sisaCutis}} Hari</p>
+            </div>
             <table class="table table-bordered">
                 <tr>
                     <td> <b>Nama Lengkap</b></td>

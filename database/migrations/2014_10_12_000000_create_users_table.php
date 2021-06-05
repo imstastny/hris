@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('role_id');
             $table->foreignId('divisi_id');
             $table->string('name');
-            $table->string('nik', 20)->unique();
+            $table->string('nik', 20);
             $table->string('gender', 6);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

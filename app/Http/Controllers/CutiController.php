@@ -155,6 +155,11 @@ class CutiController extends Controller
             }
         }
 
+        //kondisi status persetujuan
+        //1 = diproses
+        //2 = ditolak
+        //3 = disetujui
+
         if (request('acc_mandiv') == 1) {
             $attr['acc_hrd_id'] = 4;
         } elseif (request('acc_mandiv') == 2) {

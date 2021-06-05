@@ -7,8 +7,12 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
+        <div class="callout callout-info col-sm-12 mb-4">
+            <h6><b>Informasi</b></h6>
+            <p>Sisa Cuti Tahunan : {{$sisaCutis}} Hari</p>
+        </div>
 
-        <p>Sisa Cuti Tahunan : {{$sisaCutis}} Hari</p>
+
 
         <form action="{{ route('cuti.store') }}" method="post" enctype="multipart/form-data">
             @csrf

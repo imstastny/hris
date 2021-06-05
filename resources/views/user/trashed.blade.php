@@ -2,24 +2,12 @@
 @section('content')
 <div class="card card-info col-sm-12 p-0">
     <div class="card-header">
-        <h3 class="card-title">Kelola Data Karyawan</h3>
+        <h3 class="card-title">Kelola Data Karyawan Terhapus</h3>
     </div>
 </div>
 @include('layouts.alert')
 <section class="container">
     <div class="container-fluid">
-        <div class="row justify-content-between">
-
-            <a href="{{ route('kelola.daftar') }}" class="btn btn-success">
-                <i class="fas fa-plus-square"></i>
-                Tambah Karyawan Baru</a>
-
-            <a href="{{ route('kelola.trashed') }}" class="btn btn-danger">
-                <i class="fas fa-file"></i>
-                Data Karyawan Terhapus</a>
-
-        </div>
-        <hr>
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -47,7 +35,8 @@
                                     <td>{{$user['role']['nama']}}</td>
                                     <td>{{$user['divisi']['nama']}}</td>
                                     <td>
-                                        <a href="/anggota/{{$user['nik']}}/edit" class="btn btn-sm btn-info">detail</a>
+                                        <a href="" class="btn btn-sm btn-success">restore</a>
+                                        <a href="" class="btn btn-sm btn-danger">hapus</a>
                                     </td>
 
 

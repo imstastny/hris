@@ -20,7 +20,11 @@ class KelolaController extends Controller
         $users = User::orderBy('divisi_id', 'ASC')->get();
         return view('user.index', compact('users'));
     }
-
+    public function trashed()
+    {
+        $users = User::orderBy('divisi_id', 'ASC')->onlyTrashed()->get();
+        return view('user.trashed', compact('users'));
+    }
 
 
     public function create()
@@ -35,7 +39,7 @@ class KelolaController extends Controller
     public function store(UserRequest $request)
     {
         $request->validate([
-            'nik' => 'required|unique:users|alpha_num|min:3|max:20',
+            'nik' => 'required|alpha_num|min:3|max:20',
             'password' => 'required|min:6',
             'email' => 'required|email|unique:users',
         ]);
@@ -126,10 +130,12 @@ class KelolaController extends Controller
         $attr['role_id'] = request('role');
         $attr['divisi_id'] = request('divisi');
 
+        //jika mendaftar admin selain divisi admin
         if ($attr['role_id'] == 1 && $attr['divisi_id'] > 1) {
             session()->flash('error', 'Permintaan anda gagal diajukan');
             return redirect(route('kelola.index'));
         }
+        //jika mendaftar bukan admin di divisi admin
         if ($attr['role_id'] > 1 && $attr['divisi_id'] == 1) {
             session()->flash('error', 'Permintaan anda gagal diajukan');
             return redirect(route('kelola.index'));
@@ -147,5 +153,9 @@ class KelolaController extends Controller
         session()->flash('success', 'Data akun karyawan berhasil dihapus');
         session()->flash('error', 'Data akun karyawan gagal dihapus');
         return redirect(route('kelola.index'));
+    }
+    public function restore(Request $request, $id)
+    {
+        return "Modul Belum Siap";
     }
 }
