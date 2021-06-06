@@ -64,6 +64,11 @@ class CutiController extends Controller
         $divisi_id = Auth::user()->divisi_id;
         $attr = $request->all();
 
+        if ($request->kategori != 1 && Auth::user()->gender == "Pria") {
+            session()->flash('error', 'Permintaan anda gagal diajukan, Hanya mendapat Cuti Tahunan');
+            return redirect(route('cuti.create'));
+        }
+
         //check cuti tahunan tidak melebihi sisa cuti
         if ($request->kategori == 1) {
             $datetime1 = new DateTime($request->tgl_mulai);

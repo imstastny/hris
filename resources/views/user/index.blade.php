@@ -14,9 +14,9 @@
                 <i class="fas fa-plus-square"></i>
                 Tambah Karyawan Baru</a>
 
-            <a href="{{ route('kelola.trashed') }}" class="btn btn-danger">
+            <!-- <a href="{{ route('kelola.trashed') }}" class="btn btn-danger">
                 <i class="fas fa-file"></i>
-                Data Karyawan Terhapus</a>
+                Data Karyawan Terhapus</a> -->
 
         </div>
         <hr>
