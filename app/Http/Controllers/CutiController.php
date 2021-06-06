@@ -177,6 +177,7 @@ class CutiController extends Controller
         session()->flash('error', 'Tanggapan anda gagal disimpan!');
         return redirect(route('cuti.admin'));
     }
+
     public function destroy(Cuti $cuti)
     {
         $cuti->delete();
@@ -184,6 +185,9 @@ class CutiController extends Controller
         session()->flash('error', 'Data pengajuan gagal terhapus!');
         return redirect(route('cuti.admin'));
     }
+
+    //delete all data cuti 
+    //not used
     public function destroyAll()
     {
         Cuti::truncate();
@@ -191,11 +195,13 @@ class CutiController extends Controller
         session()->flash('error', 'Tanggapan anda gagal disimpan!');
         return redirect(route('cuti.admin'));
     }
+
     public function export()
     {
         return Excel::download(new CutiExport(), 'rekap-cuti.xlsx');
         return redirect("route('rekap.cuti')");
     }
+
     public function lampiran(Cuti $cuti)
     {
         return view('cuti.lampiran', compact('cuti'));

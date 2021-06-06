@@ -15,7 +15,7 @@
 
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed condimentum nunc, in porta sapien. Vestibulum lacinia est magna. Suspendisse at venenatis risus, nec laoreet eros. Donec ex diam, dapibus sed rhoncus sit amet, rhoncus sit amet nulla. Fusce commodo dapibus velit. Etiam dui sapien, sollicitudin vel quam eget, mollis tempor lacus.</p>
         </div>
-        @can('isAdmin')
+        <!-- @can('isAdmin')
         <div class="row">
             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
                 <i class="fas fa-trash-alt">
@@ -47,7 +47,7 @@
             </div>
         </div>
         @endcan
-        <hr>
+        <hr> -->
         <div class="row">
             <div class="col-12">
                 <div class="card">

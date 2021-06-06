@@ -13,7 +13,7 @@ class Cuti extends Model
 
     protected $fillable = ['slug', 'user_id', 'kategori_id', 'acc_mandiv_id', 'acc_hrd_id', 'tgl_mulai', 'tgl_selesai', 'keterangan', 'lampiran'];
 
-    protected $with = ['User', 'Kategori', 'Acc_hrd', 'Acc_mandiv'];
+    protected $with = ['user', 'kategori', 'acc_hrd', 'acc_mandiv'];
 
 
 

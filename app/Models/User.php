@@ -28,6 +28,11 @@ class User extends Authenticatable
 
     ];
 
+    protected $with = [
+        'role',
+        'divisi',
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *

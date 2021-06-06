@@ -16,7 +16,7 @@
 
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed condimentum nunc, in porta sapien. Vestibulum lacinia est magna. Suspendisse at venenatis risus, nec laoreet eros. Donec ex diam, dapibus sed rhoncus sit amet, rhoncus sit amet nulla. Fusce commodo dapibus velit. Etiam dui sapien, sollicitudin vel quam eget, mollis tempor lacus.</p>
         </div>
-        @can('isAdmin')
+        <!-- @can('isAdmin')
         <div class="row">
 
             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
@@ -48,8 +48,8 @@
                 </div>
             </div>
         </div>
-        @endcan
-        <hr>
+        @endcan -->
+        <!-- <hr> -->
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -128,14 +128,4 @@
         </div>
     </div>
 </section>
-<script>
-    $('.toastsDefaultSuccess').click(function() {
-        $(document).Toasts('create', {
-            class: 'bg-success',
-            title: 'Toast Title',
-            subtitle: 'Subtitle',
-            body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
-        })
-    });
-</script>
 @endsection

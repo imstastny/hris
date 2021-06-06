@@ -10,6 +10,8 @@ class Izin extends Model
 {
     use HasFactory;
     protected $fillable = ['slug', 'user_id', 'acc_mandiv_id', 'acc_hrd_id', 'tgl_izin', 'wkt_mulai', 'wkt_selesai', 'keterangan', 'lampiran'];
+    protected $with = ['user', 'acc_hrd', 'acc_mandiv'];
+
     public function getTakeImageIzinAttribute()
     {
         return "/storage/" . $this->lampiran;
@@ -26,12 +28,4 @@ class Izin extends Model
     {
         return $this->belongsTo(Acc_hrd::class);
     }
-    // public function setTglIzinAttribute($value)
-    // {
-    //     $this->attributes['tgl_izin'] = Carbon::createFromFormat('Y-m-d', $value)->format('Y-m-d');
-    // }
-    // public function getTglIzinAttribute()
-    // {
-    //     return Carbon::createFromFormat('Y-m-d', $this->attributes['tgl_izin'])->format('d-M-Y');
-    // }
 }
