@@ -17,11 +17,11 @@
                     <td> {{\Carbon\Carbon::parse($izin->tgl_izin)->format('d/m/Y')}}</td>
                 </tr>
                 <tr>
-                    <td><b>Waktu Mulai</b></td>
+                    <td><b>Waktu Mulai Izin</b></td>
                     <td> {{$izin->wkt_mulai}}.00</td>
                 </tr>
                 <tr>
-                    <td><b>Waktu Selesai</b></td>
+                    <td><b>Waktu Selesai Izin</b></td>
                     <td> {{$izin->wkt_selesai}}.00</td>
                 </tr>
                 <tr>
@@ -46,6 +46,10 @@
                 <tr>
                     <td><b>Acc HRD</b></td>
                     <td> {{$izin->acc_hrd->nama}}</td>
+                </tr>
+                <tr>
+                    <td><b>Tanggal Ditanggapi</b></td>
+                    <td> {{\Carbon\Carbon::parse($izin->update_at)->format('d/m/Y')}}</td>
                 </tr>
             </table>
             <!-- /.card-body -->

@@ -46,11 +46,11 @@
                     <td> {{$cuti->kategori->nama}}</td>
                 </tr>
                 <tr>
-                    <td><b>Tanggal Mulai</b></td>
+                    <td><b>Tanggal Mulai Cuti</b></td>
                     <td> {{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</td>
                 </tr>
                 <tr>
-                    <td><b>Tanggal Selesai</b></td>
+                    <td><b>Tanggal Selesai Cuti</b></td>
                     <td> {{\Carbon\Carbon::parse($cuti->tgl_selesai)->format('d/m/Y')}}</td>
                 </tr>
                 <tr>
@@ -75,6 +75,10 @@
                 <tr>
                     <td><b>Acc HRD</b></td>
                     <td> {{$cuti->acc_hrd->nama}}</td>
+                </tr>
+                <tr>
+                    <td><b>Tanggal Ditanggapi</b></td>
+                    <td> {{\Carbon\Carbon::parse($cuti->updated_at)->format('d/m/Y')}}</td>
                 </tr>
             </table>
             <!-- /.card-body -->

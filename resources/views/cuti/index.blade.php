@@ -36,8 +36,7 @@
                             <thead>
                                 <tr>
                                     <th>Jenis Cuti</th>
-                                    <th>Tanggal Mulai</th>
-                                    <th>Tanggal Selesai</th>
+                                    <th>Tanggal Mengajukan</th>
                                     <th>Acc Mandiv</th>
                                     <th>Acc HRD</th>
                                     <th>Aksi</th>
@@ -47,8 +46,7 @@
                                 @foreach($cutis as $cuti)
                                 <tr>
                                     <td>{{$cuti->kategori->nama}}</td>
-                                    <td>{{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</td>
-                                    <td>{{\Carbon\Carbon::parse($cuti->tgl_selesai)->format('d/m/Y')}}</td>
+                                    <td>{{\Carbon\Carbon::parse($cuti->created_at)->format('d/m/Y')}}</td>
                                     <td>{{$cuti->acc_mandiv->nama}}</td>
                                     <td>{{$cuti->acc_hrd->nama}}</td>
                                     <td>

@@ -62,6 +62,7 @@ class CutiController extends Controller
     public function store(CutiRequest $request)
     {
         $divisi_id = Auth::user()->divisi_id;
+        $role_id = Auth::user()->role_id;
         $attr = $request->all();
 
         if ($request->kategori != 1 && Auth::user()->gender == "Pria") {
@@ -105,7 +106,11 @@ class CutiController extends Controller
             $attr['acc_mandiv_id'] = 3;
             $attr['acc_hrd_id'] = 1;
         }
-        // dd($attr);`
+        if ($role_id == 2) {
+            $attr['acc_mandiv_id'] = 3;
+            $attr['acc_hrd_id'] = 1;
+        }
+        // dd($attr);
         auth()->user()->cutis()->create($attr);
         session()->flash('success', 'Permintaan anda sudah diajukan');
         session()->flash('error', 'Permintaan anda gagal diajukan');

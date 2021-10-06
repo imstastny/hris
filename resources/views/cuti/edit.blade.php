@@ -175,7 +175,9 @@
                         <label for="exampleSelectRounded0">Acc HRD</label>
                         <select class="custom-select rounded-0" id="acc_hrd" name="acc_hrd">
                             @foreach($acc_hrds as $acc_hrd)
-                            <option {{$acc_hrd->id == $cuti->acc_hrd_id ? 'selected' : ''}} value="{{$acc_hrd->id}}">{{$acc_hrd->nama}}</option>
+                                @if($acc_hrd->nama !== "-")
+                                <option {{$acc_hrd->id == $cuti->acc_hrd_id ? 'selected' : ''}} value="{{$acc_hrd->id}}">{{$acc_hrd->nama}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
