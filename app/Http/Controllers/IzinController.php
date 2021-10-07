@@ -51,6 +51,7 @@ class IzinController extends Controller
         }
 
         $divisi_id = Auth::user()->divisi_id;
+        $role_id = Auth::user()->role_id;
 
         $attr = $request->all();
         $attr['slug'] = Str::random(9);
@@ -59,8 +60,12 @@ class IzinController extends Controller
         //jika divisi non divisi,langsung menuju hrd
         if ($divisi_id == 5) {
             $attr['acc_mandiv_id'] = 3;
+            $attr['acc_hrd_id'] = 1;
         }
-
+        if ($role_id == 2) {
+            $attr['acc_mandiv_id'] = 3;
+            $attr['acc_hrd_id'] = 1;
+        }
 
         //create izin
         auth()->user()->izins()->create($attr);

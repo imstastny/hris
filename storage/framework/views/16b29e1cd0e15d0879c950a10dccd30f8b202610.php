@@ -1,11 +1,11 @@
-@extends('layouts.main',['title' => 'Daftar Pengajuan'])
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="card card-info col-sm-12 p-0">
     <div class="card-header">
         <h1 class="card-title">Daftar Pengajuan Izin</h1>
     </div>
 </div>
-@include('layouts.alert')
+<?php echo $__env->make('layouts.alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <section class="container">
 
@@ -17,7 +17,7 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <a href="{{ route('izin.create') }}" class="btn btn-success">
+                <a href="<?php echo e(route('izin.create')); ?>" class="btn btn-success">
                     <i class="fas fa-plus-square"></i>
                     Ajukan Permohonan Izin</a>
             </div>
@@ -42,16 +42,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($izins as $izin)
+                                <?php $__currentLoopData = $izins; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $izin): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td>{{\Carbon\Carbon::parse($izin->created_at)->format('d/m/Y')}}</td>
-                                    <td>{{$izin->acc_mandiv->nama}}</td>
-                                    <td>{{$izin->acc_hrd->nama}}</td>
+                                    <td><?php echo e(\Carbon\Carbon::parse($izin->created_at)->format('d/m/Y')); ?></td>
+                                    <td><?php echo e($izin->acc_mandiv->nama); ?></td>
+                                    <td><?php echo e($izin->acc_hrd->nama); ?></td>
                                     <td>
-                                        <a href="/izin/{{$izin->slug}}" class="btn btn-sm btn-info">detail</a>
+                                        <a href="/izin/<?php echo e($izin->slug); ?>" class="btn btn-sm btn-info">detail</a>
                                     </td>
                                 </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                     </div>
@@ -61,9 +61,11 @@
             </div>
         </div>
         <div class="d-flex justify-content-end">
-            {{$izins->links()}}
+            <?php echo e($izins->links()); ?>
+
         </div>
     </div>
 </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.main',['title' => 'Daftar Pengajuan'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\hris\resources\views/izin/index.blade.php ENDPATH**/ ?>

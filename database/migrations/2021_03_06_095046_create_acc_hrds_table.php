@@ -15,7 +15,7 @@ class CreateAccHrdsTable extends Migration
     {
         Schema::create('acc_hrds', function (Blueprint $table) {
             $table->id();
-            $table->string('nama', 10);
+            $table->string('nama', 30);
             $table->timestamps();
         });
     }

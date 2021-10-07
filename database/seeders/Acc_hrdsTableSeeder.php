@@ -13,7 +13,7 @@ class Acc_hrdsTableSeeder extends Seeder
      */
     public function run()
     {
-        $divisis = collect(['Diproses', 'Ditolak', 'Disetujui', '-']);
+        $divisis = collect(['Diproses', 'Ditolak', 'Disetujui', 'Menunggu Konfirmasi Mandiv']);
         $divisis->each(function ($c) {
             \App\Models\Acc_hrd::create([
                 'nama' => $c

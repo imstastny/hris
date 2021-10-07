@@ -60,7 +60,7 @@ class CutiController extends Controller
         return view('cuti.create', compact('kategoris', 'sisaCutis'));
     }
     public function store(CutiRequest $request)
-    {
+    {   $role_id = Auth::user()->role_id;
         $divisi_id = Auth::user()->divisi_id;
         $attr = $request->all();
 
@@ -102,6 +102,10 @@ class CutiController extends Controller
         $attr['lampiran'] = $lampiran;
 
         if ($divisi_id == 5) {
+            $attr['acc_mandiv_id'] = 3;
+            $attr['acc_hrd_id'] = 1;
+        }
+        if ($role_id == 2) {
             $attr['acc_mandiv_id'] = 3;
             $attr['acc_hrd_id'] = 1;
         }

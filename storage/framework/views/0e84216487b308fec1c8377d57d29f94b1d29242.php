@@ -1,5 +1,5 @@
-@extends('layouts.main',['title' => 'Form Pengajuan Cuti'])
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="card card-info col-sm-12">
     <div class="card-header">
         <h3 class="card-title">Formulir Pengajuan Izin</h3>
@@ -7,17 +7,25 @@
     <!-- /.card-header -->
     <div class="card-body">
 
-        <form action="{{ route('izin.store') }}" method="post" enctype="multipart/form-data">
-            @csrf
+        <form action="<?php echo e(route('izin.store')); ?>" method="post" enctype="multipart/form-data">
+            <?php echo csrf_field(); ?>
             <div class="row">
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label>Tanggal Izin</label>
                         <input type="date" class="form-control" id="tgl_izin" name="tgl_izin">
                         <div class="text-danger">
-                            @error('tgl_izin')
-                            {{$message}}
-                            @enderror
+                            <?php $__errorArgs = ['tgl_izin'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <?php echo e($message); ?>
+
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
@@ -25,13 +33,21 @@
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Waktu Mulai</label>
                         <select class="custom-select rounded-0" id="wkt_mulai" name="wkt_mulai">
-                            @for ($i = 7; $i < 22; $i++) <option value="{{$i}}">{{$i}}.00</option>
-                                @endfor
+                            <?php for($i = 7; $i < 22; $i++): ?> <option value="<?php echo e($i); ?>"><?php echo e($i); ?>.00</option>
+                                <?php endfor; ?>
                         </select>
                         <div class="text-danger">
-                            @error('wkt_mulai')
-                            {{$message}}
-                            @enderror
+                            <?php $__errorArgs = ['wkt_mulai'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <?php echo e($message); ?>
+
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
@@ -39,13 +55,21 @@
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Waktu Selesai</label>
                         <select class="custom-select rounded-0" id="wkt_selesai" name="wkt_selesai">
-                            @for ($i = 7; $i < 22; $i++) <option value="{{$i}}">{{$i}}.00</option>
-                                @endfor
+                            <?php for($i = 7; $i < 22; $i++): ?> <option value="<?php echo e($i); ?>"><?php echo e($i); ?>.00</option>
+                                <?php endfor; ?>
                         </select>
                         <div class="text-danger">
-                            @error('wkt_selesai')
-                            {{$message}}
-                            @enderror
+                            <?php $__errorArgs = ['wkt_selesai'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <?php echo e($message); ?>
+
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
@@ -58,9 +82,17 @@
                         <label>Keterangan</label>
                         <textarea class="form-control" rows="3" id="keterangan" name="keterangan" placeholder="Tambahkan keterangan ..."></textarea>
                         <div class="text-danger">
-                            @error('keterangan')
-                            {{$message}}
-                            @enderror
+                            <?php $__errorArgs = ['keterangan'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <?php echo e($message); ?>
+
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
@@ -107,4 +139,5 @@
     <!-- /.card-body -->
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.main',['title' => 'Form Pengajuan Cuti'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\hris\resources\views/izin/create.blade.php ENDPATH**/ ?>

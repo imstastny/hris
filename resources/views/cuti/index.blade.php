@@ -2,7 +2,7 @@
 @section('content')
 <div class="card card-info col-sm-12 p-0">
     <div class="card-header">
-        <h1 class="card-title">Daftar Pengajuan Cuti</h1>
+        <h1 class="card-title">Daftar TOTO Pengajuan Cuti</h1>
     </div>
 </div>
 @include('layouts.alert')
@@ -36,10 +36,9 @@
                             <thead>
                                 <tr>
                                     <th>Jenis Cuti</th>
-                                    <th>Tanggal Mulai</th>
-                                    <th>Tanggal Selesai</th>
-                                    <th>Acc Mandiv</th>
-                                    <th>Acc HRD</th>
+                                    <th>Tanggal Mengajukan</th>
+                                    <th>Konfirmasi Mandiv</th>
+                                    <th>Konfirmasi HRD</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -47,8 +46,7 @@
                                 @foreach($cutis as $cuti)
                                 <tr>
                                     <td>{{$cuti->kategori->nama}}</td>
-                                    <td>{{\Carbon\Carbon::parse($cuti->tgl_mulai)->format('d/m/Y')}}</td>
-                                    <td>{{\Carbon\Carbon::parse($cuti->tgl_selesai)->format('d/m/Y')}}</td>
+                                    <td>{{\Carbon\Carbon::parse($cuti->created_at)->format('d/m/Y')}}</td>
                                     <td>{{$cuti->acc_mandiv->nama}}</td>
                                     <td>{{$cuti->acc_hrd->nama}}</td>
                                     <td>

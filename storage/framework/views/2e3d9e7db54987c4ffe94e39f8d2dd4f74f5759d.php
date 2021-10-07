@@ -1,5 +1,5 @@
-@extends('layouts.main',['title' => 'Form Pengajuan Izin'])
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="d-flex justify-content-end">
         <!-- Button trigger modal -->
@@ -19,9 +19,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="/izin/{{$izin->slug}}/delete" method="post">
-                        @method('delete')
-                        @csrf
+                    <form action="/izin/<?php echo e($izin->slug); ?>/delete" method="post">
+                        <?php echo method_field('delete'); ?>
+                        <?php echo csrf_field(); ?>
                         <div class="d-flex justify-content-between">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             <button class="btn btn-sm btn-danger" type="submit">Hapus</button>
@@ -39,28 +39,28 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        @if($role == 2 && $izin->acc_mandiv_id == 3 && $izin->acc_hrd_id >= 2)
+        <?php if($role == 2 && $izin->acc_mandiv_id == 3 && $izin->acc_hrd_id >= 2): ?>
         <div class="row">
             <table class="table table-bordered">
                 <tr>
                     <td style="width:20em"> <b>Nama Lengkap</b></td>
-                    <td> {{$izin->user->name}}</td>
+                    <td> <?php echo e($izin->user->name); ?></td>
                 </tr>
                 <tr>
                     <td> <b>Nomor Induk Karyawan</b></td>
-                    <td> {{$izin->user->nik}}</td>
+                    <td> <?php echo e($izin->user->nik); ?></td>
                 </tr>
                 <tr>
                     <td><b>Jabatan</b></td>
-                    <td> {{$izin->user->role->nama}}</td>
+                    <td> <?php echo e($izin->user->role->nama); ?></td>
                 </tr>
                 <tr>
                     <td><b>Divisi</b></td>
-                    <td> {{$izin->user->divisi->nama}}</td>
+                    <td> <?php echo e($izin->user->divisi->nama); ?></td>
                 </tr>
                 <tr>
                     <td><b>Jenis Kelamin</b></td>
-                    <td> {{$izin->user->gender}}</td>
+                    <td> <?php echo e($izin->user->gender); ?></td>
                 </tr>
             </table>
         </div>
@@ -69,79 +69,87 @@
             <table class="table table-bordered">
                 <tr>
                     <td style="width:20em"><b>Tanggal Izin</b></td>
-                    <td> {{\Carbon\Carbon::parse($izin->tgl_izin)->format('d/m/Y')}}</td>
+                    <td> <?php echo e(\Carbon\Carbon::parse($izin->tgl_izin)->format('d/m/Y')); ?></td>
                 </tr>
                 <tr>
                     <td><b>Waktu Mulai</b></td>
-                    <td> {{$izin->wkt_mulai}}.00</td>
+                    <td> <?php echo e($izin->wkt_mulai); ?>.00</td>
                 </tr>
                 <tr>
                     <td><b>Waktu Selesai</b></td>
-                    <td>{{$izin->wkt_selesai}}.00</td>
+                    <td><?php echo e($izin->wkt_selesai); ?>.00</td>
                 </tr>
                 <tr>
                     <td><b>Keterangan</b></td>
-                    <td> {!! nl2br($izin->keterangan) !!}</td>
+                    <td> <?php echo nl2br($izin->keterangan); ?></td>
                 </tr>
                 <tr>
                     <td><b>Lampiran</b></td>
                     <td>
-                        @if($izin->lampiran)
-                        <a href="/izin/lampiran/{{$izin->slug}}" target="_blank">
-                            <img class="img-fluid" src="{{asset($izin->takeImageCuti)}}" width="100" height="120">
+                        <?php if($izin->lampiran): ?>
+                        <a href="/izin/lampiran/<?php echo e($izin->slug); ?>" target="_blank">
+                            <img class="img-fluid" src="<?php echo e(asset($izin->takeImageCuti)); ?>" width="100" height="120">
                         </a>
-                        @else -
-                        @endif
+                        <?php else: ?> -
+                        <?php endif; ?>
                     </td>
                 </tr>
                 <tr>
                     <td><b>Acc Mandiv</b></td>
-                    <td> {{$izin->acc_mandiv->nama}}</td>
+                    <td> <?php echo e($izin->acc_mandiv->nama); ?></td>
                 </tr>
                 <tr>
                     <td><b>Acc HRD</b></td>
-                    <td> {{$izin->acc_hrd->nama}}</td>
+                    <td> <?php echo e($izin->acc_hrd->nama); ?></td>
                 </tr>
             </table>
         </div>
 
-        @else
+        <?php else: ?>
         <div class="row">
             <table class="table table-bordered">
                 <tr>
                     <td style="width:20em"> <b>Nama Lengkap</b></td>
-                    <td> {{$izin->user->name}}</td>
+                    <td> <?php echo e($izin->user->name); ?></td>
                 </tr>
                 <tr>
                     <td> <b>Nomor Induk Karyawan</b></td>
-                    <td> {{$izin->user->nik}}</td>
+                    <td> <?php echo e($izin->user->nik); ?></td>
                 </tr>
                 <tr>
                     <td><b>Jabatan</b></td>
-                    <td> {{$izin->user->role->nama}}</td>
+                    <td> <?php echo e($izin->user->role->nama); ?></td>
                 </tr>
                 <tr>
                     <td><b>Divisi</b></td>
-                    <td> {{$izin->user->divisi->nama}}</td>
+                    <td> <?php echo e($izin->user->divisi->nama); ?></td>
                 </tr>
                 <tr>
                     <td><b>Jenis Kelamin</b></td>
-                    <td> {{$izin->user->gender}}</td>
+                    <td> <?php echo e($izin->user->gender); ?></td>
                 </tr>
             </table>
         </div>
-        <form action="/izin/{{$izin->slug}}/edit" method="post">
-            @method('patch')
-            @csrf
+        <form action="/izin/<?php echo e($izin->slug); ?>/edit" method="post">
+            <?php echo method_field('patch'); ?>
+            <?php echo csrf_field(); ?>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Tanggal Izin</label>
-                        <input type="date" class="form-control" id="tgl_izin" name="tgl_izin" value="{{old('tgl_izin') ?? $izin->tgl_izin}}">
+                        <input type="date" class="form-control" id="tgl_izin" name="tgl_izin" value="<?php echo e(old('tgl_izin') ?? $izin->tgl_izin); ?>">
                         <div class="text-danger">
-                            @error('tgl_izin')
-                            {{$message}}
-                            @enderror
+                            <?php $__errorArgs = ['tgl_izin'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <?php echo e($message); ?>
+
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
@@ -149,14 +157,22 @@
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Waktu Mulai</label>
                         <select class="custom-select rounded-0" id="wkt_mulai" name="wkt_mulai">
-                            <option value="{{old('wkt_mulai') ?? $izin->wkt_mulai}}">{{$izin->wkt_mulai}}.00</option>
-                            @for ($i = 7; $i < 22; $i++) <option value="{{$i}}">{{$i}}.00</option>
-                                @endfor
+                            <option value="<?php echo e(old('wkt_mulai') ?? $izin->wkt_mulai); ?>"><?php echo e($izin->wkt_mulai); ?>.00</option>
+                            <?php for($i = 7; $i < 22; $i++): ?> <option value="<?php echo e($i); ?>"><?php echo e($i); ?>.00</option>
+                                <?php endfor; ?>
                         </select>
                         <div class="text-danger">
-                            @error('wkt_mulai')
-                            {{$message}}
-                            @enderror
+                            <?php $__errorArgs = ['wkt_mulai'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <?php echo e($message); ?>
+
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
@@ -164,14 +180,22 @@
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Waktu Selesai</label>
                         <select class="custom-select rounded-0" id="wkt_selesai" name="wkt_selesai">
-                            <option value="{{old('wkt_selesai') ?? $izin->wkt_selesai}}">{{$izin->wkt_selesai}}.00</option>
-                            @for ($i = 7; $i < 22; $i++) <option value="{{$i}}">{{$i}}.00</option>
-                                @endfor
+                            <option value="<?php echo e(old('wkt_selesai') ?? $izin->wkt_selesai); ?>"><?php echo e($izin->wkt_selesai); ?>.00</option>
+                            <?php for($i = 7; $i < 22; $i++): ?> <option value="<?php echo e($i); ?>"><?php echo e($i); ?>.00</option>
+                                <?php endfor; ?>
                         </select>
                         <div class="text-danger">
-                            @error('wkt_mulai')
-                            {{$message}}
-                            @enderror
+                            <?php $__errorArgs = ['wkt_mulai'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <?php echo e($message); ?>
+
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
@@ -182,43 +206,51 @@
                     <!-- textarea -->
                     <div class="form-group">
                         <label>Keterangan</label>
-                        <textarea class="form-control" rows="3" id="keterangan" name="keterangan">{{old('keterangan') ?? $izin->keterangan}}</textarea>
+                        <textarea class="form-control" rows="3" id="keterangan" name="keterangan"><?php echo e(old('keterangan') ?? $izin->keterangan); ?></textarea>
                         <div class="text-danger">
-                            @error('keterangan')
-                            {{$message}}
-                            @enderror
+                            <?php $__errorArgs = ['keterangan'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <?php echo e($message); ?>
+
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <label>Lampiran</label><br>
-                    @if($izin->lampiran)
-                    <a href="/izin/lampiran/{{$izin->slug}}" target="_blank">
-                        <img class="img-fluid" src="{{asset($izin->takeImageIzin)}}" width="10" height="20">
+                    <?php if($izin->lampiran): ?>
+                    <a href="/izin/lampiran/<?php echo e($izin->slug); ?>" target="_blank">
+                        <img class="img-fluid" src="<?php echo e(asset($izin->takeImageIzin)); ?>" width="10" height="20">
                     </a>
-                    @else -
-                    @endif
+                    <?php else: ?> -
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3" {{$role == 2 ? '' :'hidden'}}>
+                <div class="col-sm-3" <?php echo e($role == 2 ? '' :'hidden'); ?>>
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Acc Mandiv</label>
                         <select class="custom-select rounded-0" id="acc_mandiv" name="acc_mandiv">
-                            @foreach($acc_mandivs as $acc_mandiv)
-                            <option {{$acc_mandiv->id == $izin->acc_mandiv_id ? 'selected' : ''}} value="{{$acc_mandiv->id}}">{{$acc_mandiv->nama}}</option>
-                            @endforeach
+                            <?php $__currentLoopData = $acc_mandivs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $acc_mandiv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option <?php echo e($acc_mandiv->id == $izin->acc_mandiv_id ? 'selected' : ''); ?> value="<?php echo e($acc_mandiv->id); ?>"><?php echo e($acc_mandiv->nama); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                 </div>
 
-                <div class="col-sm-3" {{$izin->acc_mandiv_id == 3 && $role == 1 ? '' :'hidden'}}>
+                <div class="col-sm-3" <?php echo e($izin->acc_mandiv_id == 3 && $role == 1 ? '' :'hidden'); ?>>
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Acc HRD</label>
                         <select class="custom-select rounded-0" id="acc_hrd" name="acc_hrd">
-                            @foreach($acc_hrds as $acc_hrd)
-                            <option {{$acc_hrd->id == $izin->acc_hrd_id ? 'selected' : ''}} value="{{$acc_hrd->id}}">{{$acc_hrd->nama}}</option>
-                            @endforeach
+                            <?php $__currentLoopData = $acc_hrds; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $acc_hrd): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option <?php echo e($acc_hrd->id == $izin->acc_hrd_id ? 'selected' : ''); ?> value="<?php echo e($acc_hrd->id); ?>"><?php echo e($acc_hrd->nama); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                 </div>
@@ -255,9 +287,10 @@
                 </button>
             </div>
         </form>
-        @endif
+        <?php endif; ?>
     </div>
     <!-- /.card-body -->
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.main',['title' => 'Form Pengajuan Izin'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\hris\resources\views/izin/edit.blade.php ENDPATH**/ ?>
