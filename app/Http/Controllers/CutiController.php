@@ -62,6 +62,7 @@ class CutiController extends Controller
     public function store(CutiRequest $request)
     {   $role_id = Auth::user()->role_id;
         $divisi_id = Auth::user()->divisi_id;
+        $role_id = Auth::user()->role_id;
         $attr = $request->all();
 
         if ($request->kategori != 1 && Auth::user()->gender == "Pria") {

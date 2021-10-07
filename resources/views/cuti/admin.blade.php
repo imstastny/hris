@@ -105,7 +105,7 @@
                                     @endif
                                     <td>{{$cuti->user->name}}</td>
                                     <td>{{$cuti->kategori->nama}}</td>
-                                    <td>{{\Carbon\Carbon::parse($cuti->tgl_created_at)->format('d/m/Y')}}</td>
+                                    <td>{{\Carbon\Carbon::parse($cuti->created_at)->format('d/m/Y')}}</td>
                                     <td>{{$cuti->acc_mandiv->nama}}</td>
                                     <td>
                                         <a href="/cuti/{{$cuti->slug}}/edit" class="btn btn-sm btn-info">detail</a>
