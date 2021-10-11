@@ -184,10 +184,29 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <button type="submit" class="btn btn-success">
-                    <i class="fas fa-save"></i>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">
+                <i class="fas fa-save"></i>
                     Simpan
                 </button>
+                <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="exampleModalLabel">Perhatian!</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Fungsi ini memungkinkan anda menghapus semua data pengajuan cuti karyawan</p>
+                            <p>Biasanya hanya digunakan saat pergantian tahun / kepengurusan.</p>
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button class="btn btn-sm btn-success" type="submit">Simpan</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
         @endif

@@ -199,17 +199,38 @@ unset($__errorArgs, $__bag); ?>
                         <label for="exampleSelectRounded0">Acc HRD</label>
                         <select class="custom-select rounded-0" id="acc_hrd" name="acc_hrd">
                             <?php $__currentLoopData = $acc_hrds; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $acc_hrd): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option <?php echo e($acc_hrd->id == $cuti->acc_hrd_id ? 'selected' : ''); ?> value="<?php echo e($acc_hrd->id); ?>"><?php echo e($acc_hrd->nama); ?></option>
+                                <?php if($acc_hrd->nama !== "-"): ?>
+                                <option <?php echo e($acc_hrd->id == $cuti->acc_hrd_id ? 'selected' : ''); ?> value="<?php echo e($acc_hrd->id); ?>"><?php echo e($acc_hrd->nama); ?></option>
+                                <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <button type="submit" class="btn btn-success">
-                    <i class="fas fa-save"></i>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">
+                <i class="fas fa-save"></i>
                     Simpan
                 </button>
+                <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="exampleModalLabel">Perhatian!</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Fungsi ini memungkinkan anda menghapus semua data pengajuan cuti karyawan</p>
+                            <p>Biasanya hanya digunakan saat pergantian tahun / kepengurusan.</p>
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button class="btn btn-sm btn-success" type="submit">Simpan</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
         <?php endif; ?>

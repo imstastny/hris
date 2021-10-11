@@ -257,14 +257,14 @@ unset($__errorArgs, $__bag); ?>
             </div>
             <div class="row justify-content-center">
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">
-                    <i class="fas fa-plus-square"></i>
-                    Ajukan  
+                <i class="fas fa-save"></i>
+                    Simpan
                 </button>
                 <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">Apakah anda yakin akan menjalankan fungsi ini?</h6>
+                            <h6 class="modal-title" id="exampleModalLabel">Perhatian!</h6>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -274,18 +274,18 @@ unset($__errorArgs, $__bag); ?>
                             <p>Biasanya hanya digunakan saat pergantian tahun / kepengurusan.</p>
                                 <div class="d-flex justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button class="btn btn-sm btn-success" type="submit">Ajukan</button>
+                                    <button class="btn btn-sm btn-success" type="submit">Simpan</button>
                                 </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <!-- <div class="row justify-content-center">
                 <button type="submit" class="btn btn-success">
                     <i class="fas fa-save"></i>
                     Simpan
                 </button>
-            </div>
+            </div> -->
         </form>
         <?php endif; ?>
     </div>

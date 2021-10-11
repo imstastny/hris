@@ -105,7 +105,7 @@
                                     <?php endif; ?>
                                     <td><?php echo e($cuti->user->name); ?></td>
                                     <td><?php echo e($cuti->kategori->nama); ?></td>
-                                    <td><?php echo e(\Carbon\Carbon::parse($cuti->tgl_created_at)->format('d/m/Y')); ?></td>
+                                    <td><?php echo e(\Carbon\Carbon::parse($cuti->created_at)->format('d/m/Y')); ?></td>
                                     <td><?php echo e($cuti->acc_mandiv->nama); ?></td>
                                     <td>
                                         <a href="/cuti/<?php echo e($cuti->slug); ?>/edit" class="btn btn-sm btn-info">detail</a>

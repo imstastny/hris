@@ -64,7 +64,7 @@ unset($__errorArgs, $__bag); ?>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label>Tanggal Selesasi</label>
+                        <label>Tanggal Selesai</label>
                         <input type="date" class="form-control" id="tgl_selesai" name="tgl_selesai">
                         <div class="text-danger">
                             <?php $__errorArgs = ['tgl_selesai'];
@@ -137,6 +137,12 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row justify-content-center">
+                <button type="submit" class="btn btn-success">
+                    <i class="fas fa-save"></i>
+                    Simpan
+                </button>
             </div>
             </div>
         </form>

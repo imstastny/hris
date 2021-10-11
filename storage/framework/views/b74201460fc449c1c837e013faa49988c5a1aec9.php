@@ -69,11 +69,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Acc Mandiv</b></td>
+                    <td><b>Konfirmasi Mandiv</b></td>
                     <td> <?php echo e($cuti->acc_mandiv->nama); ?></td>
                 </tr>
                 <tr>
-                    <td><b>Acc HRD</b></td>
+                    <td><b>Konfirmasi HRD</b></td>
                     <td> <?php echo e($cuti->acc_hrd->nama); ?></td>
                 </tr>
                 <tr>

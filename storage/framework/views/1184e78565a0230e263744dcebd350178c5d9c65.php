@@ -90,7 +90,7 @@
                             <thead>
                                 <tr>
                                     <th>Nama</th>
-                                    <th>Tanggal Izin</th>
+                                    <th>Tanggal Mengajukan</th>
                                     <th>Waktu</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
