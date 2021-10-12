@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddKategoriIdToCutisTable extends Migration
+class CreateAccMandivTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddKategoriIdToCutisTable extends Migration
      */
     public function up()
     {
-        Schema::table('cutis', function (Blueprint $table) {
-            $table->foreignId('kategori_id')->after('acc_hrd_id');
+        Schema::create('acc_mandiv', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama', 10);
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class AddKategoriIdToCutisTable extends Migration
      */
     public function down()
     {
-        Schema::table('cutis', function (Blueprint $table) {
-            $table->dropColumn('kategori_id');
-        });
+        Schema::dropIfExists('acc_mandiv');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDivisisTable extends Migration
+class CreateCutiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CreateDivisisTable extends Migration
      */
     public function up()
     {
-        Schema::create('divisis', function (Blueprint $table) {
+        Schema::create('cuti', function (Blueprint $table) {
             $table->id();
-            $table->string('nama', 35);
+            $table->foreignId('user_id');
+            $table->string('slug', 191);
+            $table->date('tgl_mulai');
+            $table->date('tgl_selesai');
+            $table->text('keterangan');
+            $table->string('lampiran')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +32,6 @@ class CreateDivisisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('divisis');
+        Schema::dropIfExists('cuti');
     }
 }

@@ -57,9 +57,9 @@ class KelolaController extends Controller
             return redirect(route('kelola.index'));
         }
         User::create($attr);
-        return redirect(route('kelola.index'));
         session()->flash('success', 'Data akun karyawan berhasil dibuat');
         session()->flash('error', 'Data akun karyawan gagal dibuat');
+        return redirect(route('kelola.index'));
     }
 
 

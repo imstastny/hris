@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Izin extends Model
 {
     use HasFactory;
+    protected $table = 'izin';
     protected $fillable = ['slug', 'user_id', 'acc_mandiv_id', 'acc_hrd_id', 'tgl_izin', 'wkt_mulai', 'wkt_selesai', 'keterangan', 'lampiran'];
     protected $with = ['user', 'acc_hrd', 'acc_mandiv'];
 

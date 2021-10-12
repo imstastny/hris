@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAccMandivIdToIzinsTable extends Migration
+class AddAccMandivIdToIzinTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddAccMandivIdToIzinsTable extends Migration
      */
     public function up()
     {
-        Schema::table('izins', function (Blueprint $table) {
+        Schema::table('izin', function (Blueprint $table) {
             $table->foreignId('acc_mandiv_id')->default(1)->after('user_id');
             $table->foreignId('acc_hrd_id')->default(4)->after('acc_mandiv_id');
         });
@@ -26,7 +26,7 @@ class AddAccMandivIdToIzinsTable extends Migration
      */
     public function down()
     {
-        Schema::table('izins', function (Blueprint $table) {
+        Schema::table('izin', function (Blueprint $table) {
             $table->dropColumn('acc_mandiv_id');
             $table->dropColumn('acc_hrd_id');
         });

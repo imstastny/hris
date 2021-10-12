@@ -2,7 +2,7 @@
 <?php $__env->startSection('content'); ?>
 <div class="card card-info col-sm-12 p-0">
     <div class="card-header">
-        <h1 class="card-title">Daftar TOTO Pengajuan Cuti</h1>
+        <h1 class="card-title">Daftar Pengajuan Cuti</h1>
     </div>
 </div>
 <?php echo $__env->make('layouts.alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

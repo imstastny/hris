@@ -122,14 +122,14 @@ unset($__errorArgs, $__bag); ?>
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">Apakah anda yakin akan menjalankan fungsi ini?</h6>
+                            <h5 class="modal-title" id="exampleModalLabel">PERHATIAN!!</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>Fungsi ini memungkinkan anda menghapus semua data pengajuan cuti karyawan</p>
-                            <p>Biasanya hanya digunakan saat pergantian tahun / kepengurusan.</p>
+                            <p>Pastikan data yang anda ajukan sudah benar.</p>
+                            <p>Data yang diajukan tidak dapat diubah</p>
                                 <div class="d-flex justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     <button class="btn btn-sm btn-success" type="submit">Ajukan</button>
@@ -138,12 +138,7 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <button type="submit" class="btn btn-success">
-                    <i class="fas fa-save"></i>
-                    Simpan
-                </button>
-            </div>
+
             </div>
         </form>
 

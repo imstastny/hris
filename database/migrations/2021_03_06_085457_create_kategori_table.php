@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccMandivsTable extends Migration
+class CreateKategoriTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateAccMandivsTable extends Migration
      */
     public function up()
     {
-        Schema::create('acc_mandivs', function (Blueprint $table) {
+        Schema::create('kategori', function (Blueprint $table) {
             $table->id();
-            $table->string('nama', 10);
+            $table->string('nama');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateAccMandivsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('acc_mandivs');
+        Schema::dropIfExists('kategori');
     }
 }

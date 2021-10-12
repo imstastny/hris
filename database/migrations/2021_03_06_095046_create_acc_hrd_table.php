@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAccHrdIdToCutisTable extends Migration
+class CreateAccHrdTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddAccHrdIdToCutisTable extends Migration
      */
     public function up()
     {
-        Schema::table('cutis', function (Blueprint $table) {
-            $table->foreignId('acc_hrd_id')->default(4)->after('acc_mandiv_id');
+        Schema::create('acc_hrd', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama', 30);
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class AddAccHrdIdToCutisTable extends Migration
      */
     public function down()
     {
-        Schema::table('cutis', function (Blueprint $table) {
-            $table->dropColumn('acc_hrd_id');
-        });
+        Schema::dropIfExists('acc_hrd');
     }
 }

@@ -14,16 +14,16 @@ class DashboardController extends Controller
     public function index()
     {
         $user = User::count();
-        $isCuti = Cuti::join('users', 'users.id', '=', 'cutis.user_id')
-            ->join('divisis', 'users.divisi_id', '=', 'divisis.id')
-            ->select('users.name', 'cutis.tgl_selesai', 'divisis.nama')
+        $isCuti = Cuti::join('users', 'users.id', '=', 'cuti.user_id')
+            ->join('divisi', 'users.divisi_id', '=', 'divisi.id')
+            ->select('users.name', 'cuti.tgl_selesai', 'divisi.nama')
             ->where('acc_hrd_id', 3)
             ->whereDate('tgl_mulai', '<=', Carbon::today())
             ->whereDate('tgl_selesai', '>=', Carbon::today())
             ->get();
-        $isIzin = Izin::join('users', 'users.id', '=', 'izins.user_id')
-            ->join('divisis', 'users.divisi_id', '=', 'divisis.id')
-            ->select('users.name', 'nik', 'divisis.nama', 'izins.wkt_mulai', 'izins.wkt_selesai')
+        $isIzin = Izin::join('users', 'users.id', '=', 'izin.user_id')
+            ->join('divisi', 'users.divisi_id', '=', 'divisi.id')
+            ->select('users.name', 'nik', 'divisi.nama', 'izin.wkt_mulai', 'izin.wkt_selesai')
             ->where('acc_hrd_id', 3)
             ->whereDate('tgl_izin', '=', Carbon::today())
             ->get();

@@ -1,14 +1,14 @@
 
 <?php $__env->startSection('content'); ?>
-<div class="container">
+<!-- <div class="container">
     <div class="d-flex justify-content-end">
-        <!-- Button trigger modal -->
+        
         <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
             <i class="fas fa-trash-alt"></i>
         </button>
     </div>
 
-    <!-- Modal -->
+    
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -32,7 +32,7 @@
         </div>
     </div>
 
-</div>
+</div> -->
 <div class="card card-info col-sm-12">
     <div class="card-header">
         <h3 class="card-title">Persetujuan Izin Karyawan</h3>
@@ -280,12 +280,6 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                 </div>
             </div>
-            <!-- <div class="row justify-content-center">
-                <button type="submit" class="btn btn-success">
-                    <i class="fas fa-save"></i>
-                    Simpan
-                </button>
-            </div> -->
         </form>
         <?php endif; ?>
     </div>
