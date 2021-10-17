@@ -67,6 +67,7 @@ class KelolaController extends Controller
     public function edit(User $user)
     {
         $year = now()->year;
+        //jumlah cuti id 1
         $cuti1 = Cuti::where([
             ['user_id', '=', $user->id],
             ['kategori_id', '=', 1],
@@ -80,6 +81,7 @@ class KelolaController extends Controller
             $days = $interval->format('%a') + 1;
             $totalCuti1 += $days;
         }
+        //jumlah cuti id 2
         $cuti2 = Cuti::where([
             ['user_id', '=', $user->id],
             ['kategori_id', '=', 2],
@@ -93,6 +95,7 @@ class KelolaController extends Controller
             $days = $interval->format('%a') + 1;
             $totalCuti2 += $days;
         }
+        //jumlah cuti id 3
         $cuti3 = Cuti::where([
             ['user_id', '=', $user->id],
             ['kategori_id', '=', 2],

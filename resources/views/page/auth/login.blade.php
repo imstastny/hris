@@ -14,15 +14,17 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('layout/dist/css/adminlte.min.css') }}">
 </head>
-
 <body class="hold-transition login-page">
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="card card-outline card-info">
             <div class="card-header text-center">
                 <img src="{{ asset('layout/dist/img/logo-kopma.png') }}" style="height: 5em;" alt="User Image">
-                <h4>Sistem Informasi Cuti Karyawan</h4>
+                <h4>Sistem Informasi Cuti dan Izin Karyawan</h4>
                 <h4><strong>KOPMA UGM</strong></h4>
+                @if(session()->has('error'))
+                <b>ERROROROROROROROROKIDUL</b>
+                @endif
             </div>
             <div class="card-body">
                 <form action="{{ route('login') }}" method="post">

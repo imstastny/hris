@@ -16,7 +16,6 @@ class IzinController extends Controller
     {
         $id = Auth::id();
         $izins = Izin::where('user_id', $id)->orderBy('created_at', 'desc')->simplePaginate(12);
-
         return view('izin.index', compact('izins'));
     }
     public function admin()

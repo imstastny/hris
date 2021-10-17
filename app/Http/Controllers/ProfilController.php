@@ -59,6 +59,10 @@ class ProfilController extends Controller
             ['acc_hrd_id', '=', 3]
         ])->whereYear('tgl_izin', '=', $year)->count();
 
-        return view('user.profil', compact('user', 'cuti1', 'totalCuti1', 'cuti2', 'totalCuti2', 'cuti3', 'totalCuti3', 'izin'));
+        return view('user.profil',
+         compact('user', 'cuti1', 'totalCuti1',
+          'cuti2', 'totalCuti2',
+           'cuti3', 'totalCuti3', 
+           'izin'));
     }
 }

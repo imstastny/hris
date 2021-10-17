@@ -47,7 +47,7 @@
                                     <td>{{$user['role']['nama']}}</td>
                                     <td>{{$user['divisi']['nama']}}</td>
                                     <td>
-                                        <a href="/anggota/{{$user['nik']}}/edit" class="btn btn-sm btn-info">detail</a>
+                                        <a href="/anggota/{{$user['nik']}}/edit" class="btn btn-sm btn-info">ubah</a>
                                     </td>
 
 

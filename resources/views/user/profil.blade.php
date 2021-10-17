@@ -1,15 +1,17 @@
 @extends('layouts.main',['title' => 'Profil'])
 @section('content')
-<div class="container">
 
-</div>
+
+
 <div class="card card-info col-sm-12">
     <div class="card-header">
         <h3 class="card-title">Profil</h3>
     </div>
     <br>
+    <div class="container">
     <!-- /.card-header -->
-    <div class="col-md-12">
+    <div class="justify-content-center">
+        <div class="col-md-5"></div>
         <div class="row">
             <div class="card-body box-profile">
                 <div class="text-center">
@@ -70,6 +72,7 @@
                 </tr>
             </table>
         </div>
+    </div>
     </div>
 
     <!-- /.card-body -->

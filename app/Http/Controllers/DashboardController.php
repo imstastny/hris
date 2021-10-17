@@ -29,8 +29,6 @@ class DashboardController extends Controller
             ->get();
         $cuti = Cuti::count();
         $izin = Izin::count();
-        // dd($isCuti);
-        // dd($isIzin);
         return view('dashboard', compact('user', 'cuti', 'izin', 'isCuti', 'isIzin'));
     }
     public function cuti(Request $request)

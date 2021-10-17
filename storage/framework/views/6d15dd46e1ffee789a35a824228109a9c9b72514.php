@@ -47,7 +47,7 @@
                                     <td><?php echo e($user['role']['nama']); ?></td>
                                     <td><?php echo e($user['divisi']['nama']); ?></td>
                                     <td>
-                                        <a href="/anggota/<?php echo e($user['nik']); ?>/edit" class="btn btn-sm btn-info">detail</a>
+                                        <a href="/anggota/<?php echo e($user['nik']); ?>/edit" class="btn btn-sm btn-info">ubah</a>
                                     </td>
 
 

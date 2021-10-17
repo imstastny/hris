@@ -216,8 +216,10 @@
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Acc HRD</label>
                         <select class="custom-select rounded-0" id="acc_hrd" name="acc_hrd">
-                            @foreach($acc_hrds as $acc_hrd)
-                            <option {{$acc_hrd->id == $izin->acc_hrd_id ? 'selected' : ''}} value="{{$acc_hrd->id}}">{{$acc_hrd->nama}}</option>
+                        @foreach($acc_hrds as $acc_hrd)
+                                @if($acc_hrd->id !== 4)
+                                <option {{$acc_hrd->id == $izin->acc_hrd_id ? 'selected' : ''}} value="{{$acc_hrd->id}}">{{$acc_hrd->nama}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
@@ -232,14 +234,14 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">Perhatian!</h6>
+                        <h5 class="modal-title" id="exampleModalLabel">PERHATIAN!!</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>Fungsi ini memungkinkan anda menghapus semua data pengajuan cuti karyawan</p>
-                            <p>Biasanya hanya digunakan saat pergantian tahun / kepengurusan.</p>
+                            <p>Pastikan data konfirmasi sudah benar.</p>
+                            <p>Perubahan data pengajuan harap hubungi karyawan yang bersangkutan </p>
                                 <div class="d-flex justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     <button class="btn btn-sm btn-success" type="submit">Simpan</button>

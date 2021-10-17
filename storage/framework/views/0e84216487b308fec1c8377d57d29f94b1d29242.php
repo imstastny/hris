@@ -124,7 +124,7 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                         <div class="modal-body">
                             <p>Pastikan data yang anda ajukan sudah benar.</p>
-                            <p>Data yang diajukan tidak dapat diubah</p>
+                            <p>Data yang diajukan tidak dapat diubah.</p>
                                 <div class="d-flex justify-content-between">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     <button class="btn btn-sm btn-success" type="submit">Ajukan</button>
@@ -137,6 +137,7 @@ unset($__errorArgs, $__bag); ?>
 
     </div>
     <!-- /.card-body -->
+</div>
 </div>
 
 <?php $__env->stopSection(); ?>
