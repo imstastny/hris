@@ -46,4 +46,9 @@ class LoginController extends Controller
     {
         return 'nik';
     }
+    protected function sendFailedLoginResponse()
+    {
+        session()->flash('error', 'Permintaan anda gagal diajukan, Melebihi kuota cuti tahunan');
+        return redirect(route('login'));
+    }
 }

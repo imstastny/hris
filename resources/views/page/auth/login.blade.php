@@ -23,7 +23,7 @@
                 <h4>Sistem Informasi Cuti dan Izin Karyawan</h4>
                 <h4><strong>KOPMA UGM</strong></h4>
                 @if(session()->has('error'))
-                <b>ERROROROROROROROROKIDUL</b>
+                <b style="color: red;">Kesalahan pada NIK atau Kata sandi</b>
                 @endif
             </div>
             <div class="card-body">

@@ -16,7 +16,9 @@
                         <select class="custom-select rounded-0" id="role" name="role">
                             <option disabled selected>-Pilih Jabatan-</option>
                             @foreach($roles as $role)
+                            @if($role->id !==1)
                             <option value="{{$role->id}}">{{$role->nama}}</option>
+                            @endif
                             @endforeach
                         </select>
                         <div class="text-danger">
@@ -33,7 +35,9 @@
                         <select class="custom-select rounded-0" id="divisi" name="divisi">
                             <option disabled selected>-Pilih Divisi-</option>
                             @foreach($divisis as $divisi)
+                            @if($divisi->id !== 1)
                             <option value="{{$divisi->id}}">{{$divisi->nama}}</option>
+                            @endif
                             @endforeach
                         </select>
                         <div class="text-danger">
