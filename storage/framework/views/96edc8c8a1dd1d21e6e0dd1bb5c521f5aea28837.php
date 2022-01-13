@@ -131,6 +131,25 @@ unset($__errorArgs, $__bag); ?>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
+                        <label>No Handphone</label>
+                        <input type="text" class="form-control" id="no_hp" name="no_hp" autocomplete="off">
+                        <div class="text-danger">
+                            <?php $__errorArgs = ['no_hp'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <?php echo e($message); ?>
+
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
                         <label>Email</label>
                         <input type="text" class="form-control" id="email" name="email" autocomplete="off">
                         <div class="text-danger">
@@ -148,9 +167,9 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-3">
                     <div class="form-group">
-                        <label>Password</label> <i class="fas fa-eye" style="float: right;" onclick="myfunction()"></i>
+                        <label>Kata Sandi</label> <i class="fas fa-eye" style="float: right;" onclick="myfunction()"></i>
                         <input type="password" class="form-control" id="password" name="password">
                         <!-- <input type="checkbox" onclick="myfunction()"> tampilkan -->
 

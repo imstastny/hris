@@ -78,6 +78,9 @@
                                 <input type="file" id="lampiran" name="lampiran">
                             </div>
                         </div>
+                        @error('lampiran')
+                            {{$message}}
+                            @enderror
                     </div>
                 </div>
             </div>

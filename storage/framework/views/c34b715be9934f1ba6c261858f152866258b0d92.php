@@ -7,14 +7,14 @@
     <div class="d-flex justify-content-end">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
-            <i class="fas fa-trash-alt"></i>
+            <i class="fas fa-trash-alt"> Hapus </i>
         </button>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h6 class="modal-title" id="exampleModalLabel">Yakin ingin menghapus data ini ?</h6>
+                        <h6 class="modal-title" id="exampleModalLabel">Yakin ingin menghapus data akun karyawan <?php echo e($user->name); ?> ?</h6>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -79,7 +79,7 @@ unset($__errorArgs, $__bag); ?>
                 </div>
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="exampleSelectRounded0">Gender</label>
+                        <label for="exampleSelectRounded0">Jenis Kelamin</label>
                         <select class="custom-select rounded-0" id="gender" name="gender">
                             <option disabled selected>-Pilih Gender-</option>
                             <option <?php echo e($user->gender ? 'selected' : ''); ?> value="<?php echo e($user->gender); ?>"><?php echo e($user->gender); ?></option>
@@ -125,7 +125,26 @@ unset($__errorArgs, $__bag); ?>
                         </select>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>No Handphone</label>
+                        <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?php echo e(old('no_hp') ?? $user->no_hp); ?>" autocomplete="off">
+                        <div class="text-danger">
+                            <?php $__errorArgs = ['no_hp'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <?php echo e($message); ?>
+
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
                     <div class="form-group">
                         <label>Email</label>
                         <input type="text" class="form-control" id="email" name="email" value="<?php echo e(old('email') ?? $user->email); ?>" autocomplete="off">

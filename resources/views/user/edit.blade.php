@@ -7,14 +7,14 @@
     <div class="d-flex justify-content-end">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
-            <i class="fas fa-trash-alt"></i>
+            <i class="fas fa-trash-alt"> Hapus </i>
         </button>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h6 class="modal-title" id="exampleModalLabel">Yakin ingin menghapus data ini ?</h6>
+                        <h6 class="modal-title" id="exampleModalLabel">Yakin ingin menghapus data akun karyawan {{$user->name}} ?</h6>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="exampleSelectRounded0">Gender</label>
+                        <label for="exampleSelectRounded0">Jenis Kelamin</label>
                         <select class="custom-select rounded-0" id="gender" name="gender">
                             <option disabled selected>-Pilih Gender-</option>
                             <option {{ $user->gender ? 'selected' : ''}} value="{{$user->gender}}">{{$user->gender}}</option>
@@ -101,7 +101,18 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>No Handphone</label>
+                        <input type="text" class="form-control" id="no_hp" name="no_hp" value="{{old('no_hp') ?? $user->no_hp}}" autocomplete="off">
+                        <div class="text-danger">
+                            @error('no_hp')
+                            {{$message}}
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
                     <div class="form-group">
                         <label>Email</label>
                         <input type="text" class="form-control" id="email" name="email" value="{{old('email') ?? $user->email}}" autocomplete="off">

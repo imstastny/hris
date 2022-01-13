@@ -33,7 +33,7 @@
                     <td>
                         <?php if($izin->lampiran): ?>
                         <a href="/izin/lampiran/<?php echo e($izin->slug); ?>" target="_blank">
-                            <img class="img-fluid" src="<?php echo e(asset($izin->takeImageCuti)); ?>" width="100" height="120">
+                            <img class="img-fluid" src="<?php echo e(asset($izin->takeImageIzin)); ?>" width="100" height="120">
                         </a>
                         <?php else: ?> -
                         <?php endif; ?>

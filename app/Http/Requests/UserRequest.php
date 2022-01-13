@@ -28,6 +28,7 @@ class UserRequest extends FormRequest
             'role' => 'required',
             'divisi' => 'required',
             'nik' => 'required|alpha_num|min:3|max:20',
+            'no_hp' => 'required|alpha_num',
             'email' => 'required|email',
             'gender' => 'required',
         ];

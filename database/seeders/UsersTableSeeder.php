@@ -20,6 +20,7 @@ class UsersTableSeeder extends Seeder
                 'divisi_id' => 1,
                 'nik' => 'adminhrd',
                 'gender' => 'Pria',
+                'no_hp' => '081828384858',
                 'password' => bcrypt('password'),
                 'email' => 'admin@mail.com'
             ]
@@ -31,6 +32,7 @@ class UsersTableSeeder extends Seeder
                 'divisi_id' => 2,
                 'nik' => '19800731',
                 'gender' => 'Pria',
+                'no_hp' => '081828384868',
                 'password' => bcrypt('password'),
                 'email' => 'harry@mail.com'
             ]
@@ -42,6 +44,7 @@ class UsersTableSeeder extends Seeder
                 'divisi_id' => 2,
                 'nik' => '19800605',
                 'gender' => 'Pria',
+                'no_hp' => '081828384878',
                 'password' => bcrypt('password'),
                 'email' => 'malfoy@mail.com'
             ]
