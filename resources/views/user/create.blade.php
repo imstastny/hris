@@ -10,7 +10,7 @@
         <form action="{{ route('kelola.store') }}" method="post">
             @csrf
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-9">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Jabatan</label>
                         <select class="custom-select rounded-0" id="role" name="role">
@@ -29,7 +29,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-9">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Divisi</label>
                         <select class="custom-select rounded-0" id="divisi" name="divisi">
@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-9">
                     <div class="form-group">
                         <label>Nama Lengkap</label>
                         <input type="text" class="form-control" id="name" name="name" autocomplete="off">
@@ -60,7 +60,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        <label>NIK</label>
+                        <input type="text" class="form-control" id="nik" name="nik" autocomplete="off">
+                        <div class="text-danger">
+                            @error('nik')
+                            {{$message}}
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Jenis Kelamin</label>
                         <select class="custom-select rounded-0" id="gender" name="gender">
@@ -75,21 +86,22 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-sm-6">
+                <div class="col-sm-9">
                     <div class="form-group">
-                        <label>NIK</label>
-                        <input type="text" class="form-control" id="nik" name="nik" autocomplete="off">
+                        <label>Tanggal Lahir</label>
+                        <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
                         <div class="text-danger">
-                            @error('nik')
+                            @error('tgl_lahir')
                             {{$message}}
                             @enderror
                         </div>
                     </div>
                 </div>
+
+                
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-9">
                     <div class="form-group">
                         <label>No Handphone</label>
                         <input type="text" class="form-control" id="no_hp" name="no_hp" autocomplete="off">
@@ -100,7 +112,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-9">
                     <div class="form-group">
                         <label>Email</label>
                         <input type="text" class="form-control" id="email" name="email" autocomplete="off">
@@ -111,7 +123,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-9">
                     <div class="form-group">
                         <label>Kata Sandi</label> <i class="fas fa-eye" style="float: right;" onclick="myfunction()"></i>
                         <input type="password" class="form-control" id="password" name="password">

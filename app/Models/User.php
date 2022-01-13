@@ -22,6 +22,7 @@ class User extends Authenticatable
         'divisi_id',
         'name',
         'nik',
+        'tgl_lahir',
         'gender',
         'no_hp',
         'email',

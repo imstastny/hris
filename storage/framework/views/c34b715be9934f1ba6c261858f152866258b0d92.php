@@ -77,6 +77,25 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Tanggal Lahir</label>
+                        <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="<?php echo e(old('tgl_lahir') ?? $user->tgl_lahir); ?>">
+                        <div class="text-danger">
+                            <?php $__errorArgs = ['tgl_lahir'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <?php echo e($message); ?>
+
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Jenis Kelamin</label>

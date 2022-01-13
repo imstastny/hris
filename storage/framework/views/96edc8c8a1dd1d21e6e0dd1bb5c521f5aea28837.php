@@ -10,7 +10,7 @@
         <form action="<?php echo e(route('kelola.store')); ?>" method="post">
             <?php echo csrf_field(); ?>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-9">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Jabatan</label>
                         <select class="custom-select rounded-0" id="role" name="role">
@@ -37,7 +37,7 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                 </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-9">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Divisi</label>
                         <select class="custom-select rounded-0" id="divisi" name="divisi">
@@ -65,7 +65,7 @@ unset($__errorArgs, $__bag); ?>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-9">
                     <div class="form-group">
                         <label>Nama Lengkap</label>
                         <input type="text" class="form-control" id="name" name="name" autocomplete="off">
@@ -84,7 +84,26 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        <label>NIK</label>
+                        <input type="text" class="form-control" id="nik" name="nik" autocomplete="off">
+                        <div class="text-danger">
+                            <?php $__errorArgs = ['nik'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <?php echo e($message); ?>
+
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Jenis Kelamin</label>
                         <select class="custom-select rounded-0" id="gender" name="gender">
@@ -107,13 +126,12 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-sm-6">
+                <div class="col-sm-9">
                     <div class="form-group">
-                        <label>NIK</label>
-                        <input type="text" class="form-control" id="nik" name="nik" autocomplete="off">
+                        <label>Tanggal Lahir</label>
+                        <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
                         <div class="text-danger">
-                            <?php $__errorArgs = ['nik'];
+                            <?php $__errorArgs = ['tgl_lahir'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -127,9 +145,11 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
+
+                
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-9">
                     <div class="form-group">
                         <label>No Handphone</label>
                         <input type="text" class="form-control" id="no_hp" name="no_hp" autocomplete="off">
@@ -148,7 +168,7 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-9">
                     <div class="form-group">
                         <label>Email</label>
                         <input type="text" class="form-control" id="email" name="email" autocomplete="off">
@@ -167,7 +187,7 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-9">
                     <div class="form-group">
                         <label>Kata Sandi</label> <i class="fas fa-eye" style="float: right;" onclick="myfunction()"></i>
                         <input type="password" class="form-control" id="password" name="password">

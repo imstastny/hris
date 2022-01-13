@@ -40,8 +40,16 @@
                         <ul class="float-right"><?php echo e($user->role->nama); ?></ul>
                     </li>
                     <li class="list-group-item">
+                        <b>Tanggal Lahir</b>
+                        <ul class="float-right"><?php echo e(\Carbon\Carbon::parse($user->tgl_lahir)->format('d/m/Y')); ?></ul>
+                    </li>
+                    <li class="list-group-item">
                         <b>Jenis Kelamin</b>
                         <ul class="float-right"> <?php echo e($user->gender); ?></ul>
+                    </li>
+                    <li class="list-group-item">
+                        <b>No Handphone</b>
+                        <ul class="float-right"> <?php echo e($user->no_hp); ?></ul>
                     </li>
                     <li class="list-group-item">
                         <b>Email</b>

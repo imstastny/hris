@@ -61,6 +61,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Tanggal Lahir</label>
+                        <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="{{old('tgl_lahir') ?? $user->tgl_lahir}}">
+                        <div class="text-danger">
+                            @error('tgl_lahir')
+                            {{$message}}
+                            @enderror
+                        </div>
+                    </div>
+                </div>
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="exampleSelectRounded0">Jenis Kelamin</label>
