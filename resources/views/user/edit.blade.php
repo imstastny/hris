@@ -96,7 +96,9 @@
                         <label for="exampleSelectRounded0">Jabatan</label>
                         <select class="custom-select rounded-0" id="role" name="role">
                             @foreach($roles as $role)
+                            @if($role->id !==1)
                             <option {{$role->id == $user->role_id ? 'selected' : ''}} value="{{$role->id}}">{{$role->nama}}</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>
@@ -107,7 +109,9 @@
                         <label for="exampleSelectRounded0">Divisi</label>
                         <select class="custom-select rounded-0" id="divisi" name="divisi">
                             @foreach($divisis as $divisi)
+                            @if($divisi->id !== 1)
                             <option {{$divisi->id == $user->divisi_id ? 'selected' : ''}} value="{{$divisi->id}}">{{$divisi->nama}}</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>

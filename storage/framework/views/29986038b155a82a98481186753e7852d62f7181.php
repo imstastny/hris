@@ -5,23 +5,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
 
-@include('layouts.head')
+<?php echo $__env->make('layouts.head', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
 
         <!-- Navbar -->
-        @include('layouts.navbar')
+        <?php echo $__env->make('layouts.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        @include('layouts.sidebar')
+        <?php echo $__env->make('layouts.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
 
-            @yield('content')
+            <?php echo $__env->yieldContent('content'); ?>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
@@ -61,12 +61,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             
     </script>
     <!-- jQuery -->
-    <script src="{{ asset('layout/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="<?php echo e(asset('layout/plugins/jquery/jquery.min.js')); ?>"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{ asset('layout/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="<?php echo e(asset('layout/plugins/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('layout/dist/js/adminlte.min.js') }}"></script>
+    <script src="<?php echo e(asset('layout/dist/js/adminlte.min.js')); ?>"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </body>
 
-</html>
+</html><?php /**PATH C:\xampp\htdocs\hris\resources\views/layouts/main.blade.php ENDPATH**/ ?>

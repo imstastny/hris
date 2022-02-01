@@ -1,11 +1,11 @@
-@extends('layouts.main',['title' => 'Daftar Pengajuan'])
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="card card-info col-sm-12 p-0">
     <div class="card-header">
         <h1 class="card-title">Daftar Pengajuan Cuti</h1>
     </div>
 </div>
-@include('layouts.alert')
+<?php echo $__env->make('layouts.alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <section class="container">
 
@@ -17,7 +17,7 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <a href="{{ route('cuti.create') }}" class="btn btn-success">
+                <a href="<?php echo e(route('cuti.create')); ?>" class="btn btn-success">
                     <i class="fas fa-plus-square"></i>
                     Ajukan Permohonan Cuti</a>
             </div>
@@ -43,17 +43,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($cutis as $cuti)
+                                <?php $__currentLoopData = $cutis; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cuti): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td>{{$cuti->kategori->nama}}</td>
-                                    <td>{{\Carbon\Carbon::parse($cuti->created_at)->format('d/m/Y')}}</td>
-                                    <td>{{$cuti->acc_mandiv->nama}}</td>
-                                    <td>{{$cuti->acc_hrd->nama}}</td>
+                                    <td><?php echo e($cuti->kategori->nama); ?></td>
+                                    <td><?php echo e(\Carbon\Carbon::parse($cuti->created_at)->format('d/m/Y')); ?></td>
+                                    <td><?php echo e($cuti->acc_mandiv->nama); ?></td>
+                                    <td><?php echo e($cuti->acc_hrd->nama); ?></td>
                                     <td>
-                                        <a href="/cuti/{{$cuti->slug}}" class="btn btn-sm btn-info">detail</a>
+                                        <a href="/cuti/<?php echo e($cuti->slug); ?>" class="btn btn-sm btn-info">detail</a>
                                     </td>
                                 </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                     </div>
@@ -63,7 +63,8 @@
             </div>
         </div>
         <div class="d-flex justify-content-end">
-            {{$cutis->links()}}
+            <?php echo e($cutis->links()); ?>
+
         </div>
     </div>
 </section>
@@ -77,4 +78,5 @@
         })
     });
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.main',['title' => 'Daftar Pengajuan'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\hris\resources\views/cuti/index.blade.php ENDPATH**/ ?>
